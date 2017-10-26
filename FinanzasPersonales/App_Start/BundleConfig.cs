@@ -25,6 +25,7 @@ namespace FinanzasPersonales
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/materialize.css",
                       "~/Content/site.css"));
         }
     }
