@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84673a1f2fd24e95a937f2a380a818c1" Name="Diagram1">
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.AspNetRole" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.AspNetUser" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Banco" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Categoria" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Contacto" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.CuentaBanco" Width="1.5" PointX="8.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.CuentaPrestamo" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.EstadoCategoria" Width="1.5" PointX="6" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.EstadoCuentaBanco" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.EstadoTarjetaCredito" Width="1.5" PointX="9" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.EstadoTarjetaDebito" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Marca" Width="1.5" PointX="9" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Moneda" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.PatronRecurrente" Width="1.5" PointX="15" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.PeriodoTemporal" Width="1.5" PointX="8" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Presupuesto" Width="1.5" PointX="10.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.PresupuestoCategoria" Width="1.5" PointX="13.5" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Recordatorio" Width="1.5" PointX="12.75" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.TarjetaCredito" Width="1.5" PointX="11.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.TipoCategoria" Width="1.5" PointX="6" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.TipoRecurrencia" Width="1.5" PointX="12.75" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasPersonalesModel.Transaccion" Width="1.5" PointX="7.5" PointY="22" IsExpanded="true" />
+        <AssociationConnector Association="FinanzasPersonalesModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Categoria_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Contacto_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaBanco_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaPrestamo_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Presupuesto_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Recordatorio_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_TarjetaCredito_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Transaccion_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaBanco_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_TarjetaCredito_Banco" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Categoria_EstadoCategoria" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Categoria_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Categoria_PadreCategoria" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Categoria_TipoCategoria" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_PresupuestoCategoria_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Transaccion_Contacto" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaBanco_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaBanco_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Transaccion_CuentaBanco" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_CuentaPrestamo_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Transaccion_CuentaPrestamo" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_TarjetaCredito_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_TarjetaCredito_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_TarjetaCredito_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_PatronRecurrente_Recordatorio" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_PatronRecurrente_TipoRecurrencia" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Presupuesto_PeriodoTemporal" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_PresupuestoCategoria_Presupuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Recordatorio_Transaccion" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.Fk_Transaccion_TarjetaCredito" ManuallyRouted="false" />
+        <AssociationConnector Association="FinanzasPersonalesModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,2111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinanzasPersonalesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="BancoID" />
+          </Key>
+          <Property Name="BancoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreBanco" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EstadoCategoriaID" Type="int" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TipoCategoriaID" Type="int" Nullable="false" />
+          <Property Name="PadreCategoriaID" Type="int" />
+          <Property Name="MonedaID" Type="int" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="800" />
+          <Property Name="Nombre" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="ContactoID" />
+          </Key>
+          <Property Name="ContactoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" />
+          <Property Name="Direccion" Type="varchar" MaxLength="500" />
+          <Property Name="Telefono" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="CuentaBanco">
+          <Key>
+            <PropertyRef Name="CuentaBancoID" />
+          </Key>
+          <Property Name="CuentaBancoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BancoID" Type="int" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="EstadoCuentaBancoID" Type="int" Nullable="false" />
+          <Property Name="MonedaID" Type="int" Nullable="false" />
+          <Property Name="NumeroCuenta" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NombreTitular" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="ApellidoTitular" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" Nullable="false" />
+          <Property Name="BalanceInicial" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="800" />
+        </EntityType>
+        <EntityType Name="CuentaPrestamo">
+          <Key>
+            <PropertyRef Name="CuentaPrestamoID" />
+          </Key>
+          <Property Name="CuentaPrestamoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MonedaID" Type="int" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CapitalInicial" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="TasaAnual" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PagosPorAno" Type="int" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="NumeroPagos" Type="int" />
+        </EntityType>
+        <EntityType Name="EstadoCategoria">
+          <Key>
+            <PropertyRef Name="EstadoCategoriaID" />
+          </Key>
+          <Property Name="EstadoCategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoCuentaBanco">
+          <Key>
+            <PropertyRef Name="EstadoCuentaBancoID" />
+          </Key>
+          <Property Name="EstadoCuentaBancoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoTarjetaCredito">
+          <Key>
+            <PropertyRef Name="EstadoTarjetaCreditoID" />
+          </Key>
+          <Property Name="EstadoTarjetaCreditoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstadoTarjetaDebito">
+          <Key>
+            <PropertyRef Name="EstadoTarjetaDebitoID" />
+          </Key>
+          <Property Name="EstadoTarjetaDebitoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="MarcaID" />
+          </Key>
+          <Property Name="MarcaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="MonedaID" />
+          </Key>
+          <Property Name="MonedaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatronRecurrente">
+          <Key>
+            <PropertyRef Name="PatronRecurrenteID" />
+          </Key>
+          <Property Name="PatronRecurrenteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordatorioID" Type="int" Nullable="false" />
+          <Property Name="TipoRecurrenciaID" Type="int" Nullable="false" />
+          <Property Name="NumeroSeparaciones" Type="int" />
+          <Property Name="NumeroMaxOcurrencia" Type="int" />
+          <Property Name="DiaDeSemana" Type="int" />
+          <Property Name="SemanaDeMes" Type="int" />
+          <Property Name="DiaDeMes" Type="int" />
+          <Property Name="MesDeAno" Type="int" />
+        </EntityType>
+        <EntityType Name="PeriodoTemporal">
+          <Key>
+            <PropertyRef Name="PeriodoTemporalID" />
+          </Key>
+          <Property Name="PeriodoTemporalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Presupuesto">
+          <Key>
+            <PropertyRef Name="PresupuestoID" />
+          </Key>
+          <Property Name="PresupuestoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodoTemporalID" Type="int" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PresupuestoCategoria">
+          <Key>
+            <PropertyRef Name="PresupuestoCategoriaID" />
+          </Key>
+          <Property Name="PresupuestoCategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoriaID" Type="int" Nullable="false" />
+          <Property Name="PresupuestoID" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="Recordatorio">
+          <Key>
+            <PropertyRef Name="RecordatorioID" />
+          </Key>
+          <Property Name="RecordatorioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TransaccionID" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="FechaFin" Type="date" />
+          <Property Name="EsRecurrente" Type="bit" Nullable="false" />
+          <Property Name="FechaCreacion" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TarjetaCredito">
+          <Key>
+            <PropertyRef Name="TarjetaCreditoID" />
+          </Key>
+          <Property Name="TarjetaCreditoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="BancoID" Type="int" Nullable="false" />
+          <Property Name="EstadoTarjetaCreditoID" Type="int" Nullable="false" />
+          <Property Name="MonedaID" Type="int" Nullable="false" />
+          <Property Name="NumeroTarjeta" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NombreTitular" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="ApellidoTitular" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" Nullable="false" />
+          <Property Name="FechaExpiracion" Type="date" Nullable="false" />
+          <Property Name="MarcaID" Type="int" Nullable="false" />
+          <Property Name="CVC" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="TasaEfectivaAnual" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DeudaInicial" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LimiteCredito" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="800" />
+        </EntityType>
+        <EntityType Name="TipoCategoria">
+          <Key>
+            <PropertyRef Name="TipoCategoriaID" />
+          </Key>
+          <Property Name="TipoCategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoRecurrencia">
+          <Key>
+            <PropertyRef Name="TipoRecurrenciaID" />
+          </Key>
+          <Property Name="TipoRecurrenciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaccion">
+          <Key>
+            <PropertyRef Name="TransaccionID" />
+          </Key>
+          <Property Name="TransaccionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CuentaBancoID" Type="int" />
+          <Property Name="TarjetaCreditoID" Type="int" />
+          <Property Name="CuentaPrestamoID" Type="int" />
+          <Property Name="ContactoID" Type="int" />
+          <Property Name="No_Ref_Externo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="EFECTIVO" Type="bit" />
+          <Property Name="Adjunto" Type="varchar" MaxLength="900" />
+          <Property Name="MontoIngreso" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="MontroEgreso" Type="decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <Association Name="Fk_Categoria_EstadoCategoria">
+          <End Role="EstadoCategoria" Type="Self.EstadoCategoria" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCategoria">
+              <PropertyRef Name="EstadoCategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="EstadoCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_PadreCategoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Categoria1" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria1">
+              <PropertyRef Name="PadreCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_TipoCategoria">
+          <End Role="TipoCategoria" Type="Self.TipoCategoria" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCategoria">
+              <PropertyRef Name="TipoCategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="TipoCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Contacto_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="BancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Estado">
+          <End Role="EstadoCuentaBanco" Type="Self.EstadoCuentaBanco" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCuentaBanco">
+              <PropertyRef Name="EstadoCuentaBancoID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="EstadoCuentaBancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaPrestamo_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="CuentaPrestamo">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaPrestamo_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaPrestamo">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PatronRecurrente_Recordatorio">
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="1" />
+          <End Role="PatronRecurrente" Type="Self.PatronRecurrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recordatorio">
+              <PropertyRef Name="RecordatorioID" />
+            </Principal>
+            <Dependent Role="PatronRecurrente">
+              <PropertyRef Name="RecordatorioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PatronRecurrente_TipoRecurrencia">
+          <End Role="TipoRecurrencia" Type="Self.TipoRecurrencia" Multiplicity="1" />
+          <End Role="PatronRecurrente" Type="Self.PatronRecurrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoRecurrencia">
+              <PropertyRef Name="TipoRecurrenciaID" />
+            </Principal>
+            <Dependent Role="PatronRecurrente">
+              <PropertyRef Name="TipoRecurrenciaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Presupuesto_PeriodoTemporal">
+          <End Role="PeriodoTemporal" Type="Self.PeriodoTemporal" Multiplicity="1" />
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PeriodoTemporal">
+              <PropertyRef Name="PeriodoTemporalID" />
+            </Principal>
+            <Dependent Role="Presupuesto">
+              <PropertyRef Name="PeriodoTemporalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Presupuesto_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Presupuesto">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PresupuestoCategoria_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="PresupuestoCategoria" Type="Self.PresupuestoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="PresupuestoCategoria">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PresupuestoCategoria_Presupuesto">
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="1" />
+          <End Role="PresupuestoCategoria" Type="Self.PresupuestoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Presupuesto">
+              <PropertyRef Name="PresupuestoID" />
+            </Principal>
+            <Dependent Role="PresupuestoCategoria">
+              <PropertyRef Name="PresupuestoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Recordatorio_Transaccion">
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="0..1" />
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaccion">
+              <PropertyRef Name="TransaccionID" />
+            </Principal>
+            <Dependent Role="Recordatorio">
+              <PropertyRef Name="TransaccionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Recordatorio_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recordatorio">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="BancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Estado">
+          <End Role="EstadoTarjetaCredito" Type="Self.EstadoTarjetaCredito" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoTarjetaCredito">
+              <PropertyRef Name="EstadoTarjetaCreditoID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="EstadoTarjetaCreditoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="MarcaID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="MarcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_Contacto">
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacto">
+              <PropertyRef Name="ContactoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ContactoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_CuentaBanco">
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaBanco">
+              <PropertyRef Name="CuentaBancoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="CuentaBancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_CuentaPrestamo">
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaPrestamo">
+              <PropertyRef Name="CuentaPrestamoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="CuentaPrestamoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_TarjetaCredito">
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TarjetaCredito">
+              <PropertyRef Name="TarjetaCreditoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="TarjetaCreditoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinanzasPersonalesModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banco" EntityType="Self.Banco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentaBanco" EntityType="Self.CuentaBanco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentaPrestamo" EntityType="Self.CuentaPrestamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoCategoria" EntityType="Self.EstadoCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoCuentaBanco" EntityType="Self.EstadoCuentaBanco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoTarjetaCredito" EntityType="Self.EstadoTarjetaCredito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoTarjetaDebito" EntityType="Self.EstadoTarjetaDebito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatronRecurrente" EntityType="Self.PatronRecurrente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PeriodoTemporal" EntityType="Self.PeriodoTemporal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Presupuesto" EntityType="Self.Presupuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PresupuestoCategoria" EntityType="Self.PresupuestoCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recordatorio" EntityType="Self.Recordatorio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TarjetaCredito" EntityType="Self.TarjetaCredito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCategoria" EntityType="Self.TipoCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoRecurrencia" EntityType="Self.TipoRecurrencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaccion" EntityType="Self.Transaccion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Fk_Categoria_EstadoCategoria" Association="Self.Fk_Categoria_EstadoCategoria">
+            <End Role="EstadoCategoria" EntitySet="EstadoCategoria" />
+            <End Role="Categoria" EntitySet="Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_Moneda" Association="Self.Fk_Categoria_Moneda">
+            <End Role="Moneda" EntitySet="Moneda" />
+            <End Role="Categoria" EntitySet="Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_PadreCategoria" Association="Self.Fk_Categoria_PadreCategoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Categoria1" EntitySet="Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_TipoCategoria" Association="Self.Fk_Categoria_TipoCategoria">
+            <End Role="TipoCategoria" EntitySet="TipoCategoria" />
+            <End Role="Categoria" EntitySet="Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_Usuario" Association="Self.Fk_Categoria_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Categoria" EntitySet="Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Contacto_Usuario" Association="Self.Fk_Contacto_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Contacto" EntitySet="Contacto" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Banco" Association="Self.Fk_CuentaBanco_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="CuentaBanco" EntitySet="CuentaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Estado" Association="Self.Fk_CuentaBanco_Estado">
+            <End Role="EstadoCuentaBanco" EntitySet="EstadoCuentaBanco" />
+            <End Role="CuentaBanco" EntitySet="CuentaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Moneda" Association="Self.Fk_CuentaBanco_Moneda">
+            <End Role="Moneda" EntitySet="Moneda" />
+            <End Role="CuentaBanco" EntitySet="CuentaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Usuario" Association="Self.Fk_CuentaBanco_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CuentaBanco" EntitySet="CuentaBanco" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaPrestamo_Moneda" Association="Self.Fk_CuentaPrestamo_Moneda">
+            <End Role="Moneda" EntitySet="Moneda" />
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaPrestamo_Usuario" Association="Self.Fk_CuentaPrestamo_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PatronRecurrente_Recordatorio" Association="Self.Fk_PatronRecurrente_Recordatorio">
+            <End Role="Recordatorio" EntitySet="Recordatorio" />
+            <End Role="PatronRecurrente" EntitySet="PatronRecurrente" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PatronRecurrente_TipoRecurrencia" Association="Self.Fk_PatronRecurrente_TipoRecurrencia">
+            <End Role="TipoRecurrencia" EntitySet="TipoRecurrencia" />
+            <End Role="PatronRecurrente" EntitySet="PatronRecurrente" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Presupuesto_PeriodoTemporal" Association="Self.Fk_Presupuesto_PeriodoTemporal">
+            <End Role="PeriodoTemporal" EntitySet="PeriodoTemporal" />
+            <End Role="Presupuesto" EntitySet="Presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Presupuesto_Usuario" Association="Self.Fk_Presupuesto_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Presupuesto" EntitySet="Presupuesto" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PresupuestoCategoria_Categoria" Association="Self.Fk_PresupuestoCategoria_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="PresupuestoCategoria" EntitySet="PresupuestoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PresupuestoCategoria_Presupuesto" Association="Self.Fk_PresupuestoCategoria_Presupuesto">
+            <End Role="Presupuesto" EntitySet="Presupuesto" />
+            <End Role="PresupuestoCategoria" EntitySet="PresupuestoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Recordatorio_Transaccion" Association="Self.Fk_Recordatorio_Transaccion">
+            <End Role="Transaccion" EntitySet="Transaccion" />
+            <End Role="Recordatorio" EntitySet="Recordatorio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Recordatorio_Usuario" Association="Self.Fk_Recordatorio_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Recordatorio" EntitySet="Recordatorio" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Banco" Association="Self.Fk_TarjetaCredito_Banco">
+            <End Role="Banco" EntitySet="Banco" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Estado" Association="Self.Fk_TarjetaCredito_Estado">
+            <End Role="EstadoTarjetaCredito" EntitySet="EstadoTarjetaCredito" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Marca" Association="Self.Fk_TarjetaCredito_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Moneda" Association="Self.Fk_TarjetaCredito_Moneda">
+            <End Role="Moneda" EntitySet="Moneda" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Usuario" Association="Self.Fk_TarjetaCredito_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_Contacto" Association="Self.Fk_Transaccion_Contacto">
+            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_CuentaBanco" Association="Self.Fk_Transaccion_CuentaBanco">
+            <End Role="CuentaBanco" EntitySet="CuentaBanco" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_CuentaPrestamo" Association="Self.Fk_Transaccion_CuentaPrestamo">
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamo" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_TarjetaCredito" Association="Self.Fk_Transaccion_TarjetaCredito">
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_Usuario" Association="Self.Fk_Transaccion_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinanzasPersonalesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Categorias" Relationship="Self.Fk_Categoria_Usuario" FromRole="AspNetUsers" ToRole="Categoria" />
+          <NavigationProperty Name="Contactoes" Relationship="Self.Fk_Contacto_Usuario" FromRole="AspNetUsers" ToRole="Contacto" />
+          <NavigationProperty Name="CuentaBancoes" Relationship="Self.Fk_CuentaBanco_Usuario" FromRole="AspNetUsers" ToRole="CuentaBanco" />
+          <NavigationProperty Name="CuentaPrestamoes" Relationship="Self.Fk_CuentaPrestamo_Usuario" FromRole="AspNetUsers" ToRole="CuentaPrestamo" />
+          <NavigationProperty Name="Presupuestoes" Relationship="Self.Fk_Presupuesto_Usuario" FromRole="AspNetUsers" ToRole="Presupuesto" />
+          <NavigationProperty Name="Recordatorios" Relationship="Self.Fk_Recordatorio_Usuario" FromRole="AspNetUsers" ToRole="Recordatorio" />
+          <NavigationProperty Name="TarjetaCreditoes" Relationship="Self.Fk_TarjetaCredito_Usuario" FromRole="AspNetUsers" ToRole="TarjetaCredito" />
+          <NavigationProperty Name="Transaccions" Relationship="Self.Fk_Transaccion_Usuario" FromRole="AspNetUsers" ToRole="Transaccion" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Banco">
+          <Key>
+            <PropertyRef Name="BancoID" />
+          </Key>
+          <Property Name="BancoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreBanco" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CuentaBancoes" Relationship="Self.Fk_CuentaBanco_Banco" FromRole="Banco" ToRole="CuentaBanco" />
+          <NavigationProperty Name="TarjetaCreditoes" Relationship="Self.Fk_TarjetaCredito_Banco" FromRole="Banco" ToRole="TarjetaCredito" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EstadoCategoriaID" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoCategoriaID" Type="Int32" Nullable="false" />
+          <Property Name="PadreCategoriaID" Type="Int32" />
+          <Property Name="MonedaID" Type="Int32" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_Categoria_Usuario" FromRole="Categoria" ToRole="AspNetUsers" />
+          <NavigationProperty Name="EstadoCategoria" Relationship="Self.Fk_Categoria_EstadoCategoria" FromRole="Categoria" ToRole="EstadoCategoria" />
+          <NavigationProperty Name="Moneda" Relationship="Self.Fk_Categoria_Moneda" FromRole="Categoria" ToRole="Moneda" />
+          <NavigationProperty Name="Categoria1" Relationship="Self.Fk_Categoria_PadreCategoria" FromRole="Categoria" ToRole="Categoria1" />
+          <NavigationProperty Name="Categoria2" Relationship="Self.Fk_Categoria_PadreCategoria" FromRole="Categoria1" ToRole="Categoria" />
+          <NavigationProperty Name="TipoCategoria" Relationship="Self.Fk_Categoria_TipoCategoria" FromRole="Categoria" ToRole="TipoCategoria" />
+          <NavigationProperty Name="PresupuestoCategorias" Relationship="Self.Fk_PresupuestoCategoria_Categoria" FromRole="Categoria" ToRole="PresupuestoCategoria" />
+        </EntityType>
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="ContactoID" />
+          </Key>
+          <Property Name="ContactoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_Contacto_Usuario" FromRole="Contacto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Transaccions" Relationship="Self.Fk_Transaccion_Contacto" FromRole="Contacto" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="CuentaBanco">
+          <Key>
+            <PropertyRef Name="CuentaBancoID" />
+          </Key>
+          <Property Name="CuentaBancoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BancoID" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EstadoCuentaBancoID" Type="Int32" Nullable="false" />
+          <Property Name="MonedaID" Type="Int32" Nullable="false" />
+          <Property Name="NumeroCuenta" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTitular" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoTitular" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BalanceInicial" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_CuentaBanco_Usuario" FromRole="CuentaBanco" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Banco" Relationship="Self.Fk_CuentaBanco_Banco" FromRole="CuentaBanco" ToRole="Banco" />
+          <NavigationProperty Name="EstadoCuentaBanco" Relationship="Self.Fk_CuentaBanco_Estado" FromRole="CuentaBanco" ToRole="EstadoCuentaBanco" />
+          <NavigationProperty Name="Moneda" Relationship="Self.Fk_CuentaBanco_Moneda" FromRole="CuentaBanco" ToRole="Moneda" />
+          <NavigationProperty Name="Transaccions" Relationship="Self.Fk_Transaccion_CuentaBanco" FromRole="CuentaBanco" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="CuentaPrestamo">
+          <Key>
+            <PropertyRef Name="CuentaPrestamoID" />
+          </Key>
+          <Property Name="CuentaPrestamoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MonedaID" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CapitalInicial" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TasaAnual" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PagosPorAno" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="NumeroPagos" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_CuentaPrestamo_Usuario" FromRole="CuentaPrestamo" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Moneda" Relationship="Self.Fk_CuentaPrestamo_Moneda" FromRole="CuentaPrestamo" ToRole="Moneda" />
+          <NavigationProperty Name="Transaccions" Relationship="Self.Fk_Transaccion_CuentaPrestamo" FromRole="CuentaPrestamo" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="EstadoCategoria">
+          <Key>
+            <PropertyRef Name="EstadoCategoriaID" />
+          </Key>
+          <Property Name="EstadoCategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="Self.Fk_Categoria_EstadoCategoria" FromRole="EstadoCategoria" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="EstadoCuentaBanco">
+          <Key>
+            <PropertyRef Name="EstadoCuentaBancoID" />
+          </Key>
+          <Property Name="EstadoCuentaBancoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CuentaBancoes" Relationship="Self.Fk_CuentaBanco_Estado" FromRole="EstadoCuentaBanco" ToRole="CuentaBanco" />
+        </EntityType>
+        <EntityType Name="EstadoTarjetaCredito">
+          <Key>
+            <PropertyRef Name="EstadoTarjetaCreditoID" />
+          </Key>
+          <Property Name="EstadoTarjetaCreditoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TarjetaCreditoes" Relationship="Self.Fk_TarjetaCredito_Estado" FromRole="EstadoTarjetaCredito" ToRole="TarjetaCredito" />
+        </EntityType>
+        <EntityType Name="EstadoTarjetaDebito">
+          <Key>
+            <PropertyRef Name="EstadoTarjetaDebitoID" />
+          </Key>
+          <Property Name="EstadoTarjetaDebitoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="MarcaID" />
+          </Key>
+          <Property Name="MarcaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TarjetaCreditoes" Relationship="Self.Fk_TarjetaCredito_Marca" FromRole="Marca" ToRole="TarjetaCredito" />
+        </EntityType>
+        <EntityType Name="Moneda">
+          <Key>
+            <PropertyRef Name="MonedaID" />
+          </Key>
+          <Property Name="MonedaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="Self.Fk_Categoria_Moneda" FromRole="Moneda" ToRole="Categoria" />
+          <NavigationProperty Name="CuentaBancoes" Relationship="Self.Fk_CuentaBanco_Moneda" FromRole="Moneda" ToRole="CuentaBanco" />
+          <NavigationProperty Name="CuentaPrestamoes" Relationship="Self.Fk_CuentaPrestamo_Moneda" FromRole="Moneda" ToRole="CuentaPrestamo" />
+          <NavigationProperty Name="TarjetaCreditoes" Relationship="Self.Fk_TarjetaCredito_Moneda" FromRole="Moneda" ToRole="TarjetaCredito" />
+        </EntityType>
+        <EntityType Name="PatronRecurrente">
+          <Key>
+            <PropertyRef Name="PatronRecurrenteID" />
+          </Key>
+          <Property Name="PatronRecurrenteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordatorioID" Type="Int32" Nullable="false" />
+          <Property Name="TipoRecurrenciaID" Type="Int32" Nullable="false" />
+          <Property Name="NumeroSeparaciones" Type="Int32" />
+          <Property Name="NumeroMaxOcurrencia" Type="Int32" />
+          <Property Name="DiaDeSemana" Type="Int32" />
+          <Property Name="SemanaDeMes" Type="Int32" />
+          <Property Name="DiaDeMes" Type="Int32" />
+          <Property Name="MesDeAno" Type="Int32" />
+          <NavigationProperty Name="Recordatorio" Relationship="Self.Fk_PatronRecurrente_Recordatorio" FromRole="PatronRecurrente" ToRole="Recordatorio" />
+          <NavigationProperty Name="TipoRecurrencia" Relationship="Self.Fk_PatronRecurrente_TipoRecurrencia" FromRole="PatronRecurrente" ToRole="TipoRecurrencia" />
+        </EntityType>
+        <EntityType Name="PeriodoTemporal">
+          <Key>
+            <PropertyRef Name="PeriodoTemporalID" />
+          </Key>
+          <Property Name="PeriodoTemporalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Presupuestoes" Relationship="Self.Fk_Presupuesto_PeriodoTemporal" FromRole="PeriodoTemporal" ToRole="Presupuesto" />
+        </EntityType>
+        <EntityType Name="Presupuesto">
+          <Key>
+            <PropertyRef Name="PresupuestoID" />
+          </Key>
+          <Property Name="PresupuestoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodoTemporalID" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_Presupuesto_Usuario" FromRole="Presupuesto" ToRole="AspNetUsers" />
+          <NavigationProperty Name="PeriodoTemporal" Relationship="Self.Fk_Presupuesto_PeriodoTemporal" FromRole="Presupuesto" ToRole="PeriodoTemporal" />
+          <NavigationProperty Name="PresupuestoCategorias" Relationship="Self.Fk_PresupuestoCategoria_Presupuesto" FromRole="Presupuesto" ToRole="PresupuestoCategoria" />
+        </EntityType>
+        <EntityType Name="PresupuestoCategoria">
+          <Key>
+            <PropertyRef Name="PresupuestoCategoriaID" />
+          </Key>
+          <Property Name="PresupuestoCategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoriaID" Type="Int32" Nullable="false" />
+          <Property Name="PresupuestoID" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Categoria" Relationship="Self.Fk_PresupuestoCategoria_Categoria" FromRole="PresupuestoCategoria" ToRole="Categoria" />
+          <NavigationProperty Name="Presupuesto" Relationship="Self.Fk_PresupuestoCategoria_Presupuesto" FromRole="PresupuestoCategoria" ToRole="Presupuesto" />
+        </EntityType>
+        <EntityType Name="Recordatorio">
+          <Key>
+            <PropertyRef Name="RecordatorioID" />
+          </Key>
+          <Property Name="RecordatorioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransaccionID" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="FechaFin" Type="DateTime" Precision="0" />
+          <Property Name="EsRecurrente" Type="Boolean" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_Recordatorio_Usuario" FromRole="Recordatorio" ToRole="AspNetUsers" />
+          <NavigationProperty Name="PatronRecurrentes" Relationship="Self.Fk_PatronRecurrente_Recordatorio" FromRole="Recordatorio" ToRole="PatronRecurrente" />
+          <NavigationProperty Name="Transaccion" Relationship="Self.Fk_Recordatorio_Transaccion" FromRole="Recordatorio" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TarjetaCredito">
+          <Key>
+            <PropertyRef Name="TarjetaCreditoID" />
+          </Key>
+          <Property Name="TarjetaCreditoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BancoID" Type="Int32" Nullable="false" />
+          <Property Name="EstadoTarjetaCreditoID" Type="Int32" Nullable="false" />
+          <Property Name="MonedaID" Type="Int32" Nullable="false" />
+          <Property Name="NumeroTarjeta" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTitular" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoTitular" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FechaExpiracion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MarcaID" Type="Int32" Nullable="false" />
+          <Property Name="CVC" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TasaEfectivaAnual" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DeudaInicial" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LimiteCredito" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Comentario" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_TarjetaCredito_Usuario" FromRole="TarjetaCredito" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Banco" Relationship="Self.Fk_TarjetaCredito_Banco" FromRole="TarjetaCredito" ToRole="Banco" />
+          <NavigationProperty Name="EstadoTarjetaCredito" Relationship="Self.Fk_TarjetaCredito_Estado" FromRole="TarjetaCredito" ToRole="EstadoTarjetaCredito" />
+          <NavigationProperty Name="Marca" Relationship="Self.Fk_TarjetaCredito_Marca" FromRole="TarjetaCredito" ToRole="Marca" />
+          <NavigationProperty Name="Moneda" Relationship="Self.Fk_TarjetaCredito_Moneda" FromRole="TarjetaCredito" ToRole="Moneda" />
+          <NavigationProperty Name="Transaccions" Relationship="Self.Fk_Transaccion_TarjetaCredito" FromRole="TarjetaCredito" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="TipoCategoria">
+          <Key>
+            <PropertyRef Name="TipoCategoriaID" />
+          </Key>
+          <Property Name="TipoCategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Categorias" Relationship="Self.Fk_Categoria_TipoCategoria" FromRole="TipoCategoria" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="TipoRecurrencia">
+          <Key>
+            <PropertyRef Name="TipoRecurrenciaID" />
+          </Key>
+          <Property Name="TipoRecurrenciaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PatronRecurrentes" Relationship="Self.Fk_PatronRecurrente_TipoRecurrencia" FromRole="TipoRecurrencia" ToRole="PatronRecurrente" />
+        </EntityType>
+        <EntityType Name="Transaccion">
+          <Key>
+            <PropertyRef Name="TransaccionID" />
+          </Key>
+          <Property Name="TransaccionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CuentaBancoID" Type="Int32" />
+          <Property Name="TarjetaCreditoID" Type="Int32" />
+          <Property Name="CuentaPrestamoID" Type="Int32" />
+          <Property Name="ContactoID" Type="Int32" />
+          <Property Name="No_Ref_Externo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="EFECTIVO" Type="Boolean" />
+          <Property Name="Adjunto" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <Property Name="MontoIngreso" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MontroEgreso" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.Fk_Transaccion_Usuario" FromRole="Transaccion" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Contacto" Relationship="Self.Fk_Transaccion_Contacto" FromRole="Transaccion" ToRole="Contacto" />
+          <NavigationProperty Name="CuentaBanco" Relationship="Self.Fk_Transaccion_CuentaBanco" FromRole="Transaccion" ToRole="CuentaBanco" />
+          <NavigationProperty Name="CuentaPrestamo" Relationship="Self.Fk_Transaccion_CuentaPrestamo" FromRole="Transaccion" ToRole="CuentaPrestamo" />
+          <NavigationProperty Name="Recordatorios" Relationship="Self.Fk_Recordatorio_Transaccion" FromRole="Transaccion" ToRole="Recordatorio" />
+          <NavigationProperty Name="TarjetaCredito" Relationship="Self.Fk_Transaccion_TarjetaCredito" FromRole="Transaccion" ToRole="TarjetaCredito" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Contacto_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaPrestamo_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaPrestamo">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Presupuesto_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Presupuesto">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Recordatorio_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Recordatorio">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_Usuario">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="BancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Banco">
+          <End Role="Banco" Type="Self.Banco" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banco">
+              <PropertyRef Name="BancoID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="BancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_EstadoCategoria">
+          <End Role="EstadoCategoria" Type="Self.EstadoCategoria" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCategoria">
+              <PropertyRef Name="EstadoCategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="EstadoCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_PadreCategoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="Categoria1" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria1">
+              <PropertyRef Name="PadreCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Categoria_TipoCategoria">
+          <End Role="TipoCategoria" Type="Self.TipoCategoria" Multiplicity="1" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCategoria">
+              <PropertyRef Name="TipoCategoriaID" />
+            </Principal>
+            <Dependent Role="Categoria">
+              <PropertyRef Name="TipoCategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PresupuestoCategoria_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="PresupuestoCategoria" Type="Self.PresupuestoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="PresupuestoCategoria">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_Contacto">
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacto">
+              <PropertyRef Name="ContactoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ContactoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Estado">
+          <End Role="EstadoCuentaBanco" Type="Self.EstadoCuentaBanco" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoCuentaBanco">
+              <PropertyRef Name="EstadoCuentaBancoID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="EstadoCuentaBancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaBanco_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="CuentaBanco">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_CuentaBanco">
+          <End Role="CuentaBanco" Type="Self.CuentaBanco" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaBanco">
+              <PropertyRef Name="CuentaBancoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="CuentaBancoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_CuentaPrestamo_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="CuentaPrestamo">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_CuentaPrestamo">
+          <End Role="CuentaPrestamo" Type="Self.CuentaPrestamo" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaPrestamo">
+              <PropertyRef Name="CuentaPrestamoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="CuentaPrestamoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Estado">
+          <End Role="EstadoTarjetaCredito" Type="Self.EstadoTarjetaCredito" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoTarjetaCredito">
+              <PropertyRef Name="EstadoTarjetaCreditoID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="EstadoTarjetaCreditoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="MarcaID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="MarcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_TarjetaCredito_Moneda">
+          <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moneda">
+              <PropertyRef Name="MonedaID" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="MonedaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PatronRecurrente_Recordatorio">
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="1" />
+          <End Role="PatronRecurrente" Type="Self.PatronRecurrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recordatorio">
+              <PropertyRef Name="RecordatorioID" />
+            </Principal>
+            <Dependent Role="PatronRecurrente">
+              <PropertyRef Name="RecordatorioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PatronRecurrente_TipoRecurrencia">
+          <End Role="TipoRecurrencia" Type="Self.TipoRecurrencia" Multiplicity="1" />
+          <End Role="PatronRecurrente" Type="Self.PatronRecurrente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoRecurrencia">
+              <PropertyRef Name="TipoRecurrenciaID" />
+            </Principal>
+            <Dependent Role="PatronRecurrente">
+              <PropertyRef Name="TipoRecurrenciaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Presupuesto_PeriodoTemporal">
+          <End Role="PeriodoTemporal" Type="Self.PeriodoTemporal" Multiplicity="1" />
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PeriodoTemporal">
+              <PropertyRef Name="PeriodoTemporalID" />
+            </Principal>
+            <Dependent Role="Presupuesto">
+              <PropertyRef Name="PeriodoTemporalID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_PresupuestoCategoria_Presupuesto">
+          <End Role="Presupuesto" Type="Self.Presupuesto" Multiplicity="1" />
+          <End Role="PresupuestoCategoria" Type="Self.PresupuestoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Presupuesto">
+              <PropertyRef Name="PresupuestoID" />
+            </Principal>
+            <Dependent Role="PresupuestoCategoria">
+              <PropertyRef Name="PresupuestoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Recordatorio_Transaccion">
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="0..1" />
+          <End Role="Recordatorio" Type="Self.Recordatorio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaccion">
+              <PropertyRef Name="TransaccionID" />
+            </Principal>
+            <Dependent Role="Recordatorio">
+              <PropertyRef Name="TransaccionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Fk_Transaccion_TarjetaCredito">
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TarjetaCredito">
+              <PropertyRef Name="TarjetaCreditoID" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="TarjetaCreditoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FinanzasPersonalesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Bancoes" EntityType="Self.Banco" />
+          <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+          <EntitySet Name="Contactoes" EntityType="Self.Contacto" />
+          <EntitySet Name="CuentaBancoes" EntityType="Self.CuentaBanco" />
+          <EntitySet Name="CuentaPrestamoes" EntityType="Self.CuentaPrestamo" />
+          <EntitySet Name="EstadoCategorias" EntityType="Self.EstadoCategoria" />
+          <EntitySet Name="EstadoCuentaBancoes" EntityType="Self.EstadoCuentaBanco" />
+          <EntitySet Name="EstadoTarjetaCreditoes" EntityType="Self.EstadoTarjetaCredito" />
+          <EntitySet Name="EstadoTarjetaDebitoes" EntityType="Self.EstadoTarjetaDebito" />
+          <EntitySet Name="Marcas" EntityType="Self.Marca" />
+          <EntitySet Name="Monedas" EntityType="Self.Moneda" />
+          <EntitySet Name="PatronRecurrentes" EntityType="Self.PatronRecurrente" />
+          <EntitySet Name="PeriodoTemporals" EntityType="Self.PeriodoTemporal" />
+          <EntitySet Name="Presupuestoes" EntityType="Self.Presupuesto" />
+          <EntitySet Name="PresupuestoCategorias" EntityType="Self.PresupuestoCategoria" />
+          <EntitySet Name="Recordatorios" EntityType="Self.Recordatorio" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TarjetaCreditoes" EntityType="Self.TarjetaCredito" />
+          <EntitySet Name="TipoCategorias" EntityType="Self.TipoCategoria" />
+          <EntitySet Name="TipoRecurrencias" EntityType="Self.TipoRecurrencia" />
+          <EntitySet Name="Transaccions" EntityType="Self.Transaccion" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_Usuario" Association="Self.Fk_Categoria_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Contacto_Usuario" Association="Self.Fk_Contacto_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Contacto" EntitySet="Contactoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Usuario" Association="Self.Fk_CuentaBanco_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CuentaBanco" EntitySet="CuentaBancoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaPrestamo_Usuario" Association="Self.Fk_CuentaPrestamo_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Presupuesto_Usuario" Association="Self.Fk_Presupuesto_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Presupuesto" EntitySet="Presupuestoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Recordatorio_Usuario" Association="Self.Fk_Recordatorio_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Recordatorio" EntitySet="Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Usuario" Association="Self.Fk_TarjetaCredito_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_Usuario" Association="Self.Fk_Transaccion_Usuario">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Transaccion" EntitySet="Transaccions" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Banco" Association="Self.Fk_CuentaBanco_Banco">
+            <End Role="Banco" EntitySet="Bancoes" />
+            <End Role="CuentaBanco" EntitySet="CuentaBancoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Banco" Association="Self.Fk_TarjetaCredito_Banco">
+            <End Role="Banco" EntitySet="Bancoes" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_EstadoCategoria" Association="Self.Fk_Categoria_EstadoCategoria">
+            <End Role="EstadoCategoria" EntitySet="EstadoCategorias" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_Moneda" Association="Self.Fk_Categoria_Moneda">
+            <End Role="Moneda" EntitySet="Monedas" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_PadreCategoria" Association="Self.Fk_Categoria_PadreCategoria">
+            <End Role="Categoria" EntitySet="Categorias" />
+            <End Role="Categoria1" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Categoria_TipoCategoria" Association="Self.Fk_Categoria_TipoCategoria">
+            <End Role="TipoCategoria" EntitySet="TipoCategorias" />
+            <End Role="Categoria" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PresupuestoCategoria_Categoria" Association="Self.Fk_PresupuestoCategoria_Categoria">
+            <End Role="Categoria" EntitySet="Categorias" />
+            <End Role="PresupuestoCategoria" EntitySet="PresupuestoCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_Contacto" Association="Self.Fk_Transaccion_Contacto">
+            <End Role="Contacto" EntitySet="Contactoes" />
+            <End Role="Transaccion" EntitySet="Transaccions" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Estado" Association="Self.Fk_CuentaBanco_Estado">
+            <End Role="EstadoCuentaBanco" EntitySet="EstadoCuentaBancoes" />
+            <End Role="CuentaBanco" EntitySet="CuentaBancoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaBanco_Moneda" Association="Self.Fk_CuentaBanco_Moneda">
+            <End Role="Moneda" EntitySet="Monedas" />
+            <End Role="CuentaBanco" EntitySet="CuentaBancoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_CuentaBanco" Association="Self.Fk_Transaccion_CuentaBanco">
+            <End Role="CuentaBanco" EntitySet="CuentaBancoes" />
+            <End Role="Transaccion" EntitySet="Transaccions" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_CuentaPrestamo_Moneda" Association="Self.Fk_CuentaPrestamo_Moneda">
+            <End Role="Moneda" EntitySet="Monedas" />
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_CuentaPrestamo" Association="Self.Fk_Transaccion_CuentaPrestamo">
+            <End Role="CuentaPrestamo" EntitySet="CuentaPrestamoes" />
+            <End Role="Transaccion" EntitySet="Transaccions" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Estado" Association="Self.Fk_TarjetaCredito_Estado">
+            <End Role="EstadoTarjetaCredito" EntitySet="EstadoTarjetaCreditoes" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Marca" Association="Self.Fk_TarjetaCredito_Marca">
+            <End Role="Marca" EntitySet="Marcas" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_TarjetaCredito_Moneda" Association="Self.Fk_TarjetaCredito_Moneda">
+            <End Role="Moneda" EntitySet="Monedas" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PatronRecurrente_Recordatorio" Association="Self.Fk_PatronRecurrente_Recordatorio">
+            <End Role="Recordatorio" EntitySet="Recordatorios" />
+            <End Role="PatronRecurrente" EntitySet="PatronRecurrentes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PatronRecurrente_TipoRecurrencia" Association="Self.Fk_PatronRecurrente_TipoRecurrencia">
+            <End Role="TipoRecurrencia" EntitySet="TipoRecurrencias" />
+            <End Role="PatronRecurrente" EntitySet="PatronRecurrentes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Presupuesto_PeriodoTemporal" Association="Self.Fk_Presupuesto_PeriodoTemporal">
+            <End Role="PeriodoTemporal" EntitySet="PeriodoTemporals" />
+            <End Role="Presupuesto" EntitySet="Presupuestoes" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_PresupuestoCategoria_Presupuesto" Association="Self.Fk_PresupuestoCategoria_Presupuesto">
+            <End Role="Presupuesto" EntitySet="Presupuestoes" />
+            <End Role="PresupuestoCategoria" EntitySet="PresupuestoCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Recordatorio_Transaccion" Association="Self.Fk_Recordatorio_Transaccion">
+            <End Role="Transaccion" EntitySet="Transaccions" />
+            <End Role="Recordatorio" EntitySet="Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="Fk_Transaccion_TarjetaCredito" Association="Self.Fk_Transaccion_TarjetaCredito">
+            <End Role="TarjetaCredito" EntitySet="TarjetaCreditoes" />
+            <End Role="Transaccion" EntitySet="Transaccions" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinanzasPersonalesModelStoreContainer" CdmEntityContainer="FinanzasPersonalesEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bancoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Banco">
+              <MappingFragment StoreEntitySet="Banco">
+                <ScalarProperty Name="BancoID" ColumnName="BancoID" />
+                <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="EstadoCategoriaID" ColumnName="EstadoCategoriaID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="TipoCategoriaID" ColumnName="TipoCategoriaID" />
+                <ScalarProperty Name="PadreCategoriaID" ColumnName="PadreCategoriaID" />
+                <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Contacto">
+              <MappingFragment StoreEntitySet="Contacto">
+                <ScalarProperty Name="ContactoID" ColumnName="ContactoID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentaBancoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.CuentaBanco">
+              <MappingFragment StoreEntitySet="CuentaBanco">
+                <ScalarProperty Name="CuentaBancoID" ColumnName="CuentaBancoID" />
+                <ScalarProperty Name="BancoID" ColumnName="BancoID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="EstadoCuentaBancoID" ColumnName="EstadoCuentaBancoID" />
+                <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+                <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+                <ScalarProperty Name="NombreTitular" ColumnName="NombreTitular" />
+                <ScalarProperty Name="ApellidoTitular" ColumnName="ApellidoTitular" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="BalanceInicial" ColumnName="BalanceInicial" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentaPrestamoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.CuentaPrestamo">
+              <MappingFragment StoreEntitySet="CuentaPrestamo">
+                <ScalarProperty Name="CuentaPrestamoID" ColumnName="CuentaPrestamoID" />
+                <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="CapitalInicial" ColumnName="CapitalInicial" />
+                <ScalarProperty Name="TasaAnual" ColumnName="TasaAnual" />
+                <ScalarProperty Name="PagosPorAno" ColumnName="PagosPorAno" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="NumeroPagos" ColumnName="NumeroPagos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoCategorias">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.EstadoCategoria">
+              <MappingFragment StoreEntitySet="EstadoCategoria">
+                <ScalarProperty Name="EstadoCategoriaID" ColumnName="EstadoCategoriaID" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoCuentaBancoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.EstadoCuentaBanco">
+              <MappingFragment StoreEntitySet="EstadoCuentaBanco">
+                <ScalarProperty Name="EstadoCuentaBancoID" ColumnName="EstadoCuentaBancoID" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoTarjetaCreditoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.EstadoTarjetaCredito">
+              <MappingFragment StoreEntitySet="EstadoTarjetaCredito">
+                <ScalarProperty Name="EstadoTarjetaCreditoID" ColumnName="EstadoTarjetaCreditoID" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoTarjetaDebitoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.EstadoTarjetaDebito">
+              <MappingFragment StoreEntitySet="EstadoTarjetaDebito">
+                <ScalarProperty Name="EstadoTarjetaDebitoID" ColumnName="EstadoTarjetaDebitoID" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marcas">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="MarcaID" ColumnName="MarcaID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monedas">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Moneda">
+              <MappingFragment StoreEntitySet="Moneda">
+                <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatronRecurrentes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.PatronRecurrente">
+              <MappingFragment StoreEntitySet="PatronRecurrente">
+                <ScalarProperty Name="PatronRecurrenteID" ColumnName="PatronRecurrenteID" />
+                <ScalarProperty Name="RecordatorioID" ColumnName="RecordatorioID" />
+                <ScalarProperty Name="TipoRecurrenciaID" ColumnName="TipoRecurrenciaID" />
+                <ScalarProperty Name="NumeroSeparaciones" ColumnName="NumeroSeparaciones" />
+                <ScalarProperty Name="NumeroMaxOcurrencia" ColumnName="NumeroMaxOcurrencia" />
+                <ScalarProperty Name="DiaDeSemana" ColumnName="DiaDeSemana" />
+                <ScalarProperty Name="SemanaDeMes" ColumnName="SemanaDeMes" />
+                <ScalarProperty Name="DiaDeMes" ColumnName="DiaDeMes" />
+                <ScalarProperty Name="MesDeAno" ColumnName="MesDeAno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeriodoTemporals">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.PeriodoTemporal">
+              <MappingFragment StoreEntitySet="PeriodoTemporal">
+                <ScalarProperty Name="PeriodoTemporalID" ColumnName="PeriodoTemporalID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presupuestoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Presupuesto">
+              <MappingFragment StoreEntitySet="Presupuesto">
+                <ScalarProperty Name="PresupuestoID" ColumnName="PresupuestoID" />
+                <ScalarProperty Name="PeriodoTemporalID" ColumnName="PeriodoTemporalID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresupuestoCategorias">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.PresupuestoCategoria">
+              <MappingFragment StoreEntitySet="PresupuestoCategoria">
+                <ScalarProperty Name="PresupuestoCategoriaID" ColumnName="PresupuestoCategoriaID" />
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="PresupuestoID" ColumnName="PresupuestoID" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recordatorios">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Recordatorio">
+              <MappingFragment StoreEntitySet="Recordatorio">
+                <ScalarProperty Name="RecordatorioID" ColumnName="RecordatorioID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="TransaccionID" ColumnName="TransaccionID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="EsRecurrente" ColumnName="EsRecurrente" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TarjetaCreditoes">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.TarjetaCredito">
+              <MappingFragment StoreEntitySet="TarjetaCredito">
+                <ScalarProperty Name="TarjetaCreditoID" ColumnName="TarjetaCreditoID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="BancoID" ColumnName="BancoID" />
+                <ScalarProperty Name="EstadoTarjetaCreditoID" ColumnName="EstadoTarjetaCreditoID" />
+                <ScalarProperty Name="MonedaID" ColumnName="MonedaID" />
+                <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
+                <ScalarProperty Name="NombreTitular" ColumnName="NombreTitular" />
+                <ScalarProperty Name="ApellidoTitular" ColumnName="ApellidoTitular" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaExpiracion" ColumnName="FechaExpiracion" />
+                <ScalarProperty Name="MarcaID" ColumnName="MarcaID" />
+                <ScalarProperty Name="CVC" ColumnName="CVC" />
+                <ScalarProperty Name="TasaEfectivaAnual" ColumnName="TasaEfectivaAnual" />
+                <ScalarProperty Name="DeudaInicial" ColumnName="DeudaInicial" />
+                <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCategorias">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.TipoCategoria">
+              <MappingFragment StoreEntitySet="TipoCategoria">
+                <ScalarProperty Name="TipoCategoriaID" ColumnName="TipoCategoriaID" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoRecurrencias">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.TipoRecurrencia">
+              <MappingFragment StoreEntitySet="TipoRecurrencia">
+                <ScalarProperty Name="TipoRecurrenciaID" ColumnName="TipoRecurrenciaID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaccions">
+            <EntityTypeMapping TypeName="FinanzasPersonalesModel.Transaccion">
+              <MappingFragment StoreEntitySet="Transaccion">
+                <ScalarProperty Name="TransaccionID" ColumnName="TransaccionID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="CuentaBancoID" ColumnName="CuentaBancoID" />
+                <ScalarProperty Name="TarjetaCreditoID" ColumnName="TarjetaCreditoID" />
+                <ScalarProperty Name="CuentaPrestamoID" ColumnName="CuentaPrestamoID" />
+                <ScalarProperty Name="ContactoID" ColumnName="ContactoID" />
+                <ScalarProperty Name="No_Ref_Externo" ColumnName="No_Ref_Externo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="EFECTIVO" ColumnName="EFECTIVO" />
+                <ScalarProperty Name="Adjunto" ColumnName="Adjunto" />
+                <ScalarProperty Name="MontoIngreso" ColumnName="MontoIngreso" />
+                <ScalarProperty Name="MontroEgreso" ColumnName="MontroEgreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="FinanzasPersonalesModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
