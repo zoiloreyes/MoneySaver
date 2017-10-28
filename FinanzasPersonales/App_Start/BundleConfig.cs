@@ -24,6 +24,7 @@ namespace FinanzasPersonales
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/font-awesome.css",
                       "~/Content/materialize.css",
                       "~/Content/site.css"));
 
