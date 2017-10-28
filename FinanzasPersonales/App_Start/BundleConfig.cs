@@ -24,8 +24,12 @@ namespace FinanzasPersonales
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/materialize.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
+                "~/Scripts/materialize.js"));
         }
     }
 }

@@ -1,9 +1,9 @@
-DROP DATABASE FinanzasPersonales
+DROP DATABASE MoneySaver
 GO
 
-CREATE DATABASE FinanzasPersonales
+CREATE DATABASE MoneySaver
 GO
-USE FinanzasPersonales
+USE MoneySaver
 
 /*
 INICIO SCRIPT DE BD Identity
@@ -207,7 +207,7 @@ GO
 /*
     Fin Script de BD Identity
 */
-USE FinanzasPersonales
+USE MoneySaver
 
 GO
 CREATE TABLE Moneda(

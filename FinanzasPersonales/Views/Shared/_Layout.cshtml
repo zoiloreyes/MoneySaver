@@ -9,36 +9,32 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                    <a class="brand-logo">
+                        @Html.ActionLink("MONEY SAVER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - MoneySaver Application</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render()
     @RenderSection("scripts", required: false)
 </body>
 </html>
