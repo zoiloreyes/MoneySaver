@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FinanzasPersonales.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace FinanzasPersonales
 {
@@ -18,8 +20,18 @@ namespace FinanzasPersonales
     {
         public Task SendAsync(IdentityMessage message)
         {
+
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            //client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("moneysaverpage@gmail.com", "moneysaver123456");
+
+            return client.SendMailAsync("moneysaverpage@gmail.com", message.Destination, message.Subject, message.Body);
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
         }
     }
 
