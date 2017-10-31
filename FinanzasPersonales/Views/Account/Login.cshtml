@@ -21,27 +21,25 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12 m10 offset-m1">
                         <input id="icon_prefix" type="text" class="validate">
                         <label for="icon_prefix">First Name</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12 m10 offset-m1 ">
                         @Html.TextBoxFor(m => m.Email, new { @class = "validate" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         @Html.LabelFor(m => m.Email, new { @class = "" })
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12 m10 offset-m1">
                         @Html.PasswordFor(m => m.Password, new { @class = "validate" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         @Html.LabelFor(m => m.Password, new { @class = "" })
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 m10 offset-m1">
                         <input id="icon_prefix" type="text" class="validate">
                         <label for="icon_prefix">Telefono</label>
                     </div>
