@@ -70,15 +70,43 @@ namespace FinanzasPersonales.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
+        [StringLength(80)]
+        public string Nombre { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(80)]
+        public string Apellido { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(1)]
+        public string Sexo { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(800)]
+        public string Direccion { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Telefono")]
+        public string PhoneNumber { get; set; }
+
+        
+        
     }
 
     public class ResetPasswordViewModel
