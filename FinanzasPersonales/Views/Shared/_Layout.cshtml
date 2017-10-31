@@ -12,9 +12,18 @@
     <nav>
         <div class="nav-wrapper">
             <div class="container">
-                    <a class="brand-logo">
-                        @Html.ActionLink("MONEY SAVER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </a>
+                
+                <ul>
+                    <li>
+                        <img src="~/Content/img/MoneySaver.png" width="60" height="60" alt="Logo" />
+                    </li>
+                    <li class="left hide-on-med-and-down">
+                        <a class="brand-logo"> @Html.ActionLink("MONEY SAVER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+                    </li>
+                    
+                </ul>
+                
+
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>

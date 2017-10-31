@@ -8,47 +8,89 @@
         /*background: linear-gradient(to right, #56b4d3, #348f50);*/
         background-color: #ecf0f1;
     }
+
+    a{
+        color:green;
+    }
+
+    #fondo-form{
+       
+    }
+
 </style>
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-logo">
-        <img src="~/Content/img/MoneySaver.png" width="125" height="125"  alt="Logo" />
-        </div>
-    <div class="form-login">
-        @*<h2>@ViewBag.Title.</h2>*@
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">First Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "validate" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        @Html.LabelFor(m => m.Email, new { @class = "" })
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        @Html.PasswordFor(m => m.Password, new { @class = "validate" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        @Html.LabelFor(m => m.Password, new { @class = "" })
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Telefono</label>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="form-logo">
+        <!--x<img src="~/Content/img/MoneySaver.png" width="125" height="125"  alt="Logo" />-->
+
     </div>
+        <div class="form-login">
+            @*<h2>@ViewBag.Title.</h2>*@
+            <div class="row">
+                <form class="col s12" id="fondo-form">
+                    <h3>Money Saver</h3>
+
+                    <!--  <div class="row">
+                        <div class="input-field col s6">
+                            <input id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">First Name</label>
+                        </div>
+                    </div>
+                     -->
+                  
+                        <div class="row">
+                            <div class="col s12">
+                                <img src="~/Content/img/MoneySaver.png" width="125" height="125" alt="Logo" />
+                            </div>
+                        </div>
+                  
+                    <div class="row">
+                        <div class="input-field col s6">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "validate" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Email, new { @class = "" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            @Html.PasswordFor(m => m.Password, new { @class = "validate" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Password, new { @class = "" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <a class="left-align">Did you forget your password?
+</a>
+                    </div>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                        <label for="filled-in-box">Remember me</label>
+                    </p>
+
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <p> ¿Do you not have an account? <a href="#" class="link">Register</a></p>
+                        </div>
+                    </div>
+
+                    <!--   <div class="row">
+                          <div class="input-field col s6">
+                              <input id="icon_prefix" type="text" class="validate">
+                              <label for="icon_prefix">Telefono</label>
+                          </div>
+                      </div>
+                       -->
+                    <div class="row">
+                        <button class="waves-effect waves-light btn green"> Log in</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
 
 }
 @section Scripts {
