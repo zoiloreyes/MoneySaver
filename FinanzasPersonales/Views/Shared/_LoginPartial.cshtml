@@ -15,8 +15,13 @@
 }
 else
 {
-    <ul class="right hide-on-med-and-down">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <ul id="dropDownCuenta" class="dropdown-content">
+        <li><a class="text-center" href="@Url.Action("Login", "Account")">Inicia</a></li>
+        <li><a class="text-center" href="@Url.Action("Register", "Account")">Regístrate</a></li>
     </ul>
+    <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-button" href="#!" data-activates="dropDownCuenta"><i class="material-icons left">person</i>Cuenta</a></li>
+        <li>@Html.ActionLink("Regístrate", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li> <a  href="@Url.Action("Login", "Account")">Regístrate</a>
+        </ul>
 }

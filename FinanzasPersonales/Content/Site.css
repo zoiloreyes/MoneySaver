@@ -11,9 +11,22 @@
     box-shadow: 3px 3px 10px grey;
     text-align: center;
 }
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.loadFadein {
+    opacity:0;
+
+}
 
 .form-logo {
     text-align: center;
     margin: 0 auto;
     margin-top: 50px;
+}
+.fa {
+    display: inherit !important;
+}
+.nav-wrapper {
+    background-color: #89BF43 !important;
 }

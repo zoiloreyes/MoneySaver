@@ -1,7 +1,7 @@
 ﻿@using FinanzasPersonales.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Accede";
 }
 <style>
     body {
@@ -26,11 +26,11 @@
         <!--x<img src="~/Content/img/MoneySaver.png" width="125" height="125"  alt="Logo" />-->
 
     </div>
-        <div class="form-login">
+        <div class="form-login loadFadein">
             @*<h2>@ViewBag.Title.</h2>*@
             <div class="row">
                 <form class="col s12" id="fondo-form">
-                    <h3>Money Saver</h3>
+                    <h3>Accede a tu cuenta</h3>
 
                     <!--  <div class="row">
                         <div class="input-field col s6">
@@ -62,18 +62,13 @@
                     </div>
 
                     <div class="row">
-                            <a class="left-align">Did you forget your password?
+                            <a class="left-align">Olvidaste tu contraseña?
 </a>
                     </div>
 
-                    <p>
-                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-                        <label for="filled-in-box">Remember me</label>
-                    </p>
-
                     <div class="row">
                         <div class="input-field col s10">
-                            <p> ¿Do you not have an account? <a href="#" class="link">Register</a></p>
+                            <p> ¿No tienes nua cuenta? <a href="@Url.Action("Register", "Account")" class="link">Regístrate</a></p>
                         </div>
                     </div>
 
@@ -85,7 +80,7 @@
                       </div>
                        -->
                     <div class="row">
-                        <button class="waves-effect waves-light btn green"> Log in</button>
+                        <button class="waves-effect waves-light btn green"> Accede</button>
                     </div>
                 </form>
             </div>
