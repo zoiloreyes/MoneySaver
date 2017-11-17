@@ -13,28 +13,25 @@
     <nav>
         <div class="nav-wrapper">
             <div class="container">
-                
-                <ul>
-                    <li>
-                        <img src="~/Content/img/MoneySaver.png" width="60" height="60" alt="Logo" />
-                    </li>
-                    <li class="left hide-on-med-and-down">
-                        <a class="brand-logo"> @Html.ActionLink("MONEY SAVER", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
-                    </li>
+                <a href="@Url.Action("Index", "Home")" class="brand-logo"><img src="~/Content/img/MoneySaver.png"  width="60" height="60" alt="Logo" /></a>
+                <ul class="left hide-on-med-and-down">
+                    
+                    
                     
                 </ul>
                 
-
+                @Html.Partial("_LoginPartial")
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
                         <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                     </ul>
-                    @Html.Partial("_LoginPartial")
+                    
             </div>
         </div>
     </nav>
+    @RenderBody()
     <div class="container body-content">
-        @RenderBody()
+        
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - MoneySaver Application</p>

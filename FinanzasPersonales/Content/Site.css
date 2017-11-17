@@ -1,4 +1,4 @@
-﻿
+﻿@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
 .form-login {
     max-width: 550px;
     background-color: #fff;
@@ -9,6 +9,32 @@
     padding-top: 30px;
     font-family: 'Roboto', sans-serif;
     box-shadow: 3px 3px 10px grey;
+    text-align: center;
+}
+.lr p {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    margin: 0;
+    font-size: 3rem;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px;
+}
+header {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(img/background.jpg) ;
+    background-size: cover;
+    height: 100vh;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
     text-align: center;
 }
 body {

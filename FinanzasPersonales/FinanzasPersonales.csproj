@@ -312,6 +312,7 @@
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\img\background.jpg" />
     <Content Include="Content\img\MoneySaver.png" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
