@@ -51,7 +51,11 @@ namespace FinanzasPersonales.Controllers
                 _userManager = value;
             }
         }
-
+        [Authorize]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -387,8 +391,6 @@ namespace FinanzasPersonales.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
