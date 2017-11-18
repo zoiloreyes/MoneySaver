@@ -41,19 +41,19 @@ namespace FinanzasPersonales.Models
 
     public class ForgotViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "El email es requerido")]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "El email es requerido")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "El campo debe ser un email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La contraseña es requerida")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
@@ -64,32 +64,32 @@ namespace FinanzasPersonales.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "El email es requerido")]
+        [EmailAddress(ErrorMessage = "El campo debe ser un email")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El nombre es requerido")]
         [DataType(DataType.Text)]
-        [StringLength(80)]
+        [StringLength(80, ErrorMessage = "El nombre tiene un maximo de 80 caracteres")]
         public string Nombre { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El apellido es requerido")]
         [DataType(DataType.Text)]
-        [StringLength(80)]
+        [StringLength(80, ErrorMessage = "El nombre tiene un maximo de 80 caracteres")]
         public string Apellido { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El sexo es requerido")]
         [DataType(DataType.Text)]
         [StringLength(1)]
         public string Sexo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La dirección es requerida")]
         [DataType(DataType.Text)]
         [StringLength(800)]
         public string Direccion { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "La contraseña es requerida")]
         [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
@@ -97,10 +97,10 @@ namespace FinanzasPersonales.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "La contraseña y la confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El telefono es requerido")]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Telefono")]
         public string PhoneNumber { get; set; }

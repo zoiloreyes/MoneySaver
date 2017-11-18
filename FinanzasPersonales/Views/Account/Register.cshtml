@@ -2,91 +2,128 @@
 @{
     ViewBag.Title = "Register";
 }
+<style>
+    body {
+        /*background: linear-gradient(to right, #56b4d3, #348f50);*/
+        background-color: #ecf0f1;
+    }
+
+    a {
+        color: green;
+    }
+
+    #fondo-form {
+    }
+</style>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
-            <div class="row">
-                <center>
-                    <div class="col s2"></div>
-                    <div class="col s8">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="images/office.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-2">REGISTRATE</span>
-                                <div class="row">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">person</i>
-                                                @*<input id="name" type="text" class="validate">*@
-                                                @Html.TextBoxFor(m=> m.Nombre, new { @class = "validate" })
-                                                <label for="name">Nombre completo</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">cake</i>
-                                                <input id="fecha-nacimiento" type="date" class="validate">
-                                                
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <div class="input-field col s1">
-                                                    <i class="material-icons prefix">wc</i>
-                                                    @*<input class="with-gap" name="group3" type="radio" id="hombre" />*@
-                                                    @Html.RadioButtonFor(m => m.Sexo, "F", new {@class= "", @id="Femenino" })
-                                                    <label for="Femenino">Femenino</label>
-                                                </div>
-                                                <div class="input-field col s7">
-                                                    @*<input class="with-gap" name="group4" type="radio" id="mujer" />*@
-                                                    @Html.RadioButtonFor(m => m.Sexo, "M", new {@class= "", @id="Masculino" })                                                  
-                                                    <label for="Masculino">Masculino</label>
-                                                </div>
-                                            </div>           
-                                            <p>.    </p>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">local_post_office</i>
-                                                @*<input id="correo" type="text" class="validate">*@
-                                                @Html.TextBoxFor(m => m.Email, new {@class="validate", @type="email" })
-                                                <label for="correo">Correo electronico</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">account_circle</i>
-                                                <input id="first_name" type="text" class="validate">
-                                                
-                                                <label for="first_name">Usuario</label>
-                                            </div>
+    @Html.ValidationSummary(true,"", new { @class = "text-danger" })
+    <div class="form-logo">
+        <!--x<img src="~/Content/img/MoneySaver.png" width="125" height="125"  alt="Logo" />-->
 
-                                            <div class="input-field col s12">
-                                                <div class="input-field col s6">
-                                                    <i class="material-icons prefix">lock</i>
-                                                    @*<input id="last_name" type="password" class="validate">*@
-                                                    @Html.PasswordFor(m => m.Password, new {@class= "validate " })
-                                                    <label for="last_name">Contraseña</label>
-                                                </div>
-                                                <div class="input-field col s5">
-                                                    @*<input id="last_name" type="password" class="validate">*@
-                                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "validate " })
-                                                    <label for="last_name">Confirmar contraseña</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="btn waves-effect blue darken-1" type="submit" value="Register">GUARDAR                                       
-                                            <i class="material-icons right">send</i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+    </div>
+
+    <div class="form-login loadFadein">
+        @*<h2>@ViewBag.Title.</h2>*@
+        <div class="row">
+            <form class="col s12" id="fondo-form">
+                <div class="row">
+                    <div class="col s12">
+                        <img src="~/Content/img/MoneySaver.png" width="125" height="125" alt="Logo" />
+                    </div>
+                </div>
+                <h3>Regístrate</h3>
+
+                <!--  <div class="row">
+                    <div class="input-field col s6">
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">First Name</label>
+                    </div>
+                </div>
+                 -->
+
+                
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        @Html.TextBoxFor(m => m.Nombre, new { @class = "validate" })
+                        @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-  " })
+                        @Html.LabelFor(m => m.Nombre, new { @class = "" })
+                    </div>
+                    <div class="input-field col s6">
+                        @Html.TextBoxFor(m => m.Apellido, new { @class = "validate" })
+                        @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "text-  " })
+                        @Html.LabelFor(m => m.Apellido, new { @class = "" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "validate" , type = "email"})
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.Email, new { @class = "" })
+                    </div>
+                </div>
+                
+
+                <div class="row">
+                    <div class="col s12">
+                        <p>
+                            @Html.RadioButtonFor(x => x.Sexo, "M", new { id = "sexoMasculino" })
+                            @Html.Label("sexoMasculino", "Hombre")
+                            @Html.RadioButtonFor(x => x.Sexo, "F", new { id = "sexoFemenino" })
+                            @Html.Label("sexoFemenino", "Mujer")
+                        </p>
+
+                        @Html.ValidationMessageFor(m => m.Sexo, "", new { @class = "text-danger" })
+
 
                     </div>
-                    <div class="col s3"></div>
-                </center>
-            </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        @Html.PasswordFor(m => m.Password, new { @class = "validate" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.Password, new { @class = "" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "validate" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        @Html.TextAreaFor(m => m.Direccion, new { @class = "materialize-textarea" })
+                        @Html.LabelFor(m => m.Direccion, new { @class = "" })
+                        @Html.ValidationMessageFor(m => m.Direccion, "", new { @class = "text-danger" })
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "validate" })
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                        @Html.LabelFor(m => m.PhoneNumber, new { @class = "" })
+                    </div>
+                </div>
+                <!--   <div class="row">
+                      <div class    ="input-field col s6">
+                          <input id="icon_prefix" type="text" class="validate">
+                          <label for="icon_prefix">Telefono</label>
+                      </div>
+                  </div>
+                   -->
+                <div class="row">
+                    <button type="submit" class="waves-effect waves-light btn green">Crear cuenta</button>
+                </div>
+            </form>
         </div>
+
     </div>
 
 
