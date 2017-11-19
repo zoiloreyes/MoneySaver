@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4267210c208440feb987618bf143e3dc" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="4267210c208440feb987618bf143e3dc" Name="Diagram1" ZoomLevel="108">
         <EntityTypeShape EntityType="MoneySaverModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MoneySaverModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MoneySaverModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
