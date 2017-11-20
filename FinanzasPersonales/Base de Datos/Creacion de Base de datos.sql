@@ -1,214 +1,22 @@
+
+USE master
+GO
+IF EXISTS(select * from sys.databases where name='MoneySaver')
 DROP DATABASE MoneySaver
 GO
-
 CREATE DATABASE MoneySaver
 GO
 USE MoneySaver
+GO
 
-/*
-INICIO SCRIPT DE BD Identity
-*/
-
-/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[__MigrationHistory](
-    [MigrationId] [nvarchar](150) NOT NULL,
-    [ContextKey] [nvarchar](300) NOT NULL,
-    [Model] [varbinary](max) NOT NULL,
-    [ProductVersion] [nvarchar](32) NOT NULL,
- CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
-(
-    [MigrationId] ASC,
-    [ContextKey] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetRoles](
-    [Id] [nvarchar](128) NOT NULL,
-    [Name] [nvarchar](256) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED 
-(
-    [Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserClaims](
-    [Id] [int] IDENTITY(1,1) NOT NULL,
-    [UserId] [nvarchar](128) NOT NULL,
-    [ClaimType] [nvarchar](max) NULL,
-    [ClaimValue] [nvarchar](max) NULL,
- CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED 
-(
-    [Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserLogins](
-    [LoginProvider] [nvarchar](128) NOT NULL,
-    [ProviderKey] [nvarchar](128) NOT NULL,
-    [UserId] [nvarchar](128) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED 
-(
-    [LoginProvider] ASC,
-    [ProviderKey] ASC,
-    [UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUserRoles](
-    [UserId] [nvarchar](128) NOT NULL,
-    [RoleId] [nvarchar](128) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED 
-(
-    [UserId] ASC,
-    [RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 10/24/2017 9:15:47 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[AspNetUsers](
-    [Id] [nvarchar](128) NOT NULL,
-    [Email] [nvarchar](256) NULL,
-    [EmailConfirmed] [bit] NOT NULL,
-    [PasswordHash] [nvarchar](max) NULL,
-    [SecurityStamp] [nvarchar](max) NULL,
+CREATE TABLE [dbo].[User](
+    Id INT NOT NULL IDENTITY(1,1),
     [Nombre] VARCHAR(50) NOT NULL,
     [Apellido] VARCHAR(50) NOT NULL,
     [Sexo] CHAR(1) NOT NULL,
     [Direccion] VARCHAR(100) NOT NULL,
-    [PhoneNumber] [nvarchar](max) NULL,
-    [PhoneNumberConfirmed] [bit] NOT NULL,
-    [TwoFactorEnabled] [bit] NOT NULL,
-    [LockoutEndDateUtc] [datetime] NULL,
-    [LockoutEnabled] [bit] NOT NULL,
-    [AccessFailedCount] [int] NOT NULL,
-    [UserName] [nvarchar](256) NOT NULL,
- CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED 
-(
-    [Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [RoleNameIndex]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex] ON [dbo].[AspNetRoles]
-(
-    [Name] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [IX_UserId]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE NONCLUSTERED INDEX [IX_UserId] ON [dbo].[AspNetUserClaims]
-(
-    [UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [IX_UserId]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE NONCLUSTERED INDEX [IX_UserId] ON [dbo].[AspNetUserLogins]
-(
-    [UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [IX_RoleId]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE NONCLUSTERED INDEX [IX_RoleId] ON [dbo].[AspNetUserRoles]
-(
-    [RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [IX_UserId]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE NONCLUSTERED INDEX [IX_UserId] ON [dbo].[AspNetUserRoles]
-(
-    [UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-
-GO
-/****** Object:  Index [UserNameIndex]    Script Date: 10/24/2017 9:15:47 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex] ON [dbo].[AspNetUsers]
-(
-    [UserName] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId]
-GO
-ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId]
-GO
-ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] FOREIGN KEY([RoleId])
-REFERENCES [dbo].[AspNetRoles] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId]
-GO
-ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
-REFERENCES [dbo].[AspNetUsers] ([Id])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
-GO
-/*
-    Fin Script de BD Identity
-*/
-USE MoneySaver
-
+    CONSTRAINT Pk_User PRIMARY KEY (Id)
+)
 GO
 CREATE TABLE Moneda(
     MonedaID INT NOT NULL IDENTITY(1,1),
@@ -246,7 +54,7 @@ GO
 
 CREATE TABLE TarjetaCredito(
     TarjetaCreditoID INT NOT NULL IDENTITY(1,1),
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     BancoID INT NOT NULL,
     EstadoTarjetaCreditoID INT NOT NULL,
     MonedaID INT NOT NULL,
@@ -265,7 +73,7 @@ CREATE TABLE TarjetaCredito(
     CONSTRAINT Fk_TarjetaCredito_Estado FOREIGN KEY(EstadoTarjetaCreditoID) REFERENCES EstadoTarjetaCredito(EstadoTarjetaCreditoID),
     CONSTRAINT Fk_TarjetaCredito_Banco FOREIGN KEY(BancoID) REFERENCES Banco(BancoID),
     CONSTRAINT Fk_TarjetaCredito_Moneda FOREIGN KEY(MonedaID) REFERENCES Moneda(MonedaID),
-    CONSTRAINT Fk_TarjetaCredito_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id),
+    CONSTRAINT Fk_TarjetaCredito_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id),
     CONSTRAINT Fk_TarjetaCredito_Marca FOREIGN KEY(MarcaID) REFERENCES Marca(MarcaID)
 )
 GO
@@ -278,7 +86,7 @@ GO
 CREATE TABLE CuentaBanco(
     CuentaBancoID INT NOT NULL IDENTITY(1,1),
     BancoID INT NOT NULL,
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     EstadoCuentaBancoID INT NOT NULL,
     MonedaID INT NOT NULL,
     NumeroCuenta VARCHAR(40)  NOT NULL,
@@ -289,7 +97,7 @@ CREATE TABLE CuentaBanco(
     Comentario VARCHAR(800),
     CONSTRAINT Pk_CuentaBanco PRIMARY KEY(CuentaBancoID),
     CONSTRAINT Fk_CuentaBanco_Banco FOREIGN KEY(BancoID) REFERENCES Banco(BancoID),
-    CONSTRAINT Fk_CuentaBanco_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id),
+    CONSTRAINT Fk_CuentaBanco_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id),
     CONSTRAINT Fk_CuentaBanco_Estado FOREIGN KEY(EstadoCuentaBancoID) REFERENCES EstadoCuentaBanco(EstadoCuentaBancoID),
     CONSTRAINT Fk_CuentaBanco_Moneda FOREIGN KEY(MonedaID) REFERENCES Moneda(MonedaID) 
 )
@@ -328,14 +136,14 @@ GO
 CREATE TABLE CuentaPrestamo(
     CuentaPrestamoID INT NOT NULL IDENTITY(1,1),
     MonedaID INT NOT NULL,
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     CapitalInicial DECIMAL(19,4),
     TasaAnual DECIMAL(8,4) NOT NULL,
     PagosPorAno INT,
     FechaInicio DATE,
     NumeroPagos INT,
     CONSTRAINT Pk_CuentaPrestamo PRIMARY KEY(CuentaPrestamoID),
-    CONSTRAINT Fk_CuentaPrestamo_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id),
+    CONSTRAINT Fk_CuentaPrestamo_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id),
     CONSTRAINT Fk_CuentaPrestamo_Moneda FOREIGN KEY(MonedaID) REFERENCES Moneda(MonedaID),
 )
 GO
@@ -358,7 +166,7 @@ CREATE TABLE TipoCategoria(
 CREATE TABLE Categoria(
     CategoriaID INT NOT NULL IDENTITY(1,1),
     EstadoCategoriaID INT NOT NULL,
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     TipoCategoriaID INT NOT NULL,
     PadreCategoriaID INT,
     MonedaID INT NOT NULL,
@@ -369,7 +177,7 @@ CREATE TABLE Categoria(
     CONSTRAINT Fk_Categoria_TipoCategoria FOREIGN KEY(TipoCategoriaID) REFERENCES TipoCategoria(TipoCategoriaID),
     CONSTRAINT Fk_Categoria_PadreCategoria FOREIGN KEY(PadreCategoriaID) REFERENCES Categoria(CategoriaID),
     CONSTRAINT Fk_Categoria_Moneda FOREIGN KEY(MonedaID) REFERENCES Moneda(MonedaID),
-    CONSTRAINT Fk_Categoria_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id)
+    CONSTRAINT Fk_Categoria_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id),
 )
 GO
 
@@ -384,11 +192,11 @@ GO
 CREATE TABLE Presupuesto(
     PresupuestoID INT NOT NULL IDENTITY(1,1),
     PeriodoTemporalID INT NOT NULL,
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID int NOT NULL,
     Nombre VARCHAR (200) NOT NULL,
     CONSTRAINT Pk_Presupuesto PRIMARY KEY(PresupuestoID),
     CONSTRAINT Fk_Presupuesto_PeriodoTemporal FOREIGN KEY(PeriodoTemporalID) REFERENCES PeriodoTemporal(PeriodoTemporalID),
-    CONSTRAINT Fk_Presupuesto_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id)
+    CONSTRAINT Fk_Presupuesto_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id)
 )
 
 Go
@@ -409,13 +217,13 @@ GO
 
 CREATE TABLE Contacto(
     ContactoID INT NOT NULL IDENTITY(1,1),
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     Nombre VARCHAR(300) NOT NULL,
     Email VARCHAR(256),
     Direccion VARCHAR(500),
     Telefono VARCHAR(400),
     CONSTRAINT Pk_Contacto PRIMARY KEY(ContactoID),
-    CONSTRAINT Fk_Contacto_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id)
+    CONSTRAINT Fk_Contacto_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id)
 )
 
 GO
@@ -423,7 +231,7 @@ GO
 GO
 CREATE TABLE Transaccion(
     TransaccionID INT NOT NULL IDENTITY(1,1),
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID INT NOT NULL,
     CuentaBancoID INT,
     TarjetaCreditoID INT,
     CuentaPrestamoID INT,
@@ -435,7 +243,7 @@ CREATE TABLE Transaccion(
     MontoIngreso DECIMAL(19,4),
     MontroEgreso DECIMAL (19,4),
     CONSTRAINT Pk_Transaccion PRIMARY KEY (TransaccionID),
-    CONSTRAINT Fk_Transaccion_Usuario FOREIGN KEY (UsuarioID) REFERENCES  AspNetUsers(Id),
+    CONSTRAINT Fk_Transaccion_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id),
     CONSTRAINT Fk_Transaccion_CuentaBanco FOREIGN KEY(CuentaBancoID) REFERENCES CuentaBanco(CuentaBancoID),
     CONSTRAINT Fk_Transaccion_TarjetaCredito FOREIGN KEY (TarjetaCreditoID) REFERENCES TarjetaCredito(TarjetaCreditoID),
     CONSTRAINT Fk_Transaccion_CuentaPrestamo FOREIGN KEY (CuentaPrestamoID) REFERENCES CuentaPrestamo(CuentaPrestamoID),
@@ -444,7 +252,7 @@ CREATE TABLE Transaccion(
 
 CREATE TABLE Recordatorio(
     RecordatorioID INT NOT NULL IDENTITY(1,1),
-    UsuarioID [nvarchar](128) NOT NULL,
+    UsuarioID int NOT NULL,
     TransaccionID INT ,
     Descripcion VARCHAR(500) NOT NULL,
     FechaInicio Date,
@@ -453,7 +261,7 @@ CREATE TABLE Recordatorio(
     FechaCreacion Date DEFAULT GETDATE(),
     CONSTRAINT Pk_Recordatorio PRIMARY KEY(RecordatorioID),
     CONSTRAINT Fk_Recordatorio_Transaccion FOREIGN KEY(TransaccionID) REFERENCES Transaccion(TransaccionID),
-    CONSTRAINT Fk_Recordatorio_Usuario FOREIGN KEY(UsuarioID) REFERENCES AspNetUsers(Id) 
+    CONSTRAINT Fk_Recordatorio_Usuario FOREIGN KEY(UsuarioID) REFERENCES dbo.[User](Id)
 )
 
 CREATE TABLE TipoRecurrencia(

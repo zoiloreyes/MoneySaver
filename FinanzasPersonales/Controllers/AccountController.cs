@@ -155,7 +155,7 @@ namespace FinanzasPersonales.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,PhoneNumber = model.PhoneNumber, User = new User() { Nombre = model.Nombre, Apellido = model.Apellido, Direccion = model.Direccion, Sexo = model.Sexo } };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -16,6 +16,7 @@ namespace FinanzasPersonales.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public virtual User User { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -28,6 +29,18 @@ namespace FinanzasPersonales.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            // Configure Student & StudentAddress entity
+            modelBuilder.Entity<ApplicationUser>()
+                        .HasRequired(s => s.User) // Mark Address property optional in Student entity
+                        .WithOptional(m => m.ApplicationUser); // mark Student property as required in StudentAddress entity. Cannot save StudentAddress without Student
+
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
     }
 }
