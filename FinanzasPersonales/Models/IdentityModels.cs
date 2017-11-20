@@ -16,7 +16,8 @@ namespace FinanzasPersonales.Models
             // Add custom user claims here
             userIdentity.AddClaim(new Claim("Email", this.Email.ToString()));
             userIdentity.AddClaim(new Claim("PhoneNumber", this.PhoneNumber.ToString()));
-
+            userIdentity.AddClaim(new Claim("MoneySaverUserID", this.User.Id.ToString()));
+            
 
             return userIdentity;
         }
