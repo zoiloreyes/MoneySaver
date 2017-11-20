@@ -1,7 +1,139 @@
-﻿
+﻿@using FinanzasPersonales.Extensions
+@model FinanzasPersonales.Models.User
 @{
+
+    var Telefono = User.Identity.GetPhoneNumber();
+    var Email = User.Identity.GetEmail();
     ViewBag.Title = "Dashboard";
 }
+<style>
+.nav-wrapper {
+    padding-left: 300px;
+}
 
-<h2>Dashboard</h2>
+.sideContet {
+    padding-left: 305px;
+}
+
+    .siteGreen {
+        background-color: #89BF43;
+    }
+
+    .waves-effect.waves-green .waves-ripple {
+        /* The alpha value allows the text and background color
+     of the button to still show through. */
+        background-color: rgba(137, 191, 67, 0.65);
+    }
+
+    .sideButton{
+        transition: color 0.5s;
+    }
+    
+    .sideButton:active{
+        color: white
+    }
+</style>
+
+<ul id="slide-out" class="side-nav fixed">
+    <li>
+        <div class="user-view">
+            <div class="background siteGreen">
+            </div>
+            <a href="#!name"><span class="white-text name">@Model.Nombre @Model.Apellido</span></a>
+            <a href="#!email"><span class="white-text email">@Email</span></a>
+        </div>
+    </li>
+    <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
+    <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">schedule</i>Recordatorios</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="">
+                <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!" id="btnNuevaCuentaBanco"class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                        <li><a href="#!">Fourth</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="">
+                <a class="collapsible-header waves-effect waves-green sideButton">Tarjetas de credito<i class="material-icons">credit_card</i><i class="material-icons right">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                        <li><a href="#!">Fourth</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="">
+                <a class="collapsible-header waves-effect waves-green sideButton">Presupuestos<i class="material-icons">pie_chart</i><i class="material-icons right">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                        <li><a href="#!">Fourth</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="">
+                <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                        <li><a href="#!">Fourth</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+</ul>
+<div class="sideContet">
+
+
+    <h2>@Telefono  @Email</h2>
+    <h2>@Model.Nombre  @Model.Apellido</h2>
+    <h2>@Model.Direccion  @Model.Sexo</h2>
+    <h2>@Telefono  @Email</h2>
+</div>
+@section Scripts {
+   <script>
+       $(document).ready(function () {
+           $(".sideButton").click(function () {
+               $(this).css("color", "white");
+               var that = $(this);
+               setTimeout(function () { $(that).css("color", "#757575"); }, 500);
+               $(this).children().each(function () {
+                   var that = $(this);
+                   $(this).css("color", "white");
+                   setTimeout(function () { $(that).css("color", "#757575"); }, 500);
+                   
+               });
+           })
+       });
+    </script>
+}
+
 

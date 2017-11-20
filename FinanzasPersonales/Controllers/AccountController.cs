@@ -17,6 +17,7 @@ namespace FinanzasPersonales.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -54,7 +55,10 @@ namespace FinanzasPersonales.Controllers
         [Authorize]
         public ActionResult Dashboard()
         {
-            return View();
+
+            var currentUser = UserManager.FindById(User.Identity.GetUserId());
+            var MoneySaverUser = currentUser.User;
+            return View(MoneySaverUser);
         }
         //
         // GET: /Account/Login
