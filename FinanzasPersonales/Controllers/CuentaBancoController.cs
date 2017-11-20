@@ -16,7 +16,18 @@ namespace FinanzasPersonales.Controllers
         {
             return View();
         }
-
+        [HttpGet]
+        public ActionResult GetEstadosCuentaBanco()
+        {
+            try
+            {
+                var EstadosCuentaBanco = db.EstadoCuentaBancoes.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCuentaBancoID });
+                return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = EstadosCuentaBanco }, JsonRequestBehavior.AllowGet);
+            }catch(Exception e) {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+                
+        }
         [HttpPost]
         public ActionResult CrearCuenta(CuentaBanco cuenta)
         {

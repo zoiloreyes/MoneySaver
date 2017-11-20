@@ -206,9 +206,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BancoController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MonedaController.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,6 +218,14 @@
     <Compile Include="Migrations\201711192204328_identityConnection.cs" />
     <Compile Include="Migrations\201711192204328_identityConnection.Designer.cs">
       <DependentUpon>201711192204328_identityConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711201802565_CambioAlContext.cs" />
+    <Compile Include="Migrations\201711201802565_CambioAlContext.Designer.cs">
+      <DependentUpon>201711201802565_CambioAlContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711201836208_UsarioIDBanco.cs" />
+    <Compile Include="Migrations\201711201836208_UsarioIDBanco.Designer.cs">
+      <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -3697,7 +3707,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
+    <Folder Include="Views\Banco\" />
     <Folder Include="Views\CuentaBanco\" />
+    <Folder Include="Views\Moneda\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -3708,6 +3720,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711192204328_identityConnection.resx">
       <DependentUpon>201711192204328_identityConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711201802565_CambioAlContext.resx">
+      <DependentUpon>201711201802565_CambioAlContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711201836208_UsarioIDBanco.resx">
+      <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

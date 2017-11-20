@@ -45,7 +45,8 @@
     </li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">schedule</i>Recordatorios</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Categorias</a></li>
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li class="">
@@ -121,8 +122,7 @@
             </li>
         </ul>
     </li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
+    
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
 </ul>
 <div class="sideContet">
@@ -140,13 +140,13 @@
         <div class="row">
             <form class="col s12" id="frmNuevaCuentaBanco">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
+                    <div class="input-field col s12 m6">
+                        <input  name="NumeroCuenta" id="NumeroCuenta" type="text" class="validate">
+                        <label for="NumeroCuenta">Numero de cuenta</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
+                    <div class="input-field col s12 m6">
+                        <input id="BalanceInicial" name="BalanceInicial" type="text" class="validate">
+                        <label for="BalanceInicial">Balance Inicial</label>
                     </div>
                 </div>
                 <div class="row">
@@ -168,14 +168,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s12">
-                        This is an inline input field:
-                        <div class="input-field inline">
-                            <input id="email" type="email" class="validate">
-                            <label for="email" data-error="wrong" data-success="right">Email</label>
-                        </div>
+                    <div class="input-field col s12">
+                            <input type="text" id="FechaInicio" name="FechaInicio" class="datepicker">
+                            <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
+                        <label for="Comentario">Textarea</label>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
@@ -187,7 +192,14 @@
 @section Scripts {
    <script>
        $(document).ready(function () {
-
+           $('.datepicker').pickadate({
+               selectMonths: true, // Creates a dropdown to control month
+               selectYears: 90, // Creates a dropdown of 15 years to control year,
+               today: 'Today',
+               clear: 'Clear',
+               close: 'Ok',
+               closeOnSelect: true // Close upon selecting a date,
+           });
            $('.modal').modal();
            
            $(".sideButton").click(function () {

@@ -27,8 +27,7 @@ namespace FinanzasPersonales.Models
         public string Pais { get; set; }
 
         [Required]
-        [StringLength(128)]
-        public string UsuarioID { get; set; }
+        public int UsuarioID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CuentaBanco> CuentaBanco { get; set; }
