@@ -46,5 +46,13 @@ namespace FinanzasPersonales.Models
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
+
+        public System.Data.Entity.DbSet<FinanzasPersonales.Models.CuentaBanco> CuentaBancoes { get; set; }
+
+        public System.Data.Entity.DbSet<FinanzasPersonales.Models.Banco> Bancoes { get; set; }
+
+        public System.Data.Entity.DbSet<FinanzasPersonales.Models.EstadoCuentaBanco> EstadoCuentaBancoes { get; set; }
+
+        public System.Data.Entity.DbSet<FinanzasPersonales.Models.Moneda> Monedas { get; set; }
     }
 }

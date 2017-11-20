@@ -52,7 +52,7 @@
                 <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="#!" id="btnNuevaCuentaBanco"class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#divNuevaCuentaBanco" id="btnNuevaCuentaBanco" class="collapsible-header waves-effect waves-green sideButton modal-trigger">Nueva<i class="material-icons right">add_circle</i></a></li>
                         <li><a href="#!">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
@@ -67,7 +67,22 @@
                 <a class="collapsible-header waves-effect waves-green sideButton">Tarjetas de credito<i class="material-icons">credit_card</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nueva<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!">Third</a></li>
+                        <li><a href="#!">Fourth</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li class="">
+                <a class="collapsible-header waves-effect waves-green sideButton">Prestamos<i class="material-icons">attach_money</i><i class="material-icons right">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
                         <li><a href="#!">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
@@ -82,7 +97,7 @@
                 <a class="collapsible-header waves-effect waves-green sideButton">Presupuestos<i class="material-icons">pie_chart</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
+                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
                         <li><a href="#!">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
@@ -91,13 +106,13 @@
             </li>
         </ul>
     </li>
+    
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li class="">
-                <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
+                <a class="collapsible-header waves-effect waves-green sideButton">Reportes y Gráficas<i class="material-icons">insert_chart</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                     <ul>
-                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">First<i class="material-icons right">add_circle</i></a></li>
                         <li><a href="#!">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
@@ -118,9 +133,63 @@
     <h2>@Model.Direccion  @Model.Sexo</h2>
     <h2>@Telefono  @Email</h2>
 </div>
+<div id="divNuevaCuentaBanco" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">account_balance</i> Nueva Cuenta de banco</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaCuentaBanco">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                        <label for="disabled">Disabled</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        This is an inline input field:
+                        <div class="input-field inline">
+                            <input id="email" type="email" class="validate">
+                            <label for="email" data-error="wrong" data-success="right">Email</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a data-form="frmNuevaCuentaBanco" data-url="@Url.Action("","")" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
 @section Scripts {
    <script>
        $(document).ready(function () {
+
+           $('.modal').modal();
+           
            $(".sideButton").click(function () {
                $(this).css("color", "white");
                var that = $(this);
