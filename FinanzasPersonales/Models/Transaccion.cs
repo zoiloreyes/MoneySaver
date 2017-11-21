@@ -19,6 +19,8 @@ namespace FinanzasPersonales.Models
 
         public int UsuarioID { get; set; }
 
+        public int? CategoriaID { get; set; }
+
         public int? CuentaBancoID { get; set; }
 
         public int? TarjetaCreditoID { get; set; }
@@ -47,6 +49,8 @@ namespace FinanzasPersonales.Models
         public virtual CuentaBanco CuentaBanco { get; set; }
 
         public virtual CuentaPrestamo CuentaPrestamo { get; set; }
+
+        public virtual Categoria Categoria { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recordatorio> Recordatorio { get; set; }

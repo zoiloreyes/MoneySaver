@@ -440,3 +440,12 @@ INSERT INTO MONEDA(Codigo,Nombre) VALUES ('UZS','Som Uzbeko')
 INSERT INTO MONEDA(Codigo,Nombre) VALUES ('VUV','Vatu Vanuatense')
 INSERT INTO MONEDA(Codigo,Nombre) VALUES ('VEF','Bolívar Fuerte Venezolano')
 INSERT INTO MONEDA(Codigo,Nombre) VALUES ('VND','Dong Vietnamito')
+
+INSERT INTO EstadoCuentaBanco(Estado) Values('Activo')
+INSERT INTO EstadoCuentaBanco(Estado) Values('Inactivo')
+
+INSERT INTO EstadoCategoria(Estado) Values('Activo')
+INSERT INTO EstadoCategoria(Estado) Values('Inactivo')
+
+INSERT INTO EstadoTarjetaCredito(Estado) Values('Activo')
+INSERT INTO EstadoTarjetaCredito(Estado) Values('Inactivo')

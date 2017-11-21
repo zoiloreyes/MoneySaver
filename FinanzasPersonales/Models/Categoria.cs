@@ -43,6 +43,8 @@ namespace FinanzasPersonales.Models
 
         public virtual Categoria Categoria2 { get; set; }
 
+        public ICollection<Transaccion> Transacciones { get; set; }
+
         public virtual TipoCategoria TipoCategoria { get; set; }
 
         public virtual User User { get; set; }

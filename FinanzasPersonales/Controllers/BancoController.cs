@@ -1,4 +1,5 @@
-﻿using FinanzasPersonales.Models;
+﻿using FinanzasPersonales.Extensions;
+using FinanzasPersonales.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
@@ -43,7 +44,27 @@ namespace FinanzasPersonales.Controllers
             }
 
         }
+        [HttpPost]
+        public ActionResult CrearBanco(Banco banco)
+        {
+            banco.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Json(new { Success = false, Message = "Llene los campos correctamente" });
+                }
 
 
+                var nuevoBanco = db.Bancoes.Add(banco);
+                db.SaveChanges();
+                return Json(new { Success = true, Message = "Nuevo banco creado", Data = banco });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" });
+            }
+
+        }
     }
 }

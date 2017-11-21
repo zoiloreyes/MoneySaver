@@ -1,4 +1,5 @@
-﻿using FinanzasPersonales.Models;
+﻿using FinanzasPersonales.Extensions;
+using FinanzasPersonales.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,25 +29,47 @@ namespace FinanzasPersonales.Controllers
             }
                 
         }
-        [HttpPost]
-        public ActionResult CrearCuenta(CuentaBanco cuenta)
+        [HttpGet]
+        public ActionResult GetCuentasBanco()
         {
             try
             {
+                var CuentasBanco = db.CuentaBancoes.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NumeroCuenta = x.NumeroCuenta });
+                return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = CuentasBanco }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        [HttpPost]
+        public ActionResult CrearCuenta(CuentaBanco cuenta)
+        {
+            cuenta.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
+            try
+            {
+                foreach (ModelState modelState in ViewData.ModelState.Values)
+                {
+                    foreach (ModelError error in modelState.Errors)
+                    {
+                        Console.Write(error);
+                    }
+                }
                 if (ModelState.IsValid)
                 {
                     var nuevaCuenta = db.CuentaBancoes.Add(cuenta);
                     db.SaveChanges();
-                    return Json(new { Success = true, Message = "Cuenta creada correctamente", Data = nuevaCuenta });
+                    return Json(new { Success = true, Message = "Nueva cuenta creada", Data = nuevaCuenta });
                 }
                 else
                 {
-                    return Json(new { Success = false, Message = "Los datos no tienen el formato correcto" });
+                    return Json(new { Success = false, Message = "Llene los campos correctamente" });
                 }
             }
             catch (Exception e)
             {
-                return Json(new { Success = false, Message = e.Message });
+                return Json(new { Success = false, Message = "Ocurrio un error" });
             }
         }
 

@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Styles.Render("~/Content/plugincss")
+    
 </head>
 <body>
     <nav>
@@ -36,6 +37,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/pluginjs")
     @Scripts.Render()
     @RenderSection("scripts", required: false)
 </body>

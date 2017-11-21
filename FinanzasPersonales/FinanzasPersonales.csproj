@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201711201836208_UsarioIDBanco.Designer.cs">
       <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.cs" />
+    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.Designer.cs">
+      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banco.cs" />
@@ -304,6 +308,7 @@
     <Content Include="Content\BSBThemes\theme-teal.min.css" />
     <Content Include="Content\BSBThemes\theme-yellow.css" />
     <Content Include="Content\BSBThemes\theme-yellow.min.css" />
+    <Content Include="Content\css\select2-materialize.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
@@ -3784,6 +3789,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711201836208_UsarioIDBanco.resx">
       <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210433308_añadidaRelacionTransaccion.resx">
+      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
