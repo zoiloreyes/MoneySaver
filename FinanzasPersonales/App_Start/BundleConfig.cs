@@ -30,6 +30,10 @@ namespace FinanzasPersonales
                       "~/Content/materialize.css",
                       "~/Content/site.css",
                       "~/Content/animate.css"));
+            bundles.Add(new StyleBundle("~/Content/plugincss").Include(
+                      "~/Content/css/select2.min.css"));
+            bundles.Add(new ScriptBundle("~/bundles/pluginjs").Include(
+               "~/Scripts/select2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/materialize").Include(
                 "~/Scripts/materialize.js"));

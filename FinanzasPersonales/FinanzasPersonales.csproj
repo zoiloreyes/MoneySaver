@@ -304,6 +304,7 @@
     <Content Include="Content\BSBThemes\theme-teal.min.css" />
     <Content Include="Content\BSBThemes\theme-yellow.css" />
     <Content Include="Content\BSBThemes\theme-yellow.min.css" />
+    <Content Include="Content\css\select2-materialize.css" />
     <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />

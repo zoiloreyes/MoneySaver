@@ -14,7 +14,6 @@
 .sideContet {
     padding-left: 305px;
 }
-
     .siteGreen {
         background-color: #89BF43;
     }
@@ -55,11 +54,11 @@
             <li class="">
                 <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
-                    <ul>
+                    <ul class="contenedorCuentaBanco">
                         <li><a href="#divNuevaCuentaBanco" id="btnNuevaCuentaBanco" class="collapsible-header waves-effect waves-green sideButton modal-trigger">Nueva<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!">Second</a></li>
-                        <li><a href="#!">Third</a></li>
-                        <li><a href="#!">Fourth</a></li>
+                        <li><a href="#!" class="waves-effect waves-green sideButton CuentaBancoLi">Second</a></li>
+                        <li><a href="#!" class="waves-effect waves-green sideButton CuentaBancoLi">Third</a></li>
+                        <li><a href="#!" class="waves-effect waves-green sideButton CuentaBancoLi">Fourth</a></li>
                     </ul>
                 </div>
             </li>
@@ -72,7 +71,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nueva<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
                     </ul>
@@ -87,7 +86,7 @@
                 <div class="collapsible-body">
                     <ul>
                         <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!">Second</a></li>
+                        <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
                     </ul>
@@ -100,9 +99,9 @@
             <li class="">
                 <a class="collapsible-header waves-effect waves-green sideButton">Presupuestos<i class="material-icons">pie_chart</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
-                    <ul>
+                    <ul class="contenedorPresupuesto">
                         <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!">Second</a></li>
+                        <li class="Presupuesto"><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
                         <li><a href="#!">Third</a></li>
                         <li><a href="#!">Fourth</a></li>
                     </ul>
@@ -129,12 +128,6 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
 </ul>
 <div class="sideContet">
-
-
-    <h2>@Telefono  @Email</h2>
-    <h2>@Model.Nombre  @Model.Apellido</h2>
-    <h2>@Model.Direccion  @Model.Sexo</h2>
-    <h2>@User.Identity.GetMoneySaverUserID()</h2>
 </div>
 <div id="divNuevaCuentaBanco" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -143,31 +136,62 @@
         <div class="row">
             <form class="col s12" id="frmNuevaCuentaBanco">
                 <div class="row">
-                    <div class="input-field col s12 m6">
+                    <div class="input-field col s12 m12">
                         <input  name="NumeroCuenta" id="NumeroCuenta" type="text" class="validate">
-                        <label for="NumeroCuenta">Numero de cuenta</label>
+                        <label for="NumeroCuenta">Numero de cuenta <span class="red-text">*</span></label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="BalanceInicial" name="BalanceInicial" type="text" class="validate">
+                    
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="BalanceInicial" step="0.01" name="BalanceInicial" type="number" class="validate">
                         <label for="BalanceInicial">Balance Inicial</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                        <label for="disabled">Disabled</label>
+                    <div class="input-field col s12 m6">
+                        <input id="NombreTitular" value="@Model.Nombre" name="NombreTitular" type="text" class="validate">
+                        <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input name="ApellidoTitular" value="@Model.Apellido" id="ApellidoTitular" type="text" class="validate">
+                        <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Estado</label>
+
+                        </div>
+                        <div class="row">
+                            <select id="EstadoCuentaBancoID" name="EstadoCuentaBancoID" class="EstadoCuentaBancoSelect select2"></select>
+
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                    <div class=" col s12">
+                        <div class="row">
+                                <label>Moneda</label>
+
+                        </div>
+                        <div class="row">
+                         <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Banco   </label><a href="#divNuevoBanco"class="btn-floating waves-effect waves-green nuevoBanco green modal-trigger"><i class="material-icons">add</i></a>
+
+                        </div>
+                        <div class="row">
+                            <select id="BancoID" name="BancoID" class="BancoSelect select2"></select>
+
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -180,7 +204,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
-                        <label for="Comentario">Textarea</label>
+                        <label for="Comentario">Comentario</label>
                     </div>
                 </div>
 
@@ -188,23 +212,162 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
-        <a data-form="frmNuevaCuentaBanco" data-url="@Url.Action("","")" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaCuentaBanco" href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+<div id="divNuevoBanco" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">account_balance</i> Nuevo Banco</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevoBanco">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreBanco" id="NombreBanco" type="text" class="validate">
+                        <label for="NombreBanco">Nombre del banco <span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="Pais" name="Pais" type="text" class="validate">
+                        <label for="Pais">Pais <span class="red-text">*</span></label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevoBanco" href="#!" class="modal-action btnSubmitBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
 @section Scripts {
    <script>
        $(document).ready(function () {
+           cargarSelectMoneda();
+           cargarSelectBanco();
+           cargarSelectEstadoCuentaBanco();
+           cargarCuentasBanco();
            $('.datepicker').pickadate({
                selectMonths: true, // Creates a dropdown to control month
                selectYears: 90, // Creates a dropdown of 15 years to control year,
                today: 'Today',
                clear: 'Clear',
                close: 'Ok',
-               closeOnSelect: true // Close upon selecting a date,
+               closeOnSelect: true, // Close upon selecting a date,
+               format: 'mm/dd/yyyy'
            });
            $('.modal').modal();
-           
+           $(".select2").select2({ width: '100%' });
+
+           //Preparar selects de moneda+-----
+           function cargarSelectMoneda() {
+               $(".MonedaSelect").empty();
+               $(".MonedaSelet").append(
+                   $("<option>", {
+                       value: "",
+                       disabled: "disabled",
+                       selected: "selected",
+                       html:"Selecciona una opcion"
+                   })
+               );
+               var monedas = getMonedas();
+
+               for (var i in monedas) {
+                   moneda = monedas[i];
+                   $(".MonedaSelect").append(
+                       $("<option>", {
+                           value: moneda.Value,
+                           html: moneda.Text
+                       }).data("codigo", moneda.Codigo)
+                   );
+               }
+               $(".select2").select2({ width: '100%'});
+               
+           }
+           function cargarSelectBanco() {
+               $(".BancoSelect").empty();
+               $(".BancoSelect").append(
+                   $("<option>", {
+                       value: "",
+                       disabled: "disabled",
+                       selected: "selected",
+                       html: "Selecciona una opcion"
+                   })
+               );
+               var bancos = getBancos();
+
+               for (var i in bancos) {
+                   banco = bancos[i];
+                   $(".BancoSelect").append(
+                       $("<option>", {
+                           value: banco.Value,
+                           html: banco.Text
+                       })
+                   );
+               }
+               $(".select2").select2({ width: '100%' });
+
+           }
+           function cargarSelectEstadoCuentaBanco() {
+               $(".EstadoCuentaBancoSelect").empty();
+               $(".EstadoCuentaBancoSelect").append(
+                   $("<option>", {
+                       value: "",
+                       disabled: "disabled",
+                       selected: "selected",
+                       html: "Selecciona una opcion"
+                   })
+               );
+               var estados = getEstadosCuentaBanco();
+
+               for (var i in estados) {
+                   estado = estados[i];
+                   $(".EstadoCuentaBancoSelect").append(
+                       $("<option>", {
+                           value: estado.Value,
+                           html: estado.Text
+                       })
+                   );
+               }
+               $(".select2").select2({ width: '100%' });
+
+           }
+           function cargarCuentasBanco() {
+               $(".contenedorCuentaBanco").find(".CuentaBancoLi").remove();
+               var cuentasDeBanco = getCuentasBanco();
+               for (var i in cuentasDeBanco) {
+                   var cuentaI = cuentasDeBanco[i];
+                   $(".contenedorCuentaBanco").append(
+                       $("<li>", {
+                           class:"CuentaBancoLi"
+                       }).data("CuentaBancoID", cuentaI.CuentaBancoID).append(
+                           $("<a>", {
+                           class: "waves-effect waves-green sideButton",
+                           html: cuentaI.NumeroCuenta
+                                })
+                           )
+                   )
+               }
+               //< li > <a href="#!" class="">Second</a></li >
+           }
+           $(".btnSubmitBanco").click(function () {
+               var objeto = objectifyForm($("#" + $(this).data("form")));
+               guardarBanco(objeto);
+               $("#" + $(this).data("form"))[0].reset();
+               cargarSelectBanco()
+           });
+           $(".btnSubmitCuentaBanco").click(function () {
+               var objeto = objectifyForm($("#" + $(this).data("form")));
+               guardarCuentaBanco(objeto);
+               $("#" + $(this).data("form"))[0].reset();
+               cargarCuentasBanco();
+           });
+
+            
            $(".sideButton").click(function () {
                $(this).css("color", "white");
                var that = $(this);
