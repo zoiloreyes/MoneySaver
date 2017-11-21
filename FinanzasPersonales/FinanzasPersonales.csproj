@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201711201836208_UsarioIDBanco.Designer.cs">
       <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.cs" />
+    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.Designer.cs">
+      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banco.cs" />
@@ -3785,6 +3789,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711201836208_UsarioIDBanco.resx">
       <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711210433308_añadidaRelacionTransaccion.resx">
+      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
