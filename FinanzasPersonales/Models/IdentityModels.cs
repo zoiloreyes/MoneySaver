@@ -364,5 +364,7 @@ namespace FinanzasPersonales.Models
         public System.Data.Entity.DbSet<FinanzasPersonales.Models.EstadoCuentaBanco> EstadoCuentaBancoes { get; set; }
 
         public System.Data.Entity.DbSet<FinanzasPersonales.Models.Moneda> Monedas { get; set; }
+
+        public System.Data.Entity.DbSet<FinanzasPersonales.Models.User> Users1 { get; set; }
     }
 }

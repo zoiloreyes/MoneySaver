@@ -49,5 +49,15 @@ namespace FinanzasPersonales.Controllers
                 return Json(new { Success = false, Message = e.Message });
             }
         }
+
+        //Detalles/5
+        public ActionResult DetalleCuenta(int? id)
+        {
+            var cuenta = db.CuentaBancoes.Find(id);
+            if (id != null)          
+                return View(cuenta);
+            
+            return RedirectToAction("Index");
+        }
     }
 }
