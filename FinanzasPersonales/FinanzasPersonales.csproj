@@ -3769,12 +3769,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Dashboard.cshtml" />
+    <Content Include="Views\CuentaBanco\DetalleCuenta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
-    <Folder Include="Views\CuentaBanco\" />
     <Folder Include="Views\Moneda\" />
   </ItemGroup>
   <ItemGroup>
