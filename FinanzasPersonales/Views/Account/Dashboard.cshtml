@@ -257,7 +257,7 @@
                clear: 'Clear',
                close: 'Ok',
                closeOnSelect: true, // Close upon selecting a date,
-               format: 'mm/dd/yyyy'
+               format: 'dd/mm/yyyy'
            });
            $('.modal').modal();
            $(".select2").select2({ width: '100%' });
@@ -365,7 +365,7 @@
                $("#" + $(this).data("form"))[0].reset();
                cargarCuentasBanco();
            });
-
+           
             
            $(".sideButton").click(function () {
                $(this).css("color", "white");
