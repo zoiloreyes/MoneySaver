@@ -357,14 +357,28 @@ namespace FinanzasPersonales.Models
                 .WillCascadeOnDelete(false);
         }
 
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.CuentaBanco> CuentaBancoes { get; set; }
-
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.Banco> Bancoes { get; set; }
-
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.EstadoCuentaBanco> EstadoCuentaBancoes { get; set; }
-
         public System.Data.Entity.DbSet<FinanzasPersonales.Models.Moneda> Monedas { get; set; }
 
         public System.Data.Entity.DbSet<FinanzasPersonales.Models.User> Users1 { get; set; }
+
+        public virtual DbSet<Banco> Bancos { get; set; }
+        public virtual DbSet<Categoria> Categorias { get; set; }
+        public virtual DbSet<Contacto> Contactos { get; set; }
+        public virtual DbSet<CuentaBanco> CuentasBanco { get; set; }
+        public virtual DbSet<CuentaPrestamo> CuentasPrestamo { get; set; }
+        public virtual DbSet<EstadoCategoria> EstadosCategoria { get; set; }
+        public virtual DbSet<EstadoCuentaBanco> EstadosCuentaBanco { get; set; }
+        public virtual DbSet<EstadoTarjetaCredito> EstadosTarjetaCredito { get; set; }
+        public virtual DbSet<EstadoTarjetaDebito> EstadosTarjetaDebito { get; set; }
+        public virtual DbSet<Marca> Marcas { get; set; }
+        public virtual DbSet<PatronRecurrente> PatronesRecurrente { get; set; }
+        public virtual DbSet<PeriodoTemporal> PeriodosTemporales { get; set; }
+        public virtual DbSet<Presupuesto> Presupuestos { get; set; }
+        public virtual DbSet<PresupuestoCategoria> PresupuestoCategoria { get; set; }
+        public virtual DbSet<Recordatorio> Recordatorio { get; set; }
+        public virtual DbSet<TarjetaCredito> TarjetasCredito { get; set; }
+        public virtual DbSet<TipoCategoria> TiposCategoria { get; set; }
+        public virtual DbSet<TipoRecurrencia> TiposRecurrencia { get; set; }
+        public virtual DbSet<Transaccion> Transacciones { get; set; }
     }
 }
