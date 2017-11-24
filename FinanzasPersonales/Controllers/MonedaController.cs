@@ -17,7 +17,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var Monedas = db.Monedas.ToList().Select(x => new { Text = x.Nombre, Value = x.MonedaID, Codigo = x.Codigo });
+                var Monedas = db.Moneda.ToList().Select(x => new { Text = x.Nombre, Value = x.MonedaID, Codigo = x.Codigo });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = Monedas }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)

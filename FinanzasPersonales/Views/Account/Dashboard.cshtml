@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Guardar</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
         </div>
     </div>
 </div>
@@ -210,24 +210,66 @@
 </div>
 <div id="divNuevaCategoria" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4><i class="material-icons">account_balance</i> Nuevo Banco</h4>
+        <h4><i class="fa fa-plus-circle" style="display: inline !important"></i> Nueva categoría</h4>
         <div class="divider"></div>
         <div class="row">
             <form class="col s12" id="frmNuevaCategoría">
                 <div class="row">
                     <div class="input-field col s12 m12">
-                        <input name="NombreBanco" id="NombreBanco" type="text" class="validate">
-                        <label for="NombreBanco">Nombre del banco <span class="red-text">*</span></label>
+                        <input name="Nombre" id="NombreCategoria" type="text" class="validate">
+                        <label for="NombreCategoria">Nombre <span class="red-text">*</span></label>
                     </div>
 
                 </div>
                 <div class="row">
-                    <div class="input-field col s12 m12">
-                        <input id="Pais" name="Pais" type="text" class="validate">
-                        <label for="Pais">Pais <span class="red-text">*</span></label>
+                    <div class=" col s12 m6">
+                        <div class="row">
+                            <label>Estado</label>
+
+                        </div>
+                        <div class="row">
+                            <select id="EstadoCategoriaID" name="EstadoCategoriaID" class="EstadoCategoriaSelect select2"></select>
+
+                        </div>
+                    </div>
+                    <div class=" col s12 m6">
+                        <div class="row">
+                            <label>Tipo</label>
+
+                        </div>
+                        <div class="row">
+                            <select id="TipoCategoriaID" name="TipoCategoriaID" class="TipoCategoriaSelect select2"></select>
+
+                        </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class=" col s12 m6">
+                        <div class="row">
+                            <label>Categoría Base</label>
 
+                        </div>
+                        <div class="row">
+                            <select id="PadreCategoriaID" name="PadreCategoriaID" class="CategoriaSelect select2"></select>
+
+                        </div>
+                    </div>
+                    <div class=" col s12 m6">
+                        <div class="row">
+                            <label>Moneda</label>
+
+                        </div>
+                        <div class="row">
+                            <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
+                        <label for="Comentario">Comentario</label>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

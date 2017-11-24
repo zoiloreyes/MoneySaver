@@ -22,7 +22,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var EstadosCuentaBanco = db.EstadoCuentaBancoes.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCuentaBancoID });
+                var EstadosCuentaBanco = db.EstadoCuentaBanco.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCuentaBancoID });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = EstadosCuentaBanco }, JsonRequestBehavior.AllowGet);
             }catch(Exception e) {
                 return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
@@ -34,7 +34,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var CuentasBanco = db.CuentaBancoes.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NumeroCuenta = x.NumeroCuenta });
+                var CuentasBanco = db.CuentaBanco.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NumeroCuenta = x.NumeroCuenta });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = CuentasBanco }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ namespace FinanzasPersonales.Controllers
                 }
                 if (ModelState.IsValid)
                 {
-                    var nuevaCuenta = db.CuentaBancoes.Add(cuenta);
+                    var nuevaCuenta = db.CuentaBanco.Add(cuenta);
                     db.SaveChanges();
                     return Json(new { Success = true, Message = "Nueva cuenta creada", Data = nuevaCuenta });
                 }
@@ -76,7 +76,7 @@ namespace FinanzasPersonales.Controllers
         //Detalles/5
         public ActionResult DetalleCuenta(int? id)
         {
-            var cuenta = db.CuentaBancoes.Find(id);
+            var cuenta = db.CuentaBanco.Find(id);
             if (id != null)          
                 return View(cuenta);
             

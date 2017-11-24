@@ -357,13 +357,25 @@ namespace FinanzasPersonales.Models
                 .WillCascadeOnDelete(false);
         }
 
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.CuentaBanco> CuentaBancoes { get; set; }
-
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.Banco> Bancoes { get; set; }
-
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.EstadoCuentaBanco> EstadoCuentaBancoes { get; set; }
-
-        public System.Data.Entity.DbSet<FinanzasPersonales.Models.Moneda> Monedas { get; set; }
+        public virtual DbSet<Banco> Banco { get; set; }
+        public virtual DbSet<Categoria> Categoria { get; set; }
+        public virtual DbSet<Contacto> Contacto { get; set; }
+        public virtual DbSet<CuentaBanco> CuentaBanco { get; set; }
+        public virtual DbSet<CuentaPrestamo> CuentaPrestamo { get; set; }
+        public virtual DbSet<EstadoCategoria> EstadoCategoria { get; set; }
+        public virtual DbSet<EstadoCuentaBanco> EstadoCuentaBanco { get; set; }
+        public virtual DbSet<EstadoTarjetaCredito> EstadoTarjetaCredito { get; set; }
+        public virtual DbSet<EstadoTarjetaDebito> EstadoTarjetaDebito { get; set; }
+        public virtual DbSet<Marca> Marca { get; set; }
+        public virtual DbSet<Moneda> Moneda { get; set; }
+        public virtual DbSet<PatronRecurrente> PatronRecurrente { get; set; }
+        public virtual DbSet<PeriodoTemporal> PeriodoTemporal { get; set; }
+        public virtual DbSet<Presupuesto> Presupuesto { get; set; }
+        public virtual DbSet<PresupuestoCategoria> PresupuestoCategoria { get; set; }
+        public virtual DbSet<Recordatorio> Recordatorio { get; set; }
+        //public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TarjetaCredito> TarjetaCredito { get; set; }
+        public virtual DbSet<TipoCategoria> TipoCategoria { get; set; }
 
         public System.Data.Entity.DbSet<FinanzasPersonales.Models.User> Users1 { get; set; }
     }
