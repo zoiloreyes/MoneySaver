@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MoneySaver</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/plugincss")
+
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="@Url.Action("Index", "Home")" class="brand-logo"><img src="~/Content/img/MoneySaver.png" style="margin-left: 40px" width="60" height="60" alt="Logo" /></a>
+            <ul class="left hide-on-med-and-down"></ul>
+
+            @Html.Partial("_LoginPartial")
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
+                <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+            </ul>
+
+        </div>
+    </nav>
+
+    @*Menu Lateral*@
+    <style>
+           .nav-wrapper {
+               padding-left: 300px;
+           }
+
+           .sideContet {
+               padding-left: 300px;
+           }
+
+           .siteGreen {
+               background-color: #89BF43;
+           }
+
+           .waves-effect.waves-green .waves-ripple {
+               /* The alpha value allows the text and background color
+        of the button to still show through. */
+               background-color: rgba(137, 191, 67, 0.65);
+           }
+
+           .sideButton {
+               color: #757575;
+               transition: color 0.5s;
+           }
+
+               .sideButton:active {
+                   color: white
+               }
+
+           #flechaTipoTransaccion {
+               transition: transform 1s;
+           }
+
+           #contenedorFlechaTipoTransaccion {
+               transition: color 0.5s ease;
+           }
+    </style>
+    @using FinanzasPersonales.Extensions
+    @model FinanzasPersonales.Models.User
+    @{
+
+        var Telefono = User.Identity.GetPhoneNumber();
+        var Email = User.Identity.GetEmail();
+        ViewBag.Title = "Dashboard";
+    }
+
+    <ul id="slide-out" class="side-nav fixed">
+        <li>
+            <div class="user-view">
+                <div class="background siteGreen">
+                </div>
+                <a href="#!name"><span class="white-text name">@Model.Nombre @Model.Apellido</span></a>
+                <a href="#!email"><span class="white-text email">@Email</span></a>
+            </div>
+        </li>
+        <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
+        <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnRecordatorios"><i class="material-icons">schedule</i>Recordatorios</a></li>
+        <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnAgenda"><i class="material-icons">contacts</i>Agenda</a></li>
+        <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
+
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Cuentas</a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="">
+                    <a class="collapsible-header waves-effect waves-green sideButton">Cuentas de Banco<i class="material-icons">account_balance</i><i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul class="contenedorCuentaBanco">
+                            <li><a href="#divNuevaCuentaBanco" id="btnNuevaCuentaBanco" class="collapsible-header waves-effect waves-green sideButton modal-trigger">Nueva<i class="material-icons right">add_circle</i></a></li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="">
+                    <a class="collapsible-header waves-effect waves-green sideButton">Tarjetas de credito<i class="material-icons">credit_card</i><i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nueva<i class="material-icons right">add_circle</i></a></li>
+                            <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
+                            <li><a href="#!">Third</a></li>
+                            <li><a href="#!">Fourth</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="">
+                    <a class="collapsible-header waves-effect waves-green sideButton">Prestamos<i class="material-icons">attach_money</i><i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
+                            <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
+                            <li><a href="#!">Third</a></li>
+                            <li><a href="#!">Fourth</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="">
+                    <a class="collapsible-header waves-effect waves-green sideButton">Presupuestos<i class="material-icons">pie_chart</i><i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul class="contenedorPresupuesto">
+                            <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
+                            <li class="Presupuesto"><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
+                            <li><a href="#!">Third</a></li>
+                            <li><a href="#!">Fourth</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="">
+                    <a class="collapsible-header waves-effect waves-green sideButton">Reportes y Gráficas<i class="material-icons">insert_chart</i><i class="material-icons right">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a href="#!">Second</a></li>
+                            <li><a href="#!">Third</a></li>
+                            <li><a href="#!">Fourth</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+
+    @RenderBody()
+    <div class="container body-content">
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MoneySaver Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/pluginjs")
+    @Scripts.Render()
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
