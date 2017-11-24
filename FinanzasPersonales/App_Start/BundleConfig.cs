@@ -26,10 +26,10 @@ namespace FinanzasPersonales
             //          "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/font-awesome.css",
+                      "~/Content/font-awesome-4.7.0/css/font-awesome.css",
                       "~/Content/materialize.css",
                       "~/Content/site.css",
-                      "~/Content/animate.css"));
+                      "~/Content/animate.css").Include());
             bundles.Add(new StyleBundle("~/Content/plugincss").Include(
                       "~/Content/css/select2.min.css",
                       "~/Content/DataTable/datatables.min.css"));
