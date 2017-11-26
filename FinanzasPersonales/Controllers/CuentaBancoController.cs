@@ -49,13 +49,6 @@ namespace FinanzasPersonales.Controllers
             cuenta.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
             try
             {
-                foreach (ModelState modelState in ViewData.ModelState.Values)
-                {
-                    foreach (ModelError error in modelState.Errors)
-                    {
-                        Console.Write(error);
-                    }
-                }
                 if (ModelState.IsValid)
                 {
                     var nuevaCuenta = db.CuentasBanco.Add(cuenta);

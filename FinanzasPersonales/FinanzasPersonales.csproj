@@ -207,6 +207,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BancoController.cs" />
+    <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
     <Compile Include="Controllers\EstadoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -507,6 +508,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
+    <Folder Include="Views\Contacto\" />
     <Folder Include="Views\EstadoCategoria\" />
     <Folder Include="Views\Moneda\" />
     <Folder Include="Views\TipoCategoria\" />
