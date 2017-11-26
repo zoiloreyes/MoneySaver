@@ -34,6 +34,8 @@ namespace FinanzasPersonales.Models
         [StringLength(400)]
         public string Nombre { get; set; }
 
+        public string Icono { get; set; }
+
         public virtual EstadoCategoria EstadoCategoria { get; set; }
 
         public virtual Moneda Moneda { get; set; }
