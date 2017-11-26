@@ -24,50 +24,19 @@
 
         </div>
     </nav>
-
-    @*Menu Lateral*@
-    <style>
-           .nav-wrapper {
-               padding-left: 300px;
-           }
-
-           .sideContet {
-               padding-left: 300px;
-           }
-
-           .siteGreen {
-               background-color: #89BF43;
-           }
-
-           .waves-effect.waves-green .waves-ripple {
-               /* The alpha value allows the text and background color
-        of the button to still show through. */
-               background-color: rgba(137, 191, 67, 0.65);
-           }
-
-           .sideButton {
-               color: #757575;
-               transition: color 0.5s;
-           }
-
-               .sideButton:active {
-                   color: white
-               }
-
-           #flechaTipoTransaccion {
-               transition: transform 1s;
-           }
-
-           #contenedorFlechaTipoTransaccion {
-               transition: color 0.5s ease;
-           }
+    <style> 
+    .RenderBody{
+        margin-left: 325px;
+    }
     </style>
-
     @Html.Partial("_MenuDashBoard")
 
-    @RenderBody()
-    <div class="container body-content">
+    <div class="RenderBody">
+        @RenderBody()
+    </div>
 
+    <div class="container body-content RenderBody">
+        
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - MoneySaver Application</p>

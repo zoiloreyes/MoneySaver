@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BancoController.cs" />
     <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
     <Compile Include="Controllers\EstadoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -233,6 +234,10 @@
     <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.cs" />
     <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.Designer.cs">
       <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.cs" />
+    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.Designer.cs">
+      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -503,6 +508,7 @@
     <Content Include="Views\Shared\_MenuDashBoard.cshtml" />
     <Content Include="Views\Account\_PruebaDataTable.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -531,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711210433308_añadidaRelacionTransaccion.resx">
       <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711251804536_Agregar campo icono a categorias.resx">
+      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
