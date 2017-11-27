@@ -1,14 +1,14 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using FinanzasPersonales.Extensions;
+using FinanzasPersonales.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FinanzasPersonales.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace FinanzasPersonales.Controllers
 {
@@ -59,6 +59,33 @@ namespace FinanzasPersonales.Controllers
             var currentUser = UserManager.FindById(User.Identity.GetUserId());
             var MoneySaverUser = currentUser.User;
             return View(MoneySaverUser);
+        }
+        [HttpGet]
+        public ActionResult GetCuentas()
+        {
+            try
+            {
+                List<Object> cuentas = new List<Object>( db.CuentasPrestamo.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { Name = "CuentaPrestamoID", Value = x.CuentaPrestamoID, Text = x.NombrePrestamo }));
+                cuentas.AddRange(
+                    new List<Object>(db.CuentasBanco.ToList()
+                                    .Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID()))
+                                    .Select(x => new { Name = "CuentaBancoID", Value = x.CuentaBancoID, Text = x.NombreCuentaBanco })
+                                    )
+                                );
+                cuentas.AddRange(
+                    new List<Object>(db.TarjetasCredito.ToList()
+                            .Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID()))
+                            .Select(x => new { Name = "TarjetaCreditoID", Value = x.TarjetaCreditoID, Text = x.NombreTarjetaCredito })
+                                    )
+                                );
+
+                return Json(new { Success = true, Message = "Lista de cuentas cargada correctamente", Data = cuentas }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+
         }
         //
         // GET: /Account/Login
