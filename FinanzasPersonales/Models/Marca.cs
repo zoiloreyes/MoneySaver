@@ -12,7 +12,7 @@ namespace FinanzasPersonales.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Marca()
         {
-            TarjetaCredito = new HashSet<TarjetaCredito>();
+            //TarjetaCredito = new HashSet<TarjetaCredito>();
         }
 
         public int MarcaID { get; set; }
@@ -25,7 +25,7 @@ namespace FinanzasPersonales.Models
         [StringLength(128)]
         public string UsuarioID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TarjetaCredito> TarjetaCredito { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<TarjetaCredito> TarjetaCredito { get; set; }
     }
 }

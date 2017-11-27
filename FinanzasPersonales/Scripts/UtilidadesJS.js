@@ -40,6 +40,27 @@ function getEstadosCuentaBanco() {
     });
     return Datos;
 }
+function getEstadosTarjetaCredito() {
+    var Datos = [];
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/TarjetaCredito/GetEstadosTarjetaCredito",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
 function getContactos() {
     var Datos = [];
     $.ajax({
@@ -126,6 +147,48 @@ function getCuentasBanco() {
     });
     return Datos;
 }
+function getCuentasPrestamo() {
+    var Datos = []
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/CuentaPrestamo/GetCuentasPrestamo",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
+function getTarjetasCredito() {
+    var Datos = []
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/TarjetaCredito/GetTarjetasCredito",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
 //A partir de aqui los guardar
 function guardarBanco(banco) {
     $.ajax({
@@ -172,7 +235,50 @@ function guardarCuentaBanco(cuenta) {
         }
     });
 }
+function guardarCuentaPrestamo(prestamo) {
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "/CuentaPrestamo/CrearPrestamo",
+        data: JSON.stringify(prestamo),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data;
+            Materialize.toast(Data.Message, 3000, 'rounded')
+            console.log(Data);
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
 
+        }
+    });
+}
+function guardarTarjetaCredito(tarjeta) {
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "/TarjetaCredito/CrearTarjetaCredito",
+        data: JSON.stringify(tarjeta),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data;
+            Materialize.toast(Data.Message, 3000, 'rounded')
+            console.log(Data);
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+}
 
 function guardarContacto(contacto) {
     $.ajax({
