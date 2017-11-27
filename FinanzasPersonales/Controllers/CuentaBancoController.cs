@@ -22,7 +22,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var EstadosCuentaBanco = db.EstadoCuentaBanco.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCuentaBancoID });
+                var EstadosCuentaBanco = db.EstadosCuentaBanco.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCuentaBancoID });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = EstadosCuentaBanco }, JsonRequestBehavior.AllowGet);
             }catch(Exception e) {
                 return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
@@ -34,7 +34,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var CuentasBanco = db.CuentaBanco.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NumeroCuenta = x.NumeroCuenta });
+                var CuentasBanco = db.CuentasBanco.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NombreCuenta = x.NombreCuentaBanco });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = CuentasBanco }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -49,16 +49,9 @@ namespace FinanzasPersonales.Controllers
             cuenta.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
             try
             {
-                foreach (ModelState modelState in ViewData.ModelState.Values)
-                {
-                    foreach (ModelError error in modelState.Errors)
-                    {
-                        Console.Write(error);
-                    }
-                }
                 if (ModelState.IsValid)
                 {
-                    var nuevaCuenta = db.CuentaBanco.Add(cuenta);
+                    var nuevaCuenta = db.CuentasBanco.Add(cuenta);
                     db.SaveChanges();
                     return Json(new { Success = true, Message = "Nueva cuenta creada", Data = nuevaCuenta });
                 }
@@ -76,7 +69,7 @@ namespace FinanzasPersonales.Controllers
         //Detalles/5
         public ActionResult DetalleCuenta(int? id)
         {
-            var cuenta = db.CuentaBanco.Find(id);
+            var cuenta = db.CuentasBanco.Find(id);
             if (id != null)          
                 return View(cuenta);
             

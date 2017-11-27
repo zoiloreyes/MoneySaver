@@ -1,48 +1,11 @@
 ﻿@using FinanzasPersonales.Extensions
 @model FinanzasPersonales.Models.User
 @{
-
     var Telefono = User.Identity.GetPhoneNumber();
     var Email = User.Identity.GetEmail();
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     ViewBag.Title = "Dashboard";
 }
-<style>
-    .nav-wrapper {
-        padding-left: 300px;
-    }
-
-    .sideContet {
-        padding-left: 300px;
-    }
-
-    .siteGreen {
-        background-color: #89BF43;
-    }
-
-    .waves-effect.waves-green .waves-ripple {
-        /* The alpha value allows the text and background color
-     of the button to still show through. */
-        background-color: rgba(137, 191, 67, 0.65);
-    }
-
-    .sideButton {
-        color: #757575;
-        transition: color 0.5s;
-    }
-    
-    .sideButton:active{
-        color: white
-    }
-
-    #flechaTipoTransaccion{
-        transition: transform 1s;
-    }
-    #contenedorFlechaTipoTransaccion {
-        transition: color 0.5s ease;
-    }
-</style>
-
-@Html.Partial("_MenuDashBoard");
 
 <div class="sideContet">
     <div class="row">
@@ -57,489 +20,9 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 m12">
-            <div class="card material-table">
-                <div class="table-header">
-                    <span class="table-title">Transacciones</span>
-                    <div class="actions">
-                        <a href="#frmNuevaTransaccion" class="modal-trigger waves-effect btn-flat nopadding"><i class="fa fa-plus-circle green-text" aria-hidden="true"></i></a>
-                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
-                    </div>
-                </div>
-                <table id="datatable">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="red-text">
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>2009/01/12</td>
-                            <td>$86,000</td>
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>
-                            <td>$433,060</td>
-                        </tr>
-                        <tr>
-                            <td>Airi Satou</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>33</td>
-                            <td>2008/11/28</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td>Brielle Williamson</td>
-                            <td>Integration Specialist</td>
-                            <td>New York</td>
-                            <td>61</td>
-                            <td>2012/12/02</td>
-                            <td>$372,000</td>
-                        </tr>
-                        <tr>
-                            <td>Herrod Chandler</td>
-                            <td>Sales Assistant</td>
-                            <td>San Francisco</td>
-                            <td>59</td>
-                            <td>2012/08/06</td>
-                            <td>$137,500</td>
-                        </tr>
-                        <tr>
-                            <td>Rhona Davidson</td>
-                            <td>Integration Specialist</td>
-                            <td>Tokyo</td>
-                            <td>55</td>
-                            <td>2010/10/14</td>
-                            <td>$327,900</td>
-                        </tr>
-                        <tr>
-                            <td>Colleen Hurst</td>
-                            <td>Javascript Developer</td>
-                            <td>San Francisco</td>
-                            <td>39</td>
-                            <td>2009/09/15</td>
-                            <td>$205,500</td>
-                        </tr>
-                        <tr>
-                            <td>Sonya Frost</td>
-                            <td>Software Engineer</td>
-                            <td>Edinburgh</td>
-                            <td>23</td>
-                            <td>2008/12/13</td>
-                            <td>$103,600</td>
-                        </tr>
-                        <tr>
-                            <td>Jena Gaines</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>30</td>
-                            <td>2008/12/19</td>
-                            <td>$90,560</td>
-                        </tr>
-                        <tr>
-                            <td>Quinn Flynn</td>
-                            <td>Support Lead</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2013/03/03</td>
-                            <td>$342,000</td>
-                        </tr>
-                        <tr>
-                            <td>Charde Marshall</td>
-                            <td>Regional Director</td>
-                            <td>San Francisco</td>
-                            <td>36</td>
-                            <td>2008/10/16</td>
-                            <td>$470,600</td>
-                        </tr>
-                        <tr>
-                            <td>Haley Kennedy</td>
-                            <td>Senior Marketing Designer</td>
-                            <td>London</td>
-                            <td>43</td>
-                            <td>2012/12/18</td>
-                            <td>-$313,500</td>
-                        </tr>
-                        <tr>
-                            <td>Tatyana Fitzpatrick</td>
-                            <td>Regional Director</td>
-                            <td>London</td>
-                            <td>19</td>
-                            <td>2010/03/17</td>
-                            <td>-$385,750</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Silva</td>
-                            <td>Marketing Designer</td>
-                            <td>London</td>
-                            <td>66</td>
-                            <td>2012/11/27</td>
-                            <td>-$198,500</td>
-                        </tr>
-                        <tr>
-                            <td>Paul Byrd</td>
-                            <td>Chief Financial Officer (CFO)</td>
-                            <td>New York</td>
-                            <td>64</td>
-                            <td>2010/06/09</td>
-                            <td>-$725,000</td>
-                        </tr>
-                        <tr>
-                            <td>Gloria Little</td>
-                            <td>Systems Administrator</td>
-                            <td>New York</td>
-                            <td>59</td>
-                            <td>2009/04/10</td>
-                            <td>-$237,500</td>
-                        </tr>
-                        <tr>
-                            <td>Bradley Greer</td>
-                            <td>Software Engineer</td>
-                            <td>London</td>
-                            <td>41</td>
-                            <td>2012/10/13</td>
-                            <td>-$132,000</td>
-                        </tr>
-                        <tr>
-                            <td>Dai Rios</td>
-                            <td>Personnel Lead</td>
-                            <td>Edinburgh</td>
-                            <td>35</td>
-                            <td>2012/09/26</td>
-                            <td>-$217,500</td>
-                        </tr>
-                        <tr>
-                            <td>Jenette Caldwell</td>
-                            <td>Development Lead</td>
-                            <td>New York</td>
-                            <td>30</td>
-                            <td>2011/09/03</td>
-                            <td>-$345,000</td>
-                        </tr>
-                        <tr>
-                            <td>Yuri Berry</td>
-                            <td>Chief Marketing Officer (CMO)</td>
-                            <td>New York</td>
-                            <td>40</td>
-                            <td>2009/06/25</td>
-                            <td>-$675,000</td>
-                        </tr>
-                        <tr>
-                            <td>Caesar Vance</td>
-                            <td>Pre-Sales Support</td>
-                            <td>New York</td>
-                            <td>21</td>
-                            <td>2011/12/12</td>
-                            <td>-$106,450</td>
-                        </tr>
-                        <tr>
-                            <td>Doris Wilder</td>
-                            <td>Sales Assistant</td>
-                            <td>Sidney</td>
-                            <td>23</td>
-                            <td>2010/09/20</td>
-                            <td>-$85,600</td>
-                        </tr>
-                        <tr>
-                            <td>Angelica Ramos</td>
-                            <td>Chief Executive Officer (CEO)</td>
-                            <td>London</td>
-                            <td>47</td>
-                            <td>2009/10/09</td>
-                            <td>-$1,200,000</td>
-                        </tr>
-                        <tr>
-                            <td>Gavin Joyce</td>
-                            <td>Developer</td>
-                            <td>Edinburgh</td>
-                            <td>42</td>
-                            <td>2010/12/22</td>
-                            <td>-$92,575</td>
-                        </tr>
-                        <tr>
-                            <td>Jennifer Chang</td>
-                            <td>Regional Director</td>
-                            <td>Singapore</td>
-                            <td>28</td>
-                            <td>2010/11/14</td>
-                            <td>-$357,650</td>
-                        </tr>
-                        <tr>
-                            <td>Brenden Wagner</td>
-                            <td>Software Engineer</td>
-                            <td>San Francisco</td>
-                            <td>28</td>
-                            <td>2011/06/07</td>
-                            <td>-$206,850</td>
-                        </tr>
-                        <tr>
-                            <td>Fiona Green</td>
-                            <td>Chief Operating Officer (COO)</td>
-                            <td>San Francisco</td>
-                            <td>48</td>
-                            <td>2010/03/11</td>
-                            <td>-$850,000</td>
-                        </tr>
-                        <tr>
-                            <td>Shou Itou</td>
-                            <td>Regional Marketing</td>
-                            <td>Tokyo</td>
-                            <td>20</td>
-                            <td>2011/08/14</td>
-                            <td>-$163,000</td>
-                        </tr>
-                        <tr>
-                            <td>Michelle House</td>
-                            <td>Integration Specialist</td>
-                            <td>Sidney</td>
-                            <td>37</td>
-                            <td>2011/06/02</td>
-                            <td>-$95,400</td>
-                        </tr>
-                        <tr>
-                            <td>Suki Burks</td>
-                            <td>Developer</td>
-                            <td>London</td>
-                            <td>53</td>
-                            <td>2009/10/22</td>
-                            <td>-$114,500</td>
-                        </tr>
-                        <tr>
-                            <td>Prescott Bartlett</td>
-                            <td>Technical Author</td>
-                            <td>London</td>
-                            <td>27</td>
-                            <td>2011/05/07</td>
-                            <td>-$145,000</td>
-                        </tr>
-                        <tr>
-                            <td>Gavin Cortez</td>
-                            <td>Team Leader</td>
-                            <td>San Francisco</td>
-                            <td>22</td>
-                            <td>2008/10/26</td>
-                            <td>-$235,500</td>
-                        </tr>
-                        <tr>
-                            <td>Martena Mccray</td>
-                            <td>Post-Sales support</td>
-                            <td>Edinburgh</td>
-                            <td>46</td>
-                            <td>2011/03/09</td>
-                            <td>-$324,050</td>
-                        </tr>
-                        <tr>
-                            <td>Unity Butler</td>
-                            <td>Marketing Designer</td>
-                            <td>San Francisco</td>
-                            <td>47</td>
-                            <td>2009/12/09</td>
-                            <td>-$85,675</td>
-                        </tr>
-                        <tr>
-                            <td>Howard Hatfield</td>
-                            <td>Office Manager</td>
-                            <td>San Francisco</td>
-                            <td>51</td>
-                            <td>2008/12/16</td>
-                            <td>-$164,500</td>
-                        </tr>
-                        <tr>
-                            <td>Hope Fuentes</td>
-                            <td>Secretary</td>
-                            <td>San Francisco</td>
-                            <td>41</td>
-                            <td>2010/02/12</td>
-                            <td>-$109,850</td>
-                        </tr>
-                        <tr>
-                            <td>Vivian Harrell</td>
-                            <td>Financial Controller</td>
-                            <td>San Francisco</td>
-                            <td>62</td>
-                            <td>2009/02/14</td>
-                            <td>-$452,500</td>
-                        </tr>
-                        <tr>
-                            <td>Timothy Mooney</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>37</td>
-                            <td>2008/12/11</td>
-                            <td>-$136,200</td>
-                        </tr>
-                        <tr>
-                            <td>Jackson Bradshaw</td>
-                            <td>Director</td>
-                            <td>New York</td>
-                            <td>65</td>
-                            <td>2008/09/26</td>
-                            <td>-$645,750</td>
-                        </tr>
-                        <tr>
-                            <td>Olivia Liang</td>
-                            <td>Support Engineer</td>
-                            <td>Singapore</td>
-                            <td>64</td>
-                            <td>2011/02/03</td>
-                            <td>-$234,500</td>
-                        </tr>
-                        <tr>
-                            <td>Bruno Nash</td>
-                            <td>Software Engineer</td>
-                            <td>London</td>
-                            <td>38</td>
-                            <td>2011/05/03</td>
-                            <td>-$163,500</td>
-                        </tr>
-                        <tr>
-                            <td>Sakura Yamamoto</td>
-                            <td>Support Engineer</td>
-                            <td>Tokyo</td>
-                            <td>37</td>
-                            <td>2009/08/19</td>
-                            <td>-$139,575</td>
-                        </tr>
-                        <tr>
-                            <td>Thor Walton</td>
-                            <td>Developer</td>
-                            <td>New York</td>
-                            <td>61</td>
-                            <td>2013/08/11</td>
-                            <td>-$98,540</td>
-                        </tr>
-                        <tr>
-                            <td>Finn Camacho</td>
-                            <td>Support Engineer</td>
-                            <td>San Francisco</td>
-                            <td>47</td>
-                            <td>2009/07/07</td>
-                            <td>-$87,500</td>
-                        </tr>
-                        <tr>
-                            <td>Serge Baldwin</td>
-                            <td>Data Coordinator</td>
-                            <td>Singapore</td>
-                            <td>64</td>
-                            <td>2012/04/09</td>
-                            <td>-$138,575</td>
-                        </tr>
-                        <tr>
-                            <td>Zenaida Frank</td>
-                            <td>Software Engineer</td>
-                            <td>New York</td>
-                            <td>63</td>
-                            <td>2010/01/04</td>
-                            <td>-$125,250</td>
-                        </tr>
-                        <tr>
-                            <td>Zorita Serrano</td>
-                            <td>Software Engineer</td>
-                            <td>San Francisco</td>
-                            <td>56</td>
-                            <td>2012/06/01</td>
-                            <td>-$115,000</td>
-                        </tr>
-                        <tr>
-                            <td>Jennifer Acosta</td>
-                            <td>Junior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>43</td>
-                            <td>2013/02/01</td>
-                            <td>-$75,650</td>
-                        </tr>
-                        <tr>
-                            <td>Cara Stevens</td>
-                            <td>Sales Assistant</td>
-                            <td>New York</td>
-                            <td>46</td>
-                            <td>2011/12/06</td>
-                            <td>-$145,600</td>
-                        </tr>
-                        <tr>
-                            <td>Hermione Butler</td>
-                            <td>Regional Director</td>
-                            <td>London</td>
-                            <td>47</td>
-                            <td>2011/03/21</td>
-                            <td>-$356,250</td>
-                        </tr>
-                        <tr>
-                            <td>Lael Greer</td>
-                            <td>Systems Administrator</td>
-                            <td>London</td>
-                            <td>21</td>
-                            <td>2009/02/27</td>
-                            <td>-$103,500</td>
-                        </tr>
-                        <tr>
-                            <td>Jonas Alexander</td>
-                            <td>Developer</td>
-                            <td>San Francisco</td>
-                            <td>30</td>
-                            <td>2010/07/14</td>
-                            <td>-$86,500</td>
-                        </tr>
-                        <tr>
-                            <td>Shad Decker</td>
-                            <td>Regional Director</td>
-                            <td>Edinburgh</td>
-                            <td>51</td>
-                            <td>2008/11/13</td>
-                            <td>-$183,000</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Bruce</td>
-                            <td>Javascript Developer</td>
-                            <td>Singapore</td>
-                            <td>29</td>
-                            <td>2011/06/27</td>
-                            <td>-$183,000</td>
-                        </tr>
-                        <tr>
-                            <td>Donna Snider</td>
-                            <td>Customer Support</td>
-                            <td>New York</td>
-                            <td>27</td>
-                            <td>2011/01/25</td>
-                            <td>$112,000</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+
+@Html.Partial("_PruebaDataTable")
+
     <div id="frmNuevaTransaccion" class="modal bottom-sheet">
         <div class="modal-content">
             <h4>Nueva Transacción</h4>
@@ -573,7 +56,7 @@
 
                     </div>
                     <div class="row">
-                        <select id="cuentaObjetivo" name="MonedaID" class="MonedaSelect select2"></select>
+                        <select id="contactoTransacción" name="ContactoID" class="ContactoSelect select2"></select>
 
                     </div>
                 </div>
@@ -606,7 +89,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+            <a href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
         </div>
     </div>
 </div>
@@ -616,6 +99,13 @@
         <div class="divider"></div>
         <div class="row">
             <form class="col s12" id="frmNuevaCuentaBanco">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreCuentaBanco" id="NombreCuentaBanco" type="text" class="validate">
+                        <label for="NombreCuentaBanco">Nombre de cuenta <span class="red-text">*</span></label>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <input name="NumeroCuenta" id="NumeroCuenta" type="text" class="validate">
@@ -697,6 +187,182 @@
         <a data-form="frmNuevaCuentaBanco" href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
+<div id="divNuevaTarjetaCredito" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">credit_card</i> Nueva Tarjeta de credito</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaTarjetaCredito">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreTarjetaCredito" id="NombreTarjetaCredito" type="text" class="validate">
+                        <label for="NombreTarjetaCredito">Nombre de Tarjeta<span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NumeroTarjeta" id="NumeroTarjeta" type="text" class="validate">
+                        <label for="NumeroTarjeta">Numero de tarjeta <span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="DeudaInicial" step="0.01" name="DeudaInicial" type="number" class="validate">
+                        <label for="DeudaInicial">Deuda Inicial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="LimiteTarjetaCredito" step="0.01" name="LimiteCredito" type="number" class="validate">
+                        <label for="LimiteCredito">Limite de credito</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="NombreTitular" value="@Model.Nombre" name="NombreTitular" type="text" class="validate">
+                        <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input name="ApellidoTitular" value="@Model.Apellido" id="ApellidoTitular" type="text" class="validate">
+                        <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Estado</label>
+                        </div>
+                        <div class="row">
+                            <select id="EstadoTarjetaCreditoID" name="EstadoTarjetaCreditoID" class="EstadoTarjetaCreditoSelect select2"></select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Moneda</label>
+
+                        </div>
+                        <div class="row">
+                            <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Banco   </label><a href="#divNuevoBanco" class="btn-floating waves-effect waves-green nuevoBanco green modal-trigger"><i class="material-icons">add</i></a>
+
+                        </div>
+                        <div class="row">
+                            <select id="BancoID" name="BancoID" class="BancoSelect select2"></select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="FechaInicio" name="FechaInicio" class="datepicker">
+                        <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="FechaExpiracion" name="FechaExpiracion" class="datepicker">
+                        <label for="FechaExpiracion" data-error="wrong" data-success="right">Fecha de Expiración</label>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="CVC" name="CVC" type="text" class="validate">
+                        <label for="CVC">CVC</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="TasaEfectivaAnual" step="0.01" name="TasaEfectivaAnual" type="number" class="validate">
+                        <label for="TasaEfectivaAnual">Tasa Efectiva Anual</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
+                        <label for="Comentario">Comentario</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaTarjetaCredito" href="#!" class="modal-action btnSubmitTarjetaCredito modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+<div id="divNuevaCuentaPrestamo" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">attach_money</i> Nuevo Prestamo</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaCuentaPrestamo">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombrePrestamo" id="NombrePrestamo" type="text" class="validate">
+                        <label for="NombrePrestamo">Nombre del Prestamo<span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="CapitalInicialPrestamo" step="0.01" name="CapitalInicial" type="number" class="validate">
+                        <label for="CapitalInicial">Capital Inicial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="TasaAnualPrestamo" step="0.01" name="TasaAnual" type="number" class="validate">
+                        <label for="TasaAnual">Tasa Anual</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="PagosPorAnoPrestamo" name="PagosPorAno" type="number" class="validate">
+                        <label for="PagosPorAno">Pagos por año</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="NumeroDePagosPrestamo" name="NumeroPagos" type="number" class="validate">
+                        <label for="NumeroDePagosPrestamo">Número de pagos</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Moneda</label>
+                        </div>
+                        <div class="row">
+                            <select id="MonedaPrestamos" name="MonedaID" class="MonedaSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="FechaInicioPrestamo" name="FechaInicio" class="datepicker">
+                        <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaCuentaPrestamo" href="#!" class="modal-action btnSubmitCuentaPrestamo modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
 <div id="divNuevoBanco" class="modal modal-fixed-footer">
     <div class="modal-content">
         <h4><i class="material-icons">account_balance</i> Nuevo Banco</h4>
@@ -727,72 +393,68 @@
 </div>
 <div id="divNuevaCategoria" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4><i class="fa fa-plus-circle" style="display: inline !important"></i> Nueva categoría</h4>
+        <h4><i class="fa fa-plus-circle green-text" style="display: inline !important"></i> Nueva Categoría</h4>
         <div class="divider"></div>
         <div class="row">
             <form class="col s12" id="frmNuevaCategoría">
                 <div class="row">
                     <div class="input-field col s12 m12">
-                        <input name="Nombre" id="NombreCategoria" type="text" class="validate">
-                        <label for="NombreCategoria">Nombre <span class="red-text">*</span></label>
+                        <input name="NombreBanco" id="NombreBanco" type="text" class="validate">
+                        <label for="NombreBanco">Nombre del banco <span class="red-text">*</span></label>
                     </div>
 
                 </div>
                 <div class="row">
-                    <div class=" col s12 m6">
-                        <div class="row">
-                            <label>Estado</label>
-
-                        </div>
-                        <div class="row">
-                            <select id="EstadoCategoriaID" name="EstadoCategoriaID" class="EstadoCategoriaSelect select2"></select>
-
-                        </div>
-                    </div>
-                    <div class=" col s12 m6">
-                        <div class="row">
-                            <label>Tipo</label>
-
-                        </div>
-                        <div class="row">
-                            <select id="TipoCategoriaID" name="TipoCategoriaID" class="TipoCategoriaSelect select2"></select>
-
-                        </div>
+                    <div class="input-field col s12 m12">
+                        <input id="Pais" name="Pais" type="text" class="validate">
+                        <label for="Pais">Pais <span class="red-text">*</span></label>
                     </div>
                 </div>
-                <div class="row">
-                    <div class=" col s12 m6">
-                        <div class="row">
-                            <label>Categoría Base</label>
 
-                        </div>
-                        <div class="row">
-                            <select id="PadreCategoriaID" name="PadreCategoriaID" class="CategoriaSelect select2"></select>
-
-                        </div>
-                    </div>
-                    <div class=" col s12 m6">
-                        <div class="row">
-                            <label>Moneda</label>
-
-                        </div>
-                        <div class="row">
-                            <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
-                        <label for="Comentario">Comentario</label>
-                    </div>
-                </div>
             </form>
         </div>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
         <a data-form="frmNuevoBanco" href="#!" class="modal-action btnSubmitBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+<div id="divNuevoContacto" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons green-text">person_add</i> Nuevo Contacto</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevoContacto">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="Nombre" id="NombreContacto" type="text" class="validate">
+                        <label for="Nombre">Nombre <span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input name="Telefono" id="TelefonoContacto" type="text" class="validate">
+                        <label for="TelefonoContacto">Telefono <span class="red-text"></span></label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input name="Email" id="EmailContacto" type="email" class="validate">
+                        <label for="EmailContacto">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="DireccionContacto" name="Direccion" class="materialize-textarea"></textarea>
+                        <label for="Direccion">Dirección</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevoContacto" href="#!" class="modal-action btnSubmitContacto modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
 @section Scripts {
@@ -820,7 +482,12 @@
            cargarSelectMoneda();
            cargarSelectBanco();
            cargarSelectEstadoCuentaBanco();
+           cargarSelectEstadoTarjetaCredito();
            cargarCuentasBanco();
+           cargarCuentasPrestamo();
+           cargarTarjetasCredito();
+           cargarSelectContacto();
+
            $('.datepicker').pickadate({
                selectMonths: true, // Creates a dropdown to control month
                selectYears: 90, // Creates a dropdown of 15 years to control year,
@@ -882,9 +549,81 @@
                 $(".select2").select2({ width: '100%' });
 
             }
+            function cargarSelectEstadoTarjetaCredito() {
+                $(".EstadoTarjetaCreditoSelect").empty();
+                
+                var estados = getEstadosCuentaBanco();
+                if (estados.length > 0) {
+                    $(".EstadoTarjetaCreditoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in estados) {
+                        estado = estados[i];
+                        $(".EstadoTarjetaCreditoSelect").append(
+                            $("<option>", {
+                                value: estado.Value,
+                                html: estado.Text
+                            })
+                        );
+                    }
+                } else {
+                    $(".EstadoTarjetaCreditoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay opciones disponibles"
+                        })
+                    );
+                }
+                
+                $(".select2").select2({ width: '100%' });
+
+            }
             function cargarSelectEstadoCuentaBanco() {
                 $(".EstadoCuentaBancoSelect").empty();
-                $(".EstadoCuentaBancoSelect").append(
+                
+                var estados = getEstadosCuentaBanco();
+                if (estados.length > 0) {
+                    $(".EstadoCuentaBancoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in estados) {
+                        estado = estados[i];
+                        $(".EstadoCuentaBancoSelect").append(
+                            $("<option>", {
+                                value: estado.Value,
+                                html: estado.Text
+                            })
+                        );
+                    }
+                } else {
+                    $(".EstadoCuentaBancoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay opciones disponibles"
+                        })
+                    );
+                }
+               
+                $(".select2").select2({ width: '100%' });
+
+            }
+            function cargarSelectContacto() {
+                $(".ContactoSelect").empty();
+                $(".ContactoSelect").append(
                     $("<option>", {
                         value: "",
                         disabled: "disabled",
@@ -892,14 +631,14 @@
                         html: "Selecciona una opcion"
                     })
                 );
-                var estados = getEstadosCuentaBanco();
+                var contactos = getContactos();
 
-                for (var i in estados) {
-                    estado = estados[i];
-                    $(".EstadoCuentaBancoSelect").append(
+                for (var i in contactos) {
+                    contacto = contactos[i];
+                    $(".ContactoSelect").append(
                         $("<option>", {
-                            value: estado.Value,
-                            html: estado.Text
+                            value: contacto.Id,
+                            html: contacto.Nombre
                         })
                     );
                 }
@@ -914,11 +653,47 @@
                     $(".contenedorCuentaBanco").append(
                         $("<li>", {
                             class: "CuentaBancoLi"
-                        }).data("CuentaBancoID", cuentaI.CuentaBancoID).append(
+                        }).append(
                             $("<a>", {
                                 class: "waves-effect waves-green sideButton",
-                                html: cuentaI.NumeroCuenta
-                            })
+                                html: cuentaI.NombreCuenta
+                        }).data("CuentaBancoID", cuentaI.CuentaBancoID)
+                            )
+                    )
+                }
+                //< li > <a href="#!" class="">Second</a></li >
+            }
+            function cargarCuentasPrestamo() {
+                $(".contenedorCuentaPrestamo").find(".CuentaPrestamoLi").remove();
+                var cuentasDePrestamo = getCuentasPrestamo();
+                for (var i in cuentasDePrestamo) {
+                    var cuentaI = cuentasDePrestamo[i];
+                    $(".contenedorCuentaPrestamo").append(
+                        $("<li>", {
+                            class: "CuentaPrestamoLi"
+                        }).append(
+                            $("<a>", {
+                                class: "waves-effect waves-green sideButton",
+                                html: cuentaI.NombrePrestamo
+                        }).data("CuentaPrestamoID", cuentaI.CuentaPrestamoID)
+                            )
+                    )
+                }
+                //< li > <a href="#!" class="">Second</a></li >
+            }
+            function cargarTarjetasCredito() {
+                $(".contenedorTarjetasCredito").find(".TarjetaCreditoLi").remove();
+                var tarjetasCredito = getTarjetasCredito();
+                for (var i in tarjetasCredito) {
+                    var cuentaI = tarjetasCredito[i];
+                    $(".contenedorTarjetasCredito").append(
+                        $("<li>", {
+                            class: "TarjetaCreditoLi"
+                        }).append(
+                            $("<a>", {
+                                class: "waves-effect waves-green sideButton",
+                                html: cuentaI.NombreTarjeta
+                        }).data("TarjetaCreditoID", cuentaI.TarjetaCreditoID)
                             )
                     )
                 }
@@ -929,6 +704,25 @@
                 guardarBanco(objeto);
                 $("#" + $(this).data("form"))[0].reset();
                 cargarSelectBanco()
+            });
+            
+            $(".btnSubmitCuentaPrestamo").click(function () {
+                var objeto = objectifyForm($("#" + $(this).data("form")));
+                guardarCuentaPrestamo(objeto);
+                $("#" + $(this).data("form"))[0].reset();
+                cargarCuentasPrestamo();
+            });
+            $(".btnSubmitTarjetaCredito").click(function () {
+                var objeto = objectifyForm($("#" + $(this).data("form")));
+                guardarTarjetaCredito(objeto);
+                $("#" + $(this).data("form"))[0].reset();
+                cargarTarjetasCredito();
+            });
+            $(".btnSubmitContacto").click(function () {
+                var objeto = objectifyForm($("#" + $(this).data("form")));
+                guardarContacto(objeto);
+                $("#" + $(this).data("form"))[0].reset();
+                cargarSelectContacto();
             });
             $(".btnSubmitCuentaBanco").click(function () {
                 var objeto = objectifyForm($("#" + $(this).data("form")));

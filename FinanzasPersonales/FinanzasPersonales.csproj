@@ -207,10 +207,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BancoController.cs" />
+    <Compile Include="Controllers\ContactoController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
+    <Compile Include="Controllers\CuentaPrestamoController.cs" />
+    <Compile Include="Controllers\CuentraPrestamoController.cs" />
+    <Compile Include="Controllers\EstadoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonedaController.cs" />
+    <Compile Include="Controllers\TarjetaCreditoController.cs" />
+    <Compile Include="Controllers\TipoCategoriaController.cs" />
+    <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,9 +239,21 @@
     <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.Designer.cs">
       <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711241808395_NuevoSeed.cs" />
-    <Compile Include="Migrations\201711241808395_NuevoSeed.Designer.cs">
-      <DependentUpon>201711241808395_NuevoSeed.cs</DependentUpon>
+    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.cs" />
+    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.Designer.cs">
+      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.cs" />
+    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.Designer.cs">
+      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270207497_nomarca.cs" />
+    <Compile Include="Migrations\201711270207497_nomarca.Designer.cs">
+      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270217049_nomarca2.cs" />
+    <Compile Include="Migrations\201711270217049_nomarca2.Designer.cs">
+      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -268,6 +288,8 @@
   <ItemGroup>
     <Content Include="Base de Datos\Creacion de Base de datos.sql" />
     <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\BSBThemes\all-themes.css" />
@@ -379,6 +401,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -497,14 +521,23 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Dashboard.cshtml" />
     <Content Include="Views\CuentaBanco\DetalleCuenta.cshtml" />
-    <Content Include="Views\Account\_MenuDashBoard.cshtml" />
+    <Content Include="Views\Shared\_MenuDashBoard.cshtml" />
     <Content Include="Views\Account\_PruebaDataTable.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Account\Resumen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
+    <Folder Include="Views\Contacto\" />
+    <Folder Include="Views\CuentaPrestamo\" />
+    <Folder Include="Views\CuentraPrestamo\" />
+    <Folder Include="Views\EstadoCategoria\" />
     <Folder Include="Views\Moneda\" />
+    <Folder Include="Views\TarjetaCredito\" />
+    <Folder Include="Views\TipoCategoria\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -525,8 +558,17 @@
     <EmbeddedResource Include="Migrations\201711210433308_añadidaRelacionTransaccion.resx">
       <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241808395_NuevoSeed.resx">
-      <DependentUpon>201711241808395_NuevoSeed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711251804536_Agregar campo icono a categorias.resx">
+      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711262312347_nuevoCampoNombre.resx">
+      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270207497_nomarca.resx">
+      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270217049_nomarca2.resx">
+      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

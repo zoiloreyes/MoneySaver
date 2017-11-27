@@ -1,0 +1,125 @@
+﻿@model IEnumerable<FinanzasPersonales.Models.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col s12 m12">
+        <div class="card material-table">
+            <div class="table-header">
+                <span class="table-title">Categorias</span>
+                <div class="actions">
+                    <a href="#NuevaCategoria" class="modal-trigger waves-effect btn-flat nopadding "><i class="fa fa-plus-circle green-text"></i></a>
+                    <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                </div>
+            </div>
+            <table id="datatable">
+                <thead>
+                    <tr>
+                        <th>Icono</th>
+                        <th>Nombre</th>
+                        <th>Moneda</th>
+                        <th>Comentario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <i class="fa @item.Icono" aria-hidden="true"></i>
+                            </td>
+                            <td>
+                                @item.Nombre
+                            </td>
+                            <td>
+                                @item.Moneda
+                            </td>
+                            <td>
+                                @item.Comentario
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="NuevaCategoria" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Nueva Categoria</h4>
+        <div class="row">
+            <div class="input-field col s2">
+                <p>Icono</p>
+                <a style="font-size:40px; color:#000"; href="#ModalIconos" class="modal-trigger "><i class="fa fa-credit-card" aria-hidden="true"></i></a>                
+                @*<input type="text" name="Icono" value="" class="" />
+                <label for="Icono"> Icono</label>*@
+            </div>
+            <div class="input-field col s6">
+                <input type="text" name="Nombre" value="" class="" />
+                <label for="Nombre"> Nombre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <input type="text" name="Moneda" value="" class="" />
+                <label for="Moneda"> Moneda</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="text" name="Comentario" value="" class="" />
+                <label for="Comentario"> Comentario</label>
+            </div>
+            <a href="#!" class="modal-action btnSubmitCategoria modal-close waves-effect waves-green btn-flat green white-text">Agregar</a>
+        </div>
+    </div>
+</div>
+
+@*Modal Iconos*@
+<div id="ModalIconos" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Seleccione un icono</h4>
+
+        <style>.IconoSelect{color:#000; padding:15px 10px; font-size:50px; width:55px;}</style>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-cutlery" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-apple" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-credit-card-alt" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-tag" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-bus" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-plane" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-coffee" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-users" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-gift" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-medkit" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-phone" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-exchange" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-home" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-headphones" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-money" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-diamond" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-ticket" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-bolt" aria-hidden="true"></i></a>
+        <a href="#!" class="IconoSelect" id=""><i class="fa fa-paw" aria-hidden="true"></i></a>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+
+
+    </script>
+}

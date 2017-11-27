@@ -26,6 +26,10 @@ namespace FinanzasPersonales.Models
         public int MonedaID { get; set; }
 
         [Required]
+        [StringLength(120)]
+        public string NombreTarjetaCredito { get; set; }
+
+        [Required]
         [StringLength(40)]
         public string NumeroTarjeta { get; set; }
 
@@ -43,7 +47,7 @@ namespace FinanzasPersonales.Models
         [Column(TypeName = "date")]
         public DateTime FechaExpiracion { get; set; }
 
-        public int MarcaID { get; set; }
+        //public int MarcaID { get; set; }
 
         [Required]
         [StringLength(3)]
@@ -62,7 +66,7 @@ namespace FinanzasPersonales.Models
 
         public virtual EstadoTarjetaCredito EstadoTarjetaCredito { get; set; }
 
-        public virtual Marca Marca { get; set; }
+        //public virtual Marca Marca { get; set; }
 
         public virtual Moneda Moneda { get; set; }
 

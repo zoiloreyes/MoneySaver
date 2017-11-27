@@ -67,3 +67,7 @@ body {
 .flip {
     transform: rotate(-180deg);
 }
+
+.RenderBody {
+    margin-left: 325px;
+}

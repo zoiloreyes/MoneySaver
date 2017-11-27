@@ -1,25 +1,62 @@
 ﻿@using FinanzasPersonales.Extensions
-@model FinanzasPersonales.Models.User
+@*@model FinanzasPersonales.Models.User*@
 @{
 
     var Telefono = User.Identity.GetPhoneNumber();
     var Email = User.Identity.GetEmail();
+    
     ViewBag.Title = "Dashboard";
 }
+<style>
+    .nav-wrapper {
+        padding-left: 300px;
+    }
+
+    .sideContet {
+        padding-left: 0;
+    }
+
+    .siteGreen {
+        background-color: #89BF43;
+    }
+
+    .waves-effect.waves-green .waves-ripple {
+        /* The alpha value allows the text and background color
+        of the button to still show through. */
+        background-color: rgba(137, 191, 67, 0.65);
+    }
+
+    .sideButton {
+        color: #757575;
+        transition: color 0.5s;
+    }
+
+        .sideButton:active {
+            color: white
+        }
+
+    #flechaTipoTransaccion {
+        transition: transform 1s;
+    }
+
+    #contenedorFlechaTipoTransaccion {
+        transition: color 0.5s ease;
+    }
+</style>
 
 <ul id="slide-out" class="side-nav fixed">
     <li>
         <div class="user-view">
             <div class="background siteGreen">
             </div>
-            <a href="#!name"><span class="white-text name">@Model.Nombre @Model.Apellido</span></a>
-            <a href="#!email"><span class="white-text email">@Email</span></a>
+            <a href="#!name"><span class="white-text name"> @*@Model.Nombre @Model.Apellido*@</span></a>
+            <a href="#!email"><span class="white-text email"> @Email</span></a>
         </div>
     </li>
-    <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
+    <li class="sideButton"><a href="@Url.Action("Resumen","Account")" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnRecordatorios"><i class="material-icons">schedule</i>Recordatorios</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnAgenda"><i class="material-icons">contacts</i>Agenda</a></li>
-    <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
+    <li class="sideButton"><a href="@Url.Action("Index", "Categoria")"  class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
 
     <li><div class="divider"></div></li>
     <li><a class="subheader">Cuentas</a></li>
@@ -41,11 +78,9 @@
             <li class="">
                 <a class="collapsible-header waves-effect waves-green sideButton">Tarjetas de credito<i class="material-icons">credit_card</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
-                    <ul>
-                        <li><a href="#!" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton">Nueva<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
-                        <li><a href="#!">Third</a></li>
-                        <li><a href="#!">Fourth</a></li>
+                    <ul class="contenedorTarjetasCredito">
+                        <li><a href="#divNuevaTarjetaCredito" id="btnNuevaTarjetaCredito" class="collapsible-header waves-effect waves-green sideButton modal-trigger">Nueva<i class="material-icons right">add_circle</i></a></li>
+
                     </ul>
                 </div>
             </li>
@@ -56,11 +91,8 @@
             <li class="">
                 <a class="collapsible-header waves-effect waves-green sideButton">Prestamos<i class="material-icons">attach_money</i><i class="material-icons right">arrow_drop_down</i></a>
                 <div class="collapsible-body">
-                    <ul>
-                        <li><a href="#!" class="collapsible-header waves-effect waves-green sideButton">Nuevo<i class="material-icons right">add_circle</i></a></li>
-                        <li><a href="#!" class="waves-effect waves-green sideButton">Second</a></li>
-                        <li><a href="#!">Third</a></li>
-                        <li><a href="#!">Fourth</a></li>
+                    <ul class="contenedorCuentaPrestamo">
+                        <li><a href="#divNuevaCuentaPrestamo" id="btnNuevaCuentaPrestamo" class="collapsible-header waves-effect waves-green sideButton modal-trigger">Nuevo<i class="material-icons right">add_circle</i></a></li>
                     </ul>
                 </div>
             </li>
