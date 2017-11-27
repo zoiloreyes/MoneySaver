@@ -425,6 +425,27 @@ function getCuentasBanco() {
     });
     return Datos;
 }
+function getCuentas() {
+    var Datos = []
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Account/GetCuentas",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
 function getCuentasPrestamo() {
     var Datos = []
     $.ajax({

@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="row">
-                        <select id="cuentaObjetivo" name="CategoriaID" class="CategoriaSelect select2"></select>
+                        <select id="categoriaId" name="" class="CategoriaSelect select2"></select>
 
                     </div>
                 </div>
@@ -76,7 +76,7 @@
 
                     </div>
                     <div class="row">
-                        <select id="cuentaObjetivo" name="MonedaID" class="MonedaSelect select2"></select>
+                        <select id="cuentaObjetivo" name="" class="CuentaSelect select2"></select>
 
                     </div>
                 </div>
@@ -484,6 +484,7 @@
            cargarSelectBanco();
            cargarSelectEstadoCuentaBanco();
            cargarSelectEstadoTarjetaCredito();
+           cargarSelectCuenta();
            cargarCuentasBanco();
            cargarCuentasPrestamo();
            cargarTarjetasCredito();
@@ -506,51 +507,115 @@
             //Preparar selects de moneda+-----
             function cargarSelectMoneda() {
                 $(".MonedaSelect").empty();
-                $(".MonedaSelet").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var monedas = getMonedas();
-
-                for (var i in monedas) {
-                    moneda = monedas[i];
-                    $(".MonedaSelect").append(
+                if (monedas.length > 0) {
+                    $(".MonedaSelet").append(
                         $("<option>", {
-                            value: moneda.Value,
-                            html: moneda.Text
-                        }).data("codigo", moneda.Codigo)
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in monedas) {
+                        moneda = monedas[i];
+                        $(".MonedaSelect").append(
+                            $("<option>", {
+                                value: moneda.Value,
+                                html: moneda.Text
+                            }).data("codigo", moneda.Codigo)
+                        );
+                    }
+                } else {
+                    $(".MonedaSelet").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay monedas disponibles"
+                        })
                     );
                 }
+                
                 $(".select2").select2({ width: '100%' });
 
             }
             function cargarSelectBanco() {
                 $(".BancoSelect").empty();
-                $(".BancoSelect").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var bancos = getBancos();
-
-                for (var i in bancos) {
-                    banco = bancos[i];
+                if (bancos > 0) {
                     $(".BancoSelect").append(
                         $("<option>", {
-                            value: banco.Value,
-                            html: banco.Text
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+
+                    for (var i in bancos) {
+                        banco = bancos[i];
+                        $(".BancoSelect").append(
+                            $("<option>", {
+                                value: banco.Value,
+                                html: banco.Text
+                            })
+                        );
+                    }
+                } else {
+                    $(".BancoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay bancos disponibles"
                         })
                     );
                 }
                 $(".select2").select2({ width: '100%' });
 
+            }
+            function cargarSelectCuenta() {
+                $(".CuentaSelect").empty();
+                
+                var cuentas = getCuentas();
+                if (cuentas.length > 0) {
+                    $(".CuentaSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in cuentas) {
+                        cuenta = cuentas[i];
+                        $(".CuentaSelect").append(
+                            $("<option>", {
+                                value: cuenta.Value,
+                                html: cuenta.Text
+                            }).data("name", cuenta.Name)
+                        );
+                    }
+                } else {
+                    $(".CuentaSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay cuentas disponibles"
+                        })
+                    );
+                }
+                
+                $(".select2").select2({ width: '100%' });
+                $(".CuentaSelect").on("change", function (e) {
+                    var optionSelected = $("option:selected", this);
+                    var name = $(optionSelected).data("name");
+                    $(this).attr("name", name);
+                });
             }
             function cargarSelectEstadoTarjetaCredito() {
                 $(".EstadoTarjetaCreditoSelect").empty();
@@ -626,25 +691,37 @@
             }
             function cargarSelectContacto() {
                 $(".ContactoSelect").empty();
-                $(".ContactoSelect").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var contactos = getContactos();
-
-                for (var i in contactos) {
-                    contacto = contactos[i];
+                if (contactos.length > 0) {
                     $(".ContactoSelect").append(
                         $("<option>", {
-                            value: contacto.Id,
-                            html: contacto.Nombre
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in contactos) {
+                        contacto = contactos[i];
+                        $(".ContactoSelect").append(
+                            $("<option>", {
+                                value: contacto.Id,
+                                html: contacto.Nombre
+                            })
+                        );
+                    }
+                } else {
+                    $(".ContactoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay contactos disponibles"
                         })
                     );
                 }
+                
                 $(".select2").select2({ width: '100%' });
 
             }
@@ -714,12 +791,14 @@
                 guardarCuentaPrestamo(objeto);
                 $("#" + $(this).data("form"))[0].reset();
                 cargarCuentasPrestamo();
+                cargarSelectCuenta();
             });
             $(".btnSubmitTarjetaCredito").click(function () {
                 var objeto = objectifyForm($("#" + $(this).data("form")));
                 guardarTarjetaCredito(objeto);
                 $("#" + $(this).data("form"))[0].reset();
                 cargarTarjetasCredito();
+                cargarSelectCuenta();
             });
             $(".btnSubmitContacto").click(function () {
                 var objeto = objectifyForm($("#" + $(this).data("form")));
@@ -732,6 +811,7 @@
                 guardarCuentaBanco(objeto);
                 $("#" + $(this).data("form"))[0].reset();
                 cargarCuentasBanco();
+                cargarSelectCuenta();
             });
 
 
