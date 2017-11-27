@@ -479,6 +479,7 @@
 
            //
            $("#tablaprueba").DataTable();
+
            cargarSelectMoneda();
            cargarSelectBanco();
            cargarSelectEstadoCuentaBanco();
@@ -497,7 +498,9 @@
                closeOnSelect: true, // Close upon selecting a date,
                format: 'mm/dd/yyyy'
            });
+
            $('.modal').modal();
+
            $(".select2").select2({ width: '100%' });
 
             //Preparar selects de moneda+-----
@@ -743,6 +746,7 @@
 
                 });
             })
+
         });
     </script>
 }

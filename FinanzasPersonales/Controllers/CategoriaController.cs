@@ -31,17 +31,22 @@ namespace FinanzasPersonales.Controllers
 
         // POST: Categoria/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult CrearCategoria(Categoria categoria)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var nuevaCategoria = db.Categorias.Add(categoria);
+                    db.SaveChanges();
+                    return Json(new { Success = true, Message = "Categoria creada!", Data = nuevaCategoria });
+                }
+                else
+                    return Json(new { Succes = false, Message = "Llene los campos correctamente" });          
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return Json(new { Success = false, Message = $"Ocurrio un error: {e.Message}" });
             }
         }
 
