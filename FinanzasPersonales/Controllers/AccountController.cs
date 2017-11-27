@@ -487,5 +487,10 @@ namespace FinanzasPersonales.Controllers
             }
         }
         #endregion
+
+        public ActionResult Resumen()
+        {
+            return View();
+        }
     }
 }
