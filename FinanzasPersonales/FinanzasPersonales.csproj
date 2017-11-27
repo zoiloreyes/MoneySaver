@@ -499,7 +499,6 @@
     <Content Include="Views\CuentaBanco\DetalleCuenta.cshtml" />
     <Content Include="Views\Account\_MenuDashBoard.cshtml" />
     <Content Include="Views\Account\_PruebaDataTable.cshtml" />
-    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
