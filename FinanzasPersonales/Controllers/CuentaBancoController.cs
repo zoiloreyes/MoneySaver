@@ -62,7 +62,7 @@ namespace FinanzasPersonales.Controllers
             }
             catch (Exception e)
             {
-                return Json(new { Success = false, Message = $"Ocurrio un error: {e.Message}" });
+                return Json(new { Success = false, Message = "Ocurrio un error :(" });
             }
         }
 
