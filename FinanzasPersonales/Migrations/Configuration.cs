@@ -16,17 +16,17 @@ namespace FinanzasPersonales.Migrations
         protected override void Seed(FinanzasPersonales.Models.ApplicationDbContext context)
         {
 
-            context.EstadoCategoria.AddOrUpdate(x => x.EstadoCategoriaID,
+            context.EstadosCategoria.AddOrUpdate(x => x.EstadoCategoriaID,
                 new EstadoCategoria() { EstadoCategoriaID = 1, Estado = "Activo" },
                 new EstadoCategoria() { EstadoCategoriaID = 2, Estado = "Inactivo" }
                 );
 
-            context.EstadoCuentaBanco.AddOrUpdate(y => y.EstadoCuentaBancoID,
+            context.EstadosCuentaBanco.AddOrUpdate(y => y.EstadoCuentaBancoID,
                 new EstadoCuentaBanco() { EstadoCuentaBancoID = 1, Estado = "Activo" },
                 new EstadoCuentaBanco() { EstadoCuentaBancoID = 2, Estado = "Inactivo" }
                 );
 
-            context.EstadoTarjetaCredito.AddOrUpdate(y => y.EstadoTarjetaCreditoID,
+            context.EstadosTarjetaCredito.AddOrUpdate(y => y.EstadoTarjetaCreditoID,
                 new EstadoTarjetaCredito() { EstadoTarjetaCreditoID = 1, Estado = "Activo" },
                 new EstadoTarjetaCredito() { EstadoTarjetaCreditoID = 2, Estado = "Inactivo" }
                 );
