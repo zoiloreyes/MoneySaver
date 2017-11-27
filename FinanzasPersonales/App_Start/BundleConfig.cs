@@ -28,11 +28,13 @@ namespace FinanzasPersonales
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/font-awesome-4.7.0/css/font-awesome.css",
                       "~/Content/materialize.css",
-                      "~/Content/site.css",
-                      "~/Content/animate.css").Include());
+                      "~/Content/animate.css",
+                      "~/Content/site.css").Include());
+
             bundles.Add(new StyleBundle("~/Content/plugincss").Include(
                       "~/Content/css/select2.min.css",
                       "~/Content/DataTable/datatables.min.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/pluginjs").Include(
                "~/Scripts/select2.min.js",
                "~/Scripts/datatables.min.js"));
