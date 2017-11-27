@@ -152,10 +152,10 @@ namespace FinanzasPersonales.Models
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Marca>()
-                .HasMany(e => e.TarjetaCredito)
-                .WithRequired(e => e.Marca)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Marca>()
+            //    .HasMany(e => e.TarjetaCredito)
+            //    .WithRequired(e => e.Marca)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Moneda>()
                 .Property(e => e.Codigo)

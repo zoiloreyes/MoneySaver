@@ -210,6 +210,7 @@
     <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
+    <Compile Include="Controllers\CuentaPrestamoController.cs" />
     <Compile Include="Controllers\CuentraPrestamoController.cs" />
     <Compile Include="Controllers\EstadoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -245,6 +246,14 @@
     <Compile Include="Migrations\201711262312347_nuevoCampoNombre.cs" />
     <Compile Include="Migrations\201711262312347_nuevoCampoNombre.Designer.cs">
       <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270207497_nomarca.cs" />
+    <Compile Include="Migrations\201711270207497_nomarca.Designer.cs">
+      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711270217049_nomarca2.cs" />
+    <Compile Include="Migrations\201711270217049_nomarca2.Designer.cs">
+      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -523,6 +532,7 @@
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
     <Folder Include="Views\Contacto\" />
+    <Folder Include="Views\CuentaPrestamo\" />
     <Folder Include="Views\CuentraPrestamo\" />
     <Folder Include="Views\EstadoCategoria\" />
     <Folder Include="Views\Moneda\" />
@@ -553,6 +563,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711262312347_nuevoCampoNombre.resx">
       <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270207497_nomarca.resx">
+      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711270217049_nomarca2.resx">
+      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
