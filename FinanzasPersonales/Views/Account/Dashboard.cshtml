@@ -504,46 +504,70 @@
             //Preparar selects de moneda+-----
             function cargarSelectMoneda() {
                 $(".MonedaSelect").empty();
-                $(".MonedaSelet").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var monedas = getMonedas();
-
-                for (var i in monedas) {
-                    moneda = monedas[i];
-                    $(".MonedaSelect").append(
+                if (monedas.length > 0) {
+                    $(".MonedaSelet").append(
                         $("<option>", {
-                            value: moneda.Value,
-                            html: moneda.Text
-                        }).data("codigo", moneda.Codigo)
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in monedas) {
+                        moneda = monedas[i];
+                        $(".MonedaSelect").append(
+                            $("<option>", {
+                                value: moneda.Value,
+                                html: moneda.Text
+                            }).data("codigo", moneda.Codigo)
+                        );
+                    }
+                } else {
+                    $(".MonedaSelet").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay monedas disponibles"
+                        })
                     );
                 }
+                
                 $(".select2").select2({ width: '100%' });
 
             }
             function cargarSelectBanco() {
                 $(".BancoSelect").empty();
-                $(".BancoSelect").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var bancos = getBancos();
-
-                for (var i in bancos) {
-                    banco = bancos[i];
+                if (bancos > 0) {
                     $(".BancoSelect").append(
                         $("<option>", {
-                            value: banco.Value,
-                            html: banco.Text
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+
+                    for (var i in bancos) {
+                        banco = bancos[i];
+                        $(".BancoSelect").append(
+                            $("<option>", {
+                                value: banco.Value,
+                                html: banco.Text
+                            })
+                        );
+                    }
+                } else {
+                    $(".BancoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay bancos disponibles"
                         })
                     );
                 }
@@ -578,7 +602,7 @@
                             value: "",
                             disabled: "disabled",
                             selected: "selected",
-                            html: "No hay opciones disponibles"
+                            html: "No hay cuentas disponibles"
                         })
                     );
                 }
@@ -664,25 +688,37 @@
             }
             function cargarSelectContacto() {
                 $(".ContactoSelect").empty();
-                $(".ContactoSelect").append(
-                    $("<option>", {
-                        value: "",
-                        disabled: "disabled",
-                        selected: "selected",
-                        html: "Selecciona una opcion"
-                    })
-                );
+                
                 var contactos = getContactos();
-
-                for (var i in contactos) {
-                    contacto = contactos[i];
+                if (contactos.length > 0) {
                     $(".ContactoSelect").append(
                         $("<option>", {
-                            value: contacto.Id,
-                            html: contacto.Nombre
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "Selecciona una opcion"
+                        })
+                    );
+                    for (var i in contactos) {
+                        contacto = contactos[i];
+                        $(".ContactoSelect").append(
+                            $("<option>", {
+                                value: contacto.Id,
+                                html: contacto.Nombre
+                            })
+                        );
+                    }
+                } else {
+                    $(".ContactoSelect").append(
+                        $("<option>", {
+                            value: "",
+                            disabled: "disabled",
+                            selected: "selected",
+                            html: "No hay contactos disponibles"
                         })
                     );
                 }
+                
                 $(".select2").select2({ width: '100%' });
 
             }
