@@ -14,6 +14,9 @@ namespace FinanzasPersonales.Models
         {
             Transaccion = new HashSet<Transaccion>();
         }
+        [Required]
+        [StringLength(120)]
+        public string NombrePrestamo { get; set; }
 
         public int CuentaPrestamoID { get; set; }
 

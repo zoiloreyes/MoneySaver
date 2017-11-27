@@ -26,6 +26,10 @@ namespace FinanzasPersonales.Models
         public int MonedaID { get; set; }
 
         [Required]
+        [StringLength(120)]
+        public string NombreCuentaBanco { get; set; }
+
+        [Required]
         [StringLength(40)]
         public string NumeroCuenta { get; set; }
 

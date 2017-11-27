@@ -101,6 +101,13 @@
             <form class="col s12" id="frmNuevaCuentaBanco">
                 <div class="row">
                     <div class="input-field col s12 m12">
+                        <input name="NombreCuentaBanco" id="NombreCuentaBanco" type="text" class="validate">
+                        <label for="NombreCuentaBanco">Nombre de cuenta <span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
                         <input name="NumeroCuenta" id="NumeroCuenta" type="text" class="validate">
                         <label for="NumeroCuenta">Numero de cuenta <span class="red-text">*</span></label>
                     </div>
@@ -186,6 +193,13 @@
         <div class="divider"></div>
         <div class="row">
             <form class="col s12" id="frmNuevaTarjetaCredito">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreTarjetaCredito" id="NombreTarjetaCredito" type="text" class="validate">
+                        <label for="NombreTarjetaCredito">Nombre de Tarjeta<span class="red-text">*</span></label>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <input name="NumeroTarjeta" id="NumeroTarjeta" type="text" class="validate">
@@ -276,7 +290,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
-        <a data-form="frmNuevaCuentaBanco" href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+        <a data-form="frmNuevaTarjetaCredito" href="#!" class="modal-action btnSubmitTarjetaCredito modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
 <div id="divNuevaCuentaPrestamo" class="modal modal-fixed-footer">
@@ -285,6 +299,13 @@
         <div class="divider"></div>
         <div class="row">
             <form class="col s12" id="frmNuevaCuentaPrestamo">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreCuentaPrestamo" id="NombreCuentaPrestamo" type="text" class="validate">
+                        <label for="NombreCuentaPrestamo">Nombre del Prestamo<span class="red-text">*</span></label>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <input id="CapitalInicialPrestamo" step="0.01" name="CapitalInicial" type="number" class="validate">
@@ -332,7 +353,7 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
-        <a data-form="frmNuevaCuentaBanco" href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+        <a data-form="frmNuevaCuentaPrestamo" href="#!" class="modal-action btnSubmitCuentaPrestamo modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
 <div id="divNuevoBanco" class="modal modal-fixed-footer">
@@ -574,11 +595,11 @@
                     $(".contenedorCuentaBanco").append(
                         $("<li>", {
                             class: "CuentaBancoLi"
-                        }).data("CuentaBancoID", cuentaI.CuentaBancoID).append(
+                        }).append(
                             $("<a>", {
                                 class: "waves-effect waves-green sideButton",
-                                html: cuentaI.NumeroCuenta
-                            })
+                                html: cuentaI.NombreCuenta
+                        }).data("CuentaBancoID", cuentaI.CuentaBancoID)
                             )
                     )
                 }
