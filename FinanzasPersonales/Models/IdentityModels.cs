@@ -176,11 +176,6 @@ namespace FinanzasPersonales.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Moneda>()
-                .HasMany(e => e.Categoria)
-                .WithRequired(e => e.Moneda)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Moneda>()
                 .HasMany(e => e.CuentaBanco)
                 .WithRequired(e => e.Moneda)
                 .WillCascadeOnDelete(false);

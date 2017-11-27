@@ -614,6 +614,7 @@ function guardarCategoria(categoria) {
             Datos = Data.Data;
             Materialize.toast(Data.Message, 3000, 'rounded')
             console.log(Data);
+            console.log(Data.Detalle);
             //var temp = JSON.parse(response);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

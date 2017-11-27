@@ -1,4 +1,5 @@
-﻿using FinanzasPersonales.Models;
+﻿using FinanzasPersonales.Extensions;
+using FinanzasPersonales.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +34,14 @@ namespace FinanzasPersonales.Controllers
         [HttpPost]
         public ActionResult CrearCategoria(Categoria categoria)
         {
+            categoria.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
+            categoria.EstadoCategoriaID = 1;
+            categoria.TipoCategoriaID = 1;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var nuevaCategoria = db.Categorias.Add(categoria);
+                    Categoria nuevaCategoria = db.Categorias.Add(categoria);
                     db.SaveChanges();
                     return Json(new { Success = true, Message = "Categoria creada!", Data = nuevaCategoria });
                 }
@@ -46,7 +50,7 @@ namespace FinanzasPersonales.Controllers
             }
             catch (Exception e)
             {
-                return Json(new { Success = false, Message = "Ocurrio un error :("});
+                return Json(new { Success = false, Message = "Ocurrio un error :(", Detalle = $"{e.Message} n/ {e.InnerException}" });
             }
         }
 
