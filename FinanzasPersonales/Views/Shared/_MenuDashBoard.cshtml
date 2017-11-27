@@ -1,5 +1,5 @@
 ﻿@using FinanzasPersonales.Extensions
-@model FinanzasPersonales.Models.User
+@*@model FinanzasPersonales.Models.User*@
 @{
 
     var Telefono = User.Identity.GetPhoneNumber();
@@ -49,14 +49,14 @@
         <div class="user-view">
             <div class="background siteGreen">
             </div>
-            <a href="#!name"><span class="white-text name"> @Model.Nombre @Model.Apellido</span></a>
+            <a href="#!name"><span class="white-text name"> @*@Model.Nombre @Model.Apellido*@</span></a>
             <a href="#!email"><span class="white-text email"> @Email</span></a>
         </div>
     </li>
-    <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
+    <li class="sideButton"><a href="@Url.Action("Resumen","Account")" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnRecordatorios"><i class="material-icons">schedule</i>Recordatorios</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnAgenda"><i class="material-icons">contacts</i>Agenda</a></li>
-    <li class="sideButton"><a href="#!"  class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
+    <li class="sideButton"><a href="@Url.Action("Index", "Categoria")"  class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
 
     <li><div class="divider"></div></li>
     <li><a class="subheader">Cuentas</a></li>
