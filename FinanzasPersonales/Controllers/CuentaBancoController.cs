@@ -34,7 +34,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var CuentasBanco = db.CuentasBanco.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NumeroCuenta = x.NumeroCuenta });
+                var CuentasBanco = db.CuentasBanco.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { CuentaBancoID = x.CuentaBancoID, NombreCuenta = x.NombreCuentaBanco });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = CuentasBanco }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
@@ -49,13 +49,6 @@ namespace FinanzasPersonales.Controllers
             cuenta.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
             try
             {
-                foreach (ModelState modelState in ViewData.ModelState.Values)
-                {
-                    foreach (ModelError error in modelState.Errors)
-                    {
-                        Console.Write(error);
-                    }
-                }
                 if (ModelState.IsValid)
                 {
                     var nuevaCuenta = db.CuentasBanco.Add(cuenta);

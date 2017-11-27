@@ -207,13 +207,17 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BancoController.cs" />
+    <Compile Include="Controllers\ContactoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\CuentaBancoController.cs" />
+    <Compile Include="Controllers\CuentraPrestamoController.cs" />
     <Compile Include="Controllers\EstadoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonedaController.cs" />
+    <Compile Include="Controllers\TarjetaCreditoController.cs" />
     <Compile Include="Controllers\TipoCategoriaController.cs" />
+    <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -237,6 +241,10 @@
     <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.cs" />
     <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.Designer.cs">
       <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.cs" />
+    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.Designer.cs">
+      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -513,8 +521,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
+    <Folder Include="Views\Contacto\" />
+    <Folder Include="Views\CuentraPrestamo\" />
     <Folder Include="Views\EstadoCategoria\" />
     <Folder Include="Views\Moneda\" />
+    <Folder Include="Views\TarjetaCredito\" />
     <Folder Include="Views\TipoCategoria\" />
   </ItemGroup>
   <ItemGroup>
@@ -538,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711251804536_Agregar campo icono a categorias.resx">
       <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711262312347_nuevoCampoNombre.resx">
+      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
