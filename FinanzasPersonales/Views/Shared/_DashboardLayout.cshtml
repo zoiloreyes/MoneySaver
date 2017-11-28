@@ -9,8 +9,8 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/plugincss")
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-
 </head>
+
 <body>
     <nav>
         <div class="nav-wrapper">
@@ -22,22 +22,17 @@
                 <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
                 <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
             </ul>
-
         </div>
     </nav>
-    <style> 
-    .RenderBody{
-        margin-left: 325px;
-    }
-    </style>
+
     @Html.Partial("_MenuDashBoard")
 
+    <style>.RenderBody{margin-left: 325px;}</style>
     <div class="RenderBody">
         @RenderBody()
     </div>
 
-    <div class="container body-content RenderBody">
-        
+    <div class="container body-content RenderBody">        
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - MoneySaver Application</p>

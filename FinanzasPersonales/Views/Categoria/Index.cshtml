@@ -9,27 +9,27 @@
     <div class="col s12 m12">
         <div class="card material-table">
             <div class="table-header">
-                <span class="table-title">Categorias</span>
+                <h4>Categorias</h4>
                 <div class="actions">
                     <a href="#NuevaCategoria" class="modal-trigger waves-effect btn-flat nopadding "><i class="fa fa-plus-circle green-text"></i></a>
                     <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
                 </div>
             </div>
-            <table id="datatable">
+            <table id="mydatatable">
                 <thead>
                     <tr>
-                        <th>Icono</th>
-                        <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Comentario</th>
+                        <th><h5> Icono</h5></th>
+                        <th><h5>Nombre</h5></th>
+                        <th><h5>Tipo</h5></th>
+                        <th><h5>Comentario</h5></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
+                        <tr >
                             <td>
-                                <i class="@item.Icono" aria-hidden="true"></i>
+                                <i class="Icono @item.Icono" aria-hidden="true"></i>
                             </td>
                             <td>
                                 @item.Nombre
@@ -66,7 +66,7 @@
                     <label for="Nombre"> Nombre</label>
                 </div>
                 <div class="input-field col s2">
-                    <select name="TipoCategoriaID">
+                    <select class="select" name="TipoCategoriaID">
                         <option value="1">Ingreso</option>
                         <option value="2">Egreso</option>                        
                     </select>
@@ -90,7 +90,7 @@
     <div class="modal-content">
         <h4>Seleccione un icono</h4>
         <div>
-            <style>.IconoSelect{color:#000; padding:15px 10px; font-size:50px; width:55px;}</style>
+            <style>.Icono {font-size:35px}.IconoSelect{color:#000; padding:15px 10px; font-size:50px; width:55px;}</style>
             <a href="#" class="IconoSelect"><i class="fa fa-cutlery" aria-hidden="true"></i></a>
             <a href="#" class="IconoSelect"><i class="fa fa-apple" aria-hidden="true"></i></a>
             <a href="#" class="IconoSelect"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
@@ -124,8 +124,9 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
+            $("#mydatatable").DataTable();
             $('.modal').modal();
-            $('select').material_select();
+            $('.select').material_select();
             $("#txtIcono").hide();
 
             $(".btnSubmitCategoria").click(function () {

@@ -49,9 +49,6 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="ChartJS.Helpers.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\chartjs.helpers.mvc.3.3.1\lib\net45\ChartJS.Helpers.MVC.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -418,8 +415,6 @@
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\chart-2.7.1.js" />
-    <Content Include="Scripts\chart-2.7.1.min.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -535,7 +530,6 @@
     <Content Include="Views\Account\Dashboard.cshtml" />
     <Content Include="Views\CuentaBanco\DetalleCuenta.cshtml" />
     <Content Include="Views\Shared\_MenuDashBoard.cshtml" />
-    <Content Include="Views\Account\_PruebaDataTable.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Account\Resumen.cshtml" />
