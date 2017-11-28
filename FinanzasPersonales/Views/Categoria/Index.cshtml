@@ -55,24 +55,31 @@
         <form id="frmNuevaCategoria">
             <div class="row">
                 <div class="input-field col s2">
-                    <p>Icono</p>
+                    <h5 >Icono</h5>
                     <a style="font-size:40px; color:#000" ; href="#ModalIconos" class="modal-trigger ">
                         <i id="IconoEjemplo" class="fa fa-credit-card" aria-hidden="true"></i>
                     </a>
                     <input id="txtIcono" type="text" name="Icono" />
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s2">
                     <input type="text" name="Nombre" value="" class="" />
                     <label for="Nombre"> Nombre</label>
                 </div>
-            </div>
-            <div class="row">
+                <div class="input-field col s2">
+                    <select name="TipoCategoriaID">
+                        <option value="0">Ingreso</option>
+                        <option value="1">Egreso</option>                        
+                    </select>
+                </div>
 
                 <div class="input-field col s6">
                     <input type="text" name="Comentario" value="" class="" />
                     <label for="Comentario"> Comentario</label>
                 </div>
+                <div class="col s2 offset-s10">
                 <a href="#!" data-form="frmNuevaCategoria" class="modal-action btnSubmitCategoria modal-close waves-effect waves-green btn-flat green white-text">Agregar</a>
+                </div>
+
             </div>
         </form>
     </div>
@@ -118,8 +125,8 @@
     <script>
         $(document).ready(function () {
             $('.modal').modal();
+            $('select').material_select();
             $("#txtIcono").hide();
-            cargarSelectMoneda();
 
             $(".btnSubmitCategoria").click(function () {
                 var objeto = objectifyForm($("#" + $(this).data("form")));
