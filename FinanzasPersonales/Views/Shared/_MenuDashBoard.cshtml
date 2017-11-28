@@ -1,4 +1,4 @@
-﻿
+﻿@using FinanzasPersonales.Extensions
 @*@model FinanzasPersonales.Models.User*@
 @{
 
@@ -159,11 +159,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="NombreTitular" value="@Model.Nombre" name="NombreTitular" type="text" class="validate">
+                        <input id="NombreTitular" @*value="@Model.Nombre"*@ name="NombreTitular" type="text" class="validate">
                         <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input name="ApellidoTitular" value="@Model.Apellido" id="ApellidoTitular" type="text" class="validate">
+                        <input name="ApellidoTitular" @*value="@Model.Apellido"*@ id="ApellidoTitular" type="text" class="validate">
                         <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
                     </div>
                 </div>
@@ -251,11 +251,11 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="NombreTitular" value="@Model.Nombre" name="NombreTitular" type="text" class="validate">
+                        <input id="NombreTitular" @*value="@Model.Nombre"*@ name="NombreTitular" type="text" class="validate">
                         <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input name="ApellidoTitular" value="@Model.Apellido" id="ApellidoTitular" type="text" class="validate">
+                        <input name="ApellidoTitular" @*value="@Model.Apellido"*@ id="ApellidoTitular" type="text" class="validate">
                         <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
                     </div>
                 </div>
@@ -414,3 +414,8 @@
         <a data-form="frmNuevoBanco" href="#!" class="modal-action btnSubmitBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
+
+    <script>
+       
+
+   </script>

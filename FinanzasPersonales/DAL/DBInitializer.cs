@@ -35,8 +35,17 @@ namespace FinanzasPersonales.DAL
             EstadosCategoria.ForEach(x => context.EstadosCategoria.Add(x));
             context.SaveChanges();
 
+            var TipoCategoria = new List<TipoCategoria>
+            {
+                new TipoCategoria{Tipo = "Ingreso"},
+                new TipoCategoria{Tipo = "Egreso"}
+            };
+            TipoCategoria.ForEach(t => context.TiposCategoria.Add(t));
+            context.SaveChanges();
+
             var Monedas = new List<Moneda>
             {
+                new Moneda { Codigo ="DOP", Nombre="Peso Dominicano"},
                 new Moneda { Codigo ="EUR", Nombre="Euro"},
                 new Moneda { Codigo ="AFN", Nombre="Afgani Afgano"},
                 new Moneda { Codigo ="ZAR", Nombre="Rand Sudafricano"},
@@ -157,7 +166,6 @@ namespace FinanzasPersonales.DAL
                 new Moneda { Codigo ="PLN", Nombre="Zloty Polaco"},
                 new Moneda { Codigo ="QAR", Nombre="Rial Qatarí"},
                 new Moneda { Codigo ="CZK", Nombre="Koruna Checa"},
-                new Moneda { Codigo ="DOP", Nombre="Peso Dominicano"},
                 new Moneda { Codigo ="RWF", Nombre="Franco Ruandés"},
                 new Moneda { Codigo ="RON", Nombre="Leu Rumano"},
                 new Moneda { Codigo ="SVC", Nombre="Colón"},

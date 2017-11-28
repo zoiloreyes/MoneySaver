@@ -97,8 +97,8 @@
                     <div class="col m7">
                         Gastos del año
                     </div>
-                    <a href="#">Action 1 </a>  &nbsp;
-                    <a href="#"> Action </a>
+                    <a href="#">Trimestre </a>  &nbsp;
+                    <a href="#"> Semestre </a>
                 </div>
             </div>
             <p style="color:gray;">Graficas con los gastos especificos del año</p>
@@ -108,8 +108,9 @@
 </div>
 @section scripts{
     <script>
-
         var ctx = document.getElementById('myChart').getContext('2d');
+        $('.modal').modal();
+        $('.select2').select2();
         var chart = new Chart(ctx, {
             // The type of chart we want to create
             type: 'bar',
@@ -119,7 +120,7 @@
                 labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
                     "Octubre", "Noviembre", "Diciembre"],
                 datasets: [{
-                    label: "My First dataset",
+                    label: "Gastos",
                     backgroundColor: 'rgb(137, 191, 67)',
                     borderColor: 'rgb(225,225,225)',
                     data: [800, 1000, 500, 200, 2000, 3000, 4500, 5000, 7100, 6000, 3000, 4400],

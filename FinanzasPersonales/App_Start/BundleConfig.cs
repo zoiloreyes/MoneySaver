@@ -10,7 +10,9 @@ namespace FinanzasPersonales
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/UtilidadesJS.js"));
+                        "~/Scripts/UtilidadesJS.js", 
+                        "~/Scripts/DashboardScript.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
