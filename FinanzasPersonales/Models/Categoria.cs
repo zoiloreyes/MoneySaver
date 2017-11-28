@@ -18,6 +18,7 @@ namespace FinanzasPersonales.Models
 
         public int CategoriaID { get; set; }
         public int? PadreCategoriaID { get; set; }
+        public int MonedaID { get; set; }
         [StringLength(800)]
         public string Comentario { get; set; }
         [StringLength(400)]

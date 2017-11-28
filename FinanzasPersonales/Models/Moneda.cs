@@ -12,6 +12,7 @@ namespace FinanzasPersonales.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Moneda()
         {
+            Categoria = new HashSet<Categoria>();
             CuentaBanco = new HashSet<CuentaBanco>();
             CuentaPrestamo = new HashSet<CuentaPrestamo>();
             TarjetaCredito = new HashSet<TarjetaCredito>();
@@ -28,6 +29,7 @@ namespace FinanzasPersonales.Models
         public string Nombre { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Categoria> Categoria { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CuentaBanco> CuentaBanco { get; set; }

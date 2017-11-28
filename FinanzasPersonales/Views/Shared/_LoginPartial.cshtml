@@ -2,7 +2,7 @@
 @if (Request.IsAuthenticated)
 {
     <ul id="dropDownCuenta" class="dropdown-content">
-        <li><a class="text-center" href="@Url.Action("Resumen", "Account")">Dashboard</a></li>
+        <li><a class="text-center" href="@Url.Action("Dashboard", "Account")">Dashboard</a></li>
         <li><a class="text-center" href="@Url.Action("LogOff", "Account")">Salir</a></li>
     </ul>
         <ul class="right hide-on-med-and-down">
