@@ -10,7 +10,9 @@ namespace FinanzasPersonales
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/UtilidadesJS.js"));
+                        "~/Scripts/UtilidadesJS.js", 
+                        "~/Scripts/DashboardScript.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -21,15 +23,11 @@ namespace FinanzasPersonales
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-            //          "~/Scripts/bootstrap.js",
-            //          "~/Scripts/respond.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/font-awesome-4.7.0/css/font-awesome.css",
                       "~/Content/materialize.css",
                       "~/Content/animate.css",
-                      "~/Content/site.css").Include());
+                      "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/plugincss").Include(
                       "~/Content/css/select2.min.css",

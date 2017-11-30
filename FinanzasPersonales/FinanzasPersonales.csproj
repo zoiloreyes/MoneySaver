@@ -49,9 +49,6 @@
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="ChartJS.Helpers.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\chartjs.helpers.mvc.3.3.1\lib\net45\ChartJS.Helpers.MVC.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -226,43 +223,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711192204328_identityConnection.cs" />
-    <Compile Include="Migrations\201711192204328_identityConnection.Designer.cs">
-      <DependentUpon>201711192204328_identityConnection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711201802565_CambioAlContext.cs" />
-    <Compile Include="Migrations\201711201802565_CambioAlContext.Designer.cs">
-      <DependentUpon>201711201802565_CambioAlContext.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711201836208_UsarioIDBanco.cs" />
-    <Compile Include="Migrations\201711201836208_UsarioIDBanco.Designer.cs">
-      <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.cs" />
-    <Compile Include="Migrations\201711210433308_añadidaRelacionTransaccion.Designer.cs">
-      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.cs" />
-    <Compile Include="Migrations\201711251804536_Agregar campo icono a categorias.Designer.cs">
-      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.cs" />
-    <Compile Include="Migrations\201711262312347_nuevoCampoNombre.Designer.cs">
-      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711270207497_nomarca.cs" />
-    <Compile Include="Migrations\201711270207497_nomarca.Designer.cs">
-      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711270217049_nomarca2.cs" />
-    <Compile Include="Migrations\201711270217049_nomarca2.Designer.cs">
-      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711272056085_Categoria sin moneda.cs" />
-    <Compile Include="Migrations\201711272056085_Categoria sin moneda.Designer.cs">
-      <DependentUpon>201711272056085_Categoria sin moneda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banco.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -277,7 +237,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Moneda.cs" />
-    <Compile Include="Models\MoneySaverModel.cs" />
     <Compile Include="Models\PatronRecurrente.cs" />
     <Compile Include="Models\PeriodoTemporal.cs" />
     <Compile Include="Models\Presupuesto.cs" />
@@ -414,8 +373,7 @@
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\chart-2.7.1.js" />
-    <Content Include="Scripts\chart-2.7.1.min.js" />
+    <Content Include="Scripts\DashboardScript.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\i18n\af.js" />
     <Content Include="Scripts\i18n\ar.js" />
@@ -531,7 +489,6 @@
     <Content Include="Views\Account\Dashboard.cshtml" />
     <Content Include="Views\CuentaBanco\DetalleCuenta.cshtml" />
     <Content Include="Views\Shared\_MenuDashBoard.cshtml" />
-    <Content Include="Views\Account\_PruebaDataTable.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Account\Resumen.cshtml" />
@@ -553,35 +510,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711192204328_identityConnection.resx">
-      <DependentUpon>201711192204328_identityConnection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711201802565_CambioAlContext.resx">
-      <DependentUpon>201711201802565_CambioAlContext.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711201836208_UsarioIDBanco.resx">
-      <DependentUpon>201711201836208_UsarioIDBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711210433308_añadidaRelacionTransaccion.resx">
-      <DependentUpon>201711210433308_añadidaRelacionTransaccion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711251804536_Agregar campo icono a categorias.resx">
-      <DependentUpon>201711251804536_Agregar campo icono a categorias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711262312347_nuevoCampoNombre.resx">
-      <DependentUpon>201711262312347_nuevoCampoNombre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711270207497_nomarca.resx">
-      <DependentUpon>201711270207497_nomarca.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711270217049_nomarca2.resx">
-      <DependentUpon>201711270217049_nomarca2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711272056085_Categoria sin moneda.resx">
-      <DependentUpon>201711272056085_Categoria sin moneda.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

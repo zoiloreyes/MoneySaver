@@ -50,13 +50,15 @@
             <div class="background siteGreen">
             </div>
             <a href="#!name"><span class="white-text name"> @*@Model.Nombre @Model.Apellido*@</span></a>
-            <a href="#!email"><span class="white-text email"> @Email</span></a>
+            <a href="#!email"><span class="white-text email"> @*@Email*@</span></a>
         </div>
     </li>
-    <li class="sideButton"><a href="@Url.Action("Resumen", "Account")" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Resumen</a></li>
+    <li class="sideButton"><a href="@Url.Action("Resumen", "Account")" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">dashboard</i>Resumen</a></li>
+    <li class="sideButton"><a href="@Url.Action("Dashboard", "Account")" class="waves-effect waves-green sideButton" id="btnResumen"><i class="material-icons">assignment</i>Trasacciones</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnRecordatorios"><i class="material-icons">schedule</i>Recordatorios</a></li>
     <li class="sideButton"><a href="#!" class="waves-effect waves-green sideButton" id="btnAgenda"><i class="material-icons">contacts</i>Agenda</a></li>
     <li class="sideButton"><a href="@Url.Action("Index", "Categoria")" class="waves-effect waves-green sideButton" id="btnCategoria"><i class="material-icons">filter_none</i>Categorias</a></li>
+
 
     <li><div class="divider"></div></li>
     <li><a class="subheader">Cuentas</a></li>
@@ -129,3 +131,291 @@
         </ul>
     </li>
 </ul>
+
+@*Nueva Cuenta de Banco*@
+<div id="divNuevaCuentaBanco" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">account_balance</i> Nueva Cuenta de banco</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaCuentaBanco">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreCuentaBanco" id="NombreCuentaBanco" type="text" class="validate">
+                        <label for="NombreCuentaBanco">Nombre de cuenta <span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NumeroCuenta" id="NumeroCuenta" type="text" class="validate">
+                        <label for="NumeroCuenta">Numero de cuenta <span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="BalanceInicial" step="0.01" name="BalanceInicial" type="number" class="validate">
+                        <label for="BalanceInicial">Balance Inicial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="NombreTitular" @*value="@Model.Nombre"*@ name="NombreTitular" type="text" class="validate">
+                        <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input name="ApellidoTitular" @*value="@Model.Apellido"*@ id="ApellidoTitular" type="text" class="validate">
+                        <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Estado</label>
+                        </div>
+                        <div class="row">
+                            <select id="EstadoCuentaBancoID" name="EstadoCuentaBancoID" class="EstadoCuentaBancoSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Moneda</label>
+                        </div>
+                        <div class="row">
+                            <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Banco   </label><a href="#divNuevoBanco" class="btn-floating waves-effect waves-green nuevoBanco green modal-trigger"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="row">
+                            <select id="BancoID" name="BancoID" class="BancoSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="FechaInicio" name="FechaInicio" class="datepicker">
+                        <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
+                        <label for="Comentario">Comentario</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaCuentaBanco" href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+
+@*Nueva Tarjeta de credito*@
+<div id="divNuevaTarjetaCredito" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">credit_card</i> Nueva Tarjeta de credito</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaTarjetaCredito">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreTarjetaCredito" id="NombreTarjetaCredito" type="text" class="validate">
+                        <label for="NombreTarjetaCredito">Nombre de Tarjeta<span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NumeroTarjeta" id="NumeroTarjeta" type="text" class="validate">
+                        <label for="NumeroTarjeta">Numero de tarjeta <span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="DeudaInicial" step="0.01" name="DeudaInicial" type="number" class="validate">
+                        <label for="DeudaInicial">Deuda Inicial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="LimiteTarjetaCredito" step="0.01" name="LimiteCredito" type="number" class="validate">
+                        <label for="LimiteCredito">Limite de credito</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="NombreTitular" @*value="@Model.Nombre"*@ name="NombreTitular" type="text" class="validate">
+                        <label for="NombreTitular">Nombre del Titular<span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input name="ApellidoTitular" @*value="@Model.Apellido"*@ id="ApellidoTitular" type="text" class="validate">
+                        <label for="ApellidoTitular">Apellido del Titular<span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Estado</label>
+                        </div>
+                        <div class="row">
+                            <select id="EstadoTarjetaCreditoID" name="EstadoTarjetaCreditoID" class="EstadoTarjetaCreditoSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Moneda</label>
+                        </div>
+                        <div class="row">
+                            <select id="MonedaID" name="MonedaID" class="MonedaSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Banco   </label><a href="#divNuevoBanco" class="btn-floating waves-effect waves-green nuevoBanco green modal-trigger"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="row">
+                            <select id="BancoID" name="BancoID" class="BancoSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="FechaInicio" name="FechaInicio" class="datepicker">
+                        <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input type="text" id="FechaExpiracion" name="FechaExpiracion" class="datepicker">
+                        <label for="FechaExpiracion" data-error="wrong" data-success="right">Fecha de Expiración</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="CVC" name="CVC" type="text" class="validate">
+                        <label for="CVC">CVC</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="TasaEfectivaAnual" step="0.01" name="TasaEfectivaAnual" type="number" class="validate">
+                        <label for="TasaEfectivaAnual">Tasa Efectiva Anual</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="Comentario" name="Comentario" class="materialize-textarea"></textarea>
+                        <label for="Comentario">Comentario</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaTarjetaCredito" href="#!" class="modal-action btnSubmitTarjetaCredito modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+
+@*Nueva Cuenta de Prestamo*@
+<div id="divNuevaCuentaPrestamo" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">attach_money</i> Nuevo Prestamo</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevaCuentaPrestamo">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombrePrestamo" id="NombrePrestamo" type="text" class="validate">
+                        <label for="NombrePrestamo">Nombre del Prestamo<span class="red-text">*</span></label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="CapitalInicialPrestamo" step="0.01" name="CapitalInicial" type="number" class="validate">
+                        <label for="CapitalInicial">Capital Inicial</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="TasaAnualPrestamo" step="0.01" name="TasaAnual" type="number" class="validate">
+                        <label for="TasaAnual">Tasa Anual</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="PagosPorAnoPrestamo" name="PagosPorAno" type="number" class="validate">
+                        <label for="PagosPorAno">Pagos por año</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="NumeroDePagosPrestamo" name="NumeroPagos" type="number" class="validate">
+                        <label for="NumeroDePagosPrestamo">Número de pagos</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="row">
+                            <label>Moneda</label>
+                        </div>
+                        <div class="row">
+                            <select id="MonedaPrestamos" name="MonedaID" class="MonedaSelect select2"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="FechaInicioPrestamo" name="FechaInicio" class="datepicker">
+                        <label for="FechaInicio" data-error="wrong" data-success="right">Fecha de inicio</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevaCuentaPrestamo" href="#!" class="modal-action btnSubmitCuentaPrestamo modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+
+@*Nuevo Banco*@
+<div id="divNuevoBanco" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4><i class="material-icons">account_balance</i> Nuevo Banco</h4>
+        <div class="divider"></div>
+        <div class="row">
+            <form class="col s12" id="frmNuevoBanco">
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input name="NombreBanco" id="NombreBanco" type="text" class="validate">
+                        <label for="NombreBanco">Nombre del banco <span class="red-text">*</span></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input id="Pais" name="Pais" type="text" class="validate">
+                        <label for="Pais">Pais <span class="red-text">*</span></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Cancelar</a>
+        <a data-form="frmNuevoBanco" href="#!" class="modal-action btnSubmitBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
+    </div>
+</div>
+
+    <script>
+       
+
+   </script>

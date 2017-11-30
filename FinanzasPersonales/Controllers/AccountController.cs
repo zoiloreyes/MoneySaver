@@ -114,7 +114,7 @@ namespace FinanzasPersonales.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Dashboard");
+                    return RedirectToAction("Resumen");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
