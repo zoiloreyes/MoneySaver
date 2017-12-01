@@ -1,155 +1,186 @@
-﻿
-@{
-    ViewBag.Title = "Resumen";
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-}
-
-<style>
-    .myContainer {
-        padding: 5%;
+﻿@model FinanzasPersonales.Models.ViewModels.ResumenViewModel
+    @{
+        ViewBag.Title = "Resumen";
+        Layout = "~/Views/Shared/_DashboardLayout.cshtml";
     }
-</style>
-<div class="myContainer">
-    <div class="row col s12">
-        <div class="progress">
-            <div class="determinate" style="width: 70%"></div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col m4">
-            <div class="card white">
-                <div class="card-content white-text">
-                    <p style="color:black;"> Pendiente </p>
-                </div>
-            </div>
-        </div>
-        <div class="col m4">
-            <div class="card white">
-                <div class="card-content white-text">
-                    <p style="color:black;"> Pendiente </p>
-                </div>
+    <style>
+        .myContainer {
+            padding: 5%;
+        }
+    </style>
+    <div class="myContainer">
+        <div class="row col s12">
+            <div class="progress">
+                <div class="determinate" style="width: 70%"></div>
             </div>
         </div>
 
-        <div class="col m4">
-            <div class="card white">
-                <div class="card-content white-text">
-                    <p style="color:black;"> Pendiente </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <h3>Diciembre</h3>
-    </div>
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card  accent-4" style="background-color:#89BF43">
-                <div class="card-content white-text">
-                    <br>
-                    <span class="card-title">$ 1.000.000</span>
-                    <p>Ingresos</p>
-                    <br>
-                    <p>Diciembre 2017  <p />
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card accent-4" style="background-color: #F44336">
-                <br>
-                <div class="card-content white-text">
-                    <span class="card-title">$ 1.000.000</span>
-                    <p>Gastos</p>
-                    <br>
-                    <p>Diciembre 2017 </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s11">
-            <a href="#"><i class="small  material-icons" style="font-size:50px;color:#5a5a5a">navigate_before</i></a>
-        </div>
-        <a href="#"><i class="small  material-icons" style="font-size:50px;color:#5a5a5a">navigate_next</i></a>
-    </div>
-    <div class="card white col s12 m12">
-        <div class="card-content white-text">
-            <div class="card-title" style="color:black;">
-                <div class="row">
-                    <div class="col m7">
-                        Gastos del mes
+        <div class="row">
+            <div class="col m4">
+                <div class="card white">
+                    <div class="card-content white-text">
+                        <p style="color:black;"> Pendiente </p>
                     </div>
-                    <a href="#">Action 1</a>  &nbsp;
-                    <a href="#"> Action </a>
                 </div>
             </div>
-            <p style="color:gray;">Gracia con los gastos especificos del año</p>
-            <div style="width: 50%; margin-left: 50%" >              
-            <canvas id="myChartMes"></canvas>
-            </div>
-        </div>
-    </div>
-    <div class="card white col s12 m12">
-        <div class="card-content white-text">
-            <div class="card-title" style="color:black;">
-                <div class="row">
-                    <div class="col m7">
-                        Gastos del año
+            <div class="col m4">
+                <div class="card white">
+                    <div class="card-content white-text">
+                        <p style="color:black;"> Pendiente </p>
                     </div>
-                    <a href="#">Trimestre </a>  &nbsp;
-                    <a href="#"> Semestre </a>
                 </div>
             </div>
-            <p style="color:gray;">Graficas con los gastos especificos del año</p>
-            <canvas id="myChart"></canvas>
+
+            <div class="col m4">
+                <div class="card white">
+                    <div class="card-content white-text">
+                        <p style="color:black;"> Pendiente </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Diciembre</h3>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card  accent-4" style="background-color:#89BF43">
+                    <div class="card-content white-text">
+                        <br>
+                        <span class="card-title">$ 1.000.000</span>
+                        <p>Ingresos</p>
+                        <br>
+                        <p>Diciembre 2017  <p />
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card accent-4" style="background-color: #F44336">
+                    <br>
+                    <div class="card-content white-text">
+                        <span class="card-title">$ 1.000.000</span>
+                        <p>Gastos</p>
+                        <br>
+                        <p>Diciembre 2017 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s11">
+                <a href="#"><i class="small  material-icons" style="font-size:50px;color:#5a5a5a">navigate_before</i></a>
+            </div>
+            <a href="#"><i class="small  material-icons" style="font-size:50px;color:#5a5a5a">navigate_next</i></a>
+        </div>
+        <div class="card white col s12 m12">
+            <div class="card-content white-text">
+                <div class="card-title" style="color:black;">
+                    <div class="row">
+                        <div class="col m7">
+                            Gastos del mes
+                        </div>
+                        <a href="#">Action 1</a>  &nbsp;
+                        <a href="#"> Action </a>
+                    </div>
+                </div>
+                <p style="color:gray;">Gracia con los gastos especificos del año</p>
+                <div style="width: 50%; margin-left: 50%">
+                    <canvas id="myChartMes"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="card white col s12 m12">
+            <div class="card-content white-text">
+                <div class="card-title" style="color:black;">
+                    <div class="row">
+                        <div class="col m7">
+                            Gastos del año
+                        </div>
+                        <a href="#">Trimestre </a>  &nbsp;
+                        <a href="#"> Semestre </a>
+                    </div>
+                </div>
+                <p style="color:gray;">Graficas con los gastos especificos del año</p>
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
-</div>
-@section scripts{
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        $('.modal').modal();
-        $('.select2').select2();
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'bar',
+    @section scripts{
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            $('.modal').modal();
+            $('.select2').select2();
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'bar',
 
-            // The data for our dataset
-            data: {
-                labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-                    "Octubre", "Noviembre", "Diciembre"],
-                datasets: [{
-                    label: "Gastos",
-                    backgroundColor: 'rgb(137, 191, 67)',
-                    borderColor: 'rgb(225,225,225)',
-                    data: [800, 1000, 500, 200, 2000, 3000, 4500, 5000, 7100, 6000, 3000, 4400],
-                }]
-            },
+                // The data for our dataset
+                data: {
+                    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+                        "Octubre", "Noviembre", "Diciembre"],
+                    datasets: [{
+                        label: "Gastos",
+                        backgroundColor: 'rgb(137, 191, 67)',
+                        borderColor: 'rgb(225,225,225)',
+                        data: [800, 1000, 500, 200, 2000, 3000, 4500, 5000, 7100, 6000, 3000, 4400],
+                    }]
+                },
 
-            // Configuration options go here
-            options: {}
-        });
+                // Configuration options go here
+                options: {}
+            });
 
-        var ctx = document.getElementById('myChartMes').getContext('2d');
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'doughnut',
 
-            // The data for our dataset
-            data: {
-                labels: ["Comida", "Ropa", "Cine"],
-                datasets: [{
-                    label: "My First dataset",
-                    backgroundColor: ['rgb(137, 191, 67)', 'rgb(235, 52, 52)', 'rgb(41, 128, 185)'],
-                    borderColor: 'rgb(255, 255, 255)',
-                    data: [800, 1000, 500,],
-                }]
-            },
+            var datachart = {
+                type: 'doughnut',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Gastos del mes",
+                        backgroundColor: ['rgb(137, 191, 67)', 'rgb(235, 52, 52)', 'rgb(41, 128, 185)'],
+                        borderColor: 'rgb(255, 255, 255)',
+                        data: [],
+                    }]
+                },
+                options: {}
+            });
 
-            // Configuration options go here
-            options: {}
-        });
+        }
 
-    </script>
-}
+            $.getJSON("Account/GetData", function (data) {
+                for (var k in data) {
+                    datachart.labels.push(data[k].Categoria);
+                    datachart.datasets[0].data.push(data[k].Gasto);
+                }
+                var ctx = document.getElementById('myChartMes').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: datachart,
+                    options: {}
+                });
+
+            })
+
+            //var ctx = document.getElementById('myChartMes').getContext('2d');
+            //var chart = new Chart(ctx, {
+            //    // The type of chart we want to create
+            //    type: 'doughnut',
+
+            //    // The data for our dataset
+            //    data: {
+            //        labels: ["Comida", "Ropa", "Cine"],
+            //        datasets: [{
+            //            label: "My First dataset",
+            //            backgroundColor: ['rgb(137, 191, 67)', 'rgb(235, 52, 52)', 'rgb(41, 128, 185)'],
+            //            borderColor: 'rgb(255, 255, 255)',
+            //            data: [800, 1000, 500,],
+            //        }]
+            //    },
+
+            //    // Configuration options go here
+            //    options: {}
+            //});
+
+        </script>
+    }

@@ -1,8 +1,10 @@
 ﻿using FinanzasPersonales.Extensions;
 using FinanzasPersonales.Models;
+using FinanzasPersonales.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +41,24 @@ namespace FinanzasPersonales.Controllers
             { 
                 _signInManager = value; 
             }
+        }
+
+        public ContentResult GetData()
+        {
+            List<ResumenViewModel> Resumen = new List<ResumenViewModel>();
+
+            var result = db.Transacciones.ToList();
+
+            foreach (var item in result)
+            {
+                ResumenViewModel resum = new ResumenViewModel();
+                resum.Categoria = item.Categoria;
+                resum.Gasto = item.MontroEgreso;
+                resum.Ingreso = item.MontoIngreso;
+                Resumen.Add(resum);
+            }
+
+            return Content(JsonConvert.SerializeObject(Resumen), "application/json");
         }
 
         public ApplicationUserManager UserManager
