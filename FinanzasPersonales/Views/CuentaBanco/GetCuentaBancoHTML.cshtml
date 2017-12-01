@@ -14,7 +14,7 @@
         }
     }
 
-    <div class="row">
+    <div class="row animated fadeIn">
         <div class="col s12 m12">
             <div class="card">
                 <div class="card-content grey lighten-5">
@@ -26,13 +26,13 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row animated fadeIn">
         <div class="col s12 m12">
             <div class="card material-table">
                 <div class="table-header">
                     <span class="table-title">Transacciones</span>
                     <div class="actions">
-                        <a href="#frmNuevaTransaccion" class="modal-trigger waves-effect btn-flat nopadding "><i class="fa fa-plus-circle green-text"></i></a>
+                        <a href="#dvNuevaTransaccion" class="modal-trigger waves-effect btn-flat nopadding "><i class="fa fa-plus-circle green-text"></i></a>
                         <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
                     </div>
                 </div>
@@ -49,18 +49,18 @@
                     <tbody>
                         @foreach(var transaccion in Model.Transaccion)
                         {
-                            if(transaccion.MontoIngreso != null)
+                            if (transaccion.MontoIngreso != null)
                             {
                                 <tr class="green-text">
                                     <td>@transaccion.Fecha</td>
 
-                                    <td>@transaccion.No_Ref_Externo</td>
+                                    <td>@(transaccion.No_Ref_Externo == null ? "" : transaccion.No_Ref_Externo)</td>
 
-                                    <td>@transaccion.Contacto.Nombre</td>
+                                    <td>@(transaccion.Contacto == null ? "" : transaccion.Contacto.Nombre)</td>
 
-                                    <td>@transaccion.Categoria.Nombre</td>
+                                    <td>@(transaccion.Categoria == null ? "" : transaccion.Categoria.Nombre)</td>
 
-                                    <td>@transaccion.MontoIngreso</td>
+                                    <td>@String.Format("{0:C2}", transaccion.MontoIngreso)</td>
                                 </tr>
                             }
                             else
@@ -68,13 +68,13 @@
                                 <tr class="green-text">
                                     <td>@transaccion.Fecha</td>
 
-                                    <td>@transaccion.No_Ref_Externo</td>
+                                    <td>@(transaccion.No_Ref_Externo == null ? "" : transaccion.No_Ref_Externo)</td>
 
-                                    <td>@transaccion.Contacto.Nombre</td>
+                                    <td>@(transaccion.Contacto == null ? "" : transaccion.Contacto.Nombre) </td>
 
-                                    <td>@transaccion.Categoria.Nombre</td>
+                                    <td>@(transaccion.Categoria == null ? "" : transaccion.Categoria.Nombre)</td>
 
-                                    <td>@transaccion.MontroEgreso</td>
+                                    <td>-@String.Format("{0:C2}", transaccion.MontroEgreso)</td>
                                 </tr>
                             }
                         }

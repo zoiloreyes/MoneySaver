@@ -476,7 +476,7 @@ function GetCuentaBancoHTML(idCuentaBanco) {
         }
     }).done(function (result) {
         $("#DashboardContent").html(result);
-        $("#cuentaOrigen").val(idCuentaBanco).attr("name","CuentaBancoID");
+        $("#cuentaOrigen").val(idCuentaBanco).attr("name","CuentaBancoIDFuente");
     });;
     return Datos;
 }
@@ -681,6 +681,28 @@ function guardarTarjetaCredito(tarjeta) {
         async: false,
         url: "/TarjetaCredito/CrearTarjetaCredito",
         data: JSON.stringify(tarjeta),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data;
+            Materialize.toast(Data.Message, 3000, 'rounded')
+            console.log(Data);
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+}
+function guardarTransaccion(transaccion) {
+    $.ajax({
+        type: "POST",
+        async: false,
+        url: "/Transaccion/CrearTransaccion",
+        data: JSON.stringify(transaccion),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (Data) {

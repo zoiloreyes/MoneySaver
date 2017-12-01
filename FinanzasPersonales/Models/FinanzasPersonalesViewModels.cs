@@ -27,6 +27,7 @@ namespace FinanzasPersonales.Models
         public int? TarjetaCreditoIDObjetivo { get; set; }
 
         public int? CuentaPrestamoIDObjetivo { get; set; }
+        public int? ContactoID { get; set; }
 
         [StringLength(100)]
         public string No_Ref_Externo { get; set; }
@@ -41,6 +42,6 @@ namespace FinanzasPersonales.Models
 
         public decimal? MontoIngreso { get; set; }
 
-        public decimal? MontroEgreso { get; set; }
+        public decimal? MontoEgreso { get; set; }
     }
 }
