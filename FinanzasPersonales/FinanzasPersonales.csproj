@@ -222,6 +222,7 @@
     <Compile Include="Controllers\TarjetaCreditoController.cs" />
     <Compile Include="Controllers\TipoCategoriaController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
+    <Compile Include="Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -479,6 +480,8 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -487,6 +490,7 @@
     <Content Include="Scripts\materialize.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\PartialCallbacks.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -535,12 +539,13 @@
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Account\Resumen.cshtml" />
+    <Content Include="Views\Contacto\GetContactosHTML.cshtml" />
+    <Content Include="Views\Categoria\GetCategoriaHTML.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Classes\" />
     <Folder Include="Views\Banco\" />
-    <Folder Include="Views\Contacto\" />
     <Folder Include="Views\CuentaPrestamo\" />
     <Folder Include="Views\CuentraPrestamo\" />
     <Folder Include="Views\EstadoCategoria\" />

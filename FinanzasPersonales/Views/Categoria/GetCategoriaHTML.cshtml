@@ -1,0 +1,24 @@
+﻿@model IEnumerable<FinanzasPersonales.Models.Categoria>
+    <div class="animated fadeIn">
+        <a href="#divNuevaCategoria" style="margin-top: 10px" class="waves-effect waves-light btn modal-trigger green"><i class="material-icons left">add</i>Nueva</a>
+
+        @(Html.TreeView(Model)
+                          .EmptyContent("")
+                          .Children(m => m.Categoria1)
+                          .HtmlAttributes(new { id = "tree", @class = "collapsible", data_collapsible = "accordion" })
+                      .ChildrenHtmlAttributes(new { @class = "listaInterior" })
+                          .ItemText(m => m.Nombre)
+                          .ItemTemplate(
+        @<text>
+            @if (item.TipoCategoriaID == 1)
+            {
+                <div class="collapsible-header green-text">@item.Nombre</div>
+            }
+            else
+            {
+                <div class="collapsible-header red-text">@item.Nombre</div>
+            }
+        </text>)
+        )
+    </div>
+

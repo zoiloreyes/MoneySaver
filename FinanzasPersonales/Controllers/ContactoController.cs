@@ -25,6 +25,29 @@ namespace FinanzasPersonales.Controllers
             }
 
         }
+        [HttpGet]
+        public ActionResult GetContactosDetalle(int Id)
+        {
+            try
+            {
+                var Contacto = db.Contactos.Find(Id);
+                return Json(new { Success = true, Message = "Contacto cargado correctamente", Data = Contacto }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        [HttpGet]
+        public ActionResult GetContactosHTML()
+        {
+            var Contactos = db.Contactos.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).ToList();
+
+            return PartialView(Contactos);
+
+        }
         [HttpPost]
         public ActionResult CrearContacto(Contacto contacto)
         {
@@ -35,7 +58,7 @@ namespace FinanzasPersonales.Controllers
                 {
                     var nuevoContacto = db.Contactos.Add(contacto);
                     db.SaveChanges();
-                    return Json(new { Success = true, Message = "Nueva cuenta creada", Data = nuevoContacto });
+                    return Json(new { Success = true, Message = "Nuevo contacto creado", Data = nuevoContacto });
                 }
                 else
                 {

@@ -71,3 +71,12 @@ body {
 .RenderBody {
     margin-left: 325px;
 }
+
+#Agenda .contacto {
+    transition: background-color 0.5s, color 0.5s;
+    cursor: pointer;
+}
+    #Agenda .contacto:hover {
+        background-color: #89BF43;
+        color: white;
+    }

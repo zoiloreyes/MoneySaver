@@ -34,6 +34,13 @@ namespace FinanzasPersonales.DAL
             };
             EstadosCategoria.ForEach(x => context.EstadosCategoria.Add(x));
             context.SaveChanges();
+            var TipoCategoria = new List<TipoCategoria>
+            {
+                new TipoCategoria{Tipo = "Ingreso"},
+                new TipoCategoria{Tipo = "Egreso"}
+            };
+            TipoCategoria.ForEach(t => context.TiposCategoria.Add(t));
+            context.SaveChanges();
 
             var Monedas = new List<Moneda>
             {
