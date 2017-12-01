@@ -33,9 +33,7 @@ namespace FinanzasPersonales.Controllers
         {
             try
             {
-                var currentUser = UserManager.FindById(User.Identity.GetUserId());
-                var MoneySaverUser = currentUser.User;
-                var Bancos = db.Bancos.ToList().Where(x => x.UsuarioID == MoneySaverUser.Id ).Select(x => new { Text = x.NombreBanco, Value = x.BancoID });
+                var Bancos = db.Bancos.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { Text = x.NombreBanco, Value = x.BancoID });
                 return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = Bancos }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)

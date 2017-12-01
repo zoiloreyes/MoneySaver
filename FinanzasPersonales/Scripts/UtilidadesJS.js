@@ -152,6 +152,34 @@ function ESdateToUSdate(ESdate) {
     return USdate = ESdate.split(/\//).reverse().join('/');
 }
 
+//funcion para colapsificar un ul
+$.fn.Colapsificar = function () {
+    if ($(this).is("ul")) {
+        $(this).find("li").first().prepend($("<div>", {
+            class: "collapsible-header",
+            html: "Categorias"
+        }));
+    return this.each(function () {
+        
+            $(this).find(".listaInterior").each(function () {
+                var divBody = $("<div>", { class: "collapsible-body" });
+                var row = $("<div>", { class: "row" });
+                var cell = $("<div>", { class: "col s12 m12" });
+
+                var listaInterior = $(this).clone();
+                //listaInterior.addClass("collapsible").data("collapsible", "accordion")
+                //listaInterior.appendTo(cell);
+                //cell.appendTo(row);
+                //row.appendTo(divBody);
+
+                $(this).addClass("collapsible").data("collapsible", "accordion").wrap(divBody);
+            });
+            $('.collapsible').collapsible();
+        
+        // Do something to each element here.
+    });
+    }
+};
 
 //MultiSelect
 //El select debe estar contenido en un elemento de posicion relativa
@@ -318,6 +346,48 @@ function getEstadosCuentaBanco() {
     });
     return Datos;
 }
+function getEstadosCategoria() {
+    var Datos = [];
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Categoria/GetEstadosCategoria",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
+function getTiposCategoria() {
+    var Datos = [];
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Categoria/GetTiposCategoria",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
 function getEstadosTarjetaCredito() {
     var Datos = [];
     $.ajax({
@@ -367,6 +437,55 @@ function getBancos() {
         type: "GET",
         async: false,
         url: "/Banco/GetBancosUsuario",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    });
+    return Datos;
+}
+
+function GetCuentaBancoHTML(idCuentaBanco) {
+    var Datos = []
+    var parametros = {
+        Id : idCuentaBanco
+    }
+    console.log(JSON.stringify(parametros));
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/CuentaBanco/GetCuentaBancoHTML/"+idCuentaBanco,
+        contentType: "application/json; charset=utf-8",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    }).done(function (result) {
+        $("#DashboardContent").html(result);
+        $("#cuentaOrigen").val(idCuentaBanco).attr("name","CuentaBancoID");
+    });;
+    return Datos;
+}
+function getCategorias() {
+    var Datos = []
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/Categoria/GetCategoriaUsuario",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (Data) {

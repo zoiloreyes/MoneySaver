@@ -1,0 +1,29 @@
+﻿@model IEnumerable<FinanzasPersonales.Models.Contacto>
+
+@{
+    Layout = null;
+}
+
+<ul class="collection with-header animated fadeIn" id="Agenda">
+    <li class="collection-header" data-id="1">
+        <div class="input-field inline" style="min-width: 50%">
+            <i class="material-icons prefix green-text">search</i>
+            <input id="txtBuscar" type="text" class="validate">
+            <label for="txtBuscar">Buscar</label>
+        </div>
+        <a href="#divNuevoContacto" class="btn-floating btn-large waves-effect waves-light green right modal-trigger"><i class="material-icons">add</i></a>
+    </li>
+    
+    @foreach (var item in Model)
+    {
+        <li class="collection-item avatar contacto" data-id="@item.ContactoID">
+            <p class="Nombre">
+                @item.Nombre<br>
+            </p>
+            <p class="Correo">
+                @item.Email
+            </p>
+        </li>
+    }
+
+</ul>

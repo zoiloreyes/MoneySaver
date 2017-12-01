@@ -1,5 +1,7 @@
 ﻿using FinanzasPersonales.Extensions;
 using FinanzasPersonales.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,14 +31,61 @@ namespace FinanzasPersonales.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult GetCategoriaUsuario()
+        {
+            try
+            {
+                var Categorias = db.Categorias.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).Select(x => new { Text = x.Nombre, Value = x.CategoriaID });
+                return Json(new { Success = true, Message = "Lista de categorias cargada correctamente", Data = Categorias }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
 
+        }
+        [HttpGet]
+        public ActionResult GetEstadosCategoria()
+        {
+            try
+            {
+                var EstadosCategorias = db.EstadosCategoria.ToList().Select(x => new { Text = x.Estado, Value = x.EstadoCategoriaID });
+                return Json(new { Success = true, Message = "Lista de estados cargada correctamente", Data = EstadosCategorias }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        [HttpGet]
+        public ActionResult GetTiposCategoria()
+        {
+            try
+            {
+                var TiposCategorias = db.TiposCategoria.ToList().Select(x => new { Text = x.Tipo, Value = x.TipoCategoriaID });
+                return Json(new { Success = true, Message = "Lista de Tipos cargada correctamente", Data = TiposCategorias }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Message = "Ocurrio un error" }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        [HttpGet]
+        public ActionResult GetCategoriaHTML()
+        {
+            var Categorias = db.Categorias.ToList().Where(x => x.UsuarioID == Int32.Parse(User.Identity.GetMoneySaverUserID())).ToList();
+
+            return PartialView(Categorias);
+
+        }
         // POST: Categoria/Create
         [HttpPost]
         public ActionResult CrearCategoria(Categoria categoria)
         {
             categoria.UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID());
-            categoria.EstadoCategoriaID = 1;
-            categoria.TipoCategoriaID = 1;
             try
             {
                 if (ModelState.IsValid)
