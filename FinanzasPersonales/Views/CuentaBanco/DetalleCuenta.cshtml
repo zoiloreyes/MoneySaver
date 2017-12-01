@@ -17,18 +17,18 @@
                 <div class="card-content grey lighten-5">
                     <div class="row">
                         <div class="col s3">
-                            <h4>Balance</h4>
-                            <h5>
+                            <label>Balance</label>
+                            <p>
                                 @Html.DisplayFor(model => model.Moneda.Codigo)$: @Html.DisplayFor(model => model.BalanceInicial)
-                            </h5>
+                            </p>
                         </div>
                         <div class="col s3">
-                            <h4>@Html.DisplayNameFor(model => model.Banco.NombreBanco)</h4>
-                            <h5>@Html.DisplayFor(model => model.Banco.NombreBanco)</h5>
+                            <label>@Html.DisplayNameFor(model => model.Banco.NombreBanco)</label>
+                            <p>@Html.DisplayFor(model => model.Banco.NombreBanco)</p>
                         </div>
                         <div class="col s3">
-                            <h4>@Html.DisplayNameFor(model => model.NumeroCuenta)</h4>
-                            <h5>@Html.DisplayFor(model => model.NumeroCuenta)</h5>
+                            <labe>@Html.DisplayNameFor(model => model.NumeroCuenta)</labe>
+                            <p>@Html.DisplayFor(model => model.NumeroCuenta)</p>
                         </div>
                     </div>
                 </div>
