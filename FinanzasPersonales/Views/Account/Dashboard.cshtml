@@ -612,7 +612,7 @@
                 $(".select2").select2({ width: '100%' });
                 $(".CuentaSelect").on("change", function (e) {
                     var optionSelected = $("option:selected", this);
-                    var name = $(optionSelected).data("name");
+                    var name = $(optionSelected).data("name") + "Objetivo";
                     $(this).attr("name", name);
                 });
             }

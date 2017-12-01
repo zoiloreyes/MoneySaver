@@ -221,6 +221,7 @@
     <Compile Include="Controllers\MonedaController.cs" />
     <Compile Include="Controllers\TarjetaCreditoController.cs" />
     <Compile Include="Controllers\TipoCategoriaController.cs" />
+    <Compile Include="Controllers\TransaccionController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="Extensions\IdentityExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -273,6 +274,7 @@
     <Compile Include="Models\EstadoCuentaBanco.cs" />
     <Compile Include="Models\EstadoTarjetaCredito.cs" />
     <Compile Include="Models\EstadoTarjetaDebito.cs" />
+    <Compile Include="Models\FinanzasPersonalesViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Marca.cs" />
@@ -547,6 +549,7 @@
     <Folder Include="Views\Moneda\" />
     <Folder Include="Views\TarjetaCredito\" />
     <Folder Include="Views\TipoCategoria\" />
+    <Folder Include="Views\Transaccion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
