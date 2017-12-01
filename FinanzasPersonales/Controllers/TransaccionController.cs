@@ -19,17 +19,46 @@ namespace FinanzasPersonales.Controllers
         }
 
         [HttpPost]
-        public ActionResult CrearCuenta(TransaccionViewModel transaccionVM)
+        public ActionResult CrearTransaccion(TransaccionViewModel transaccionVM)
         {
-
+            Transaccion transaccion;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    //var nuevaCuenta = db.CuentasBanco.Add(cuenta);
-                    //db.SaveChanges();
-                    //return Json(new { Success = true, Message = "Nueva cuenta creada", Data = nuevaCuenta });
-                    return Json(new { Success = true, Message = "Nueva cuenta creada" });
+                    transaccion = new Transaccion {
+                        CategoriaID = transaccionVM.CategoriaID,
+                        CuentaBancoID = transaccionVM.CuentaBancoIDFuente,
+                        CuentaPrestamoID = transaccionVM.CuentaPrestamoIDFuente,
+                        TarjetaCreditoID = transaccionVM.TarjetaCreditoIDFuente,
+                        ContactoID = transaccionVM.ContactoID,
+                        No_Ref_Externo = transaccionVM.No_Ref_Externo,  
+                        UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID()),
+                        MontoIngreso = transaccionVM.MontoIngreso,
+                        MontroEgreso = transaccionVM.MontoEgreso,
+                        Fecha = transaccionVM.Fecha
+                    };
+                    db.Transacciones.Add(transaccion);
+                    db.SaveChanges();
+                    if (transaccionVM.CuentaBancoIDObjetivo != null || transaccionVM.CuentaPrestamoIDObjetivo != null || transaccionVM.TarjetaCreditoIDObjetivo != null)
+                    {
+                        Transaccion transaccionObjetivo = new Transaccion
+                        {
+                            CategoriaID = transaccionVM.CategoriaID,
+                            CuentaBancoID = transaccionVM.CuentaBancoIDObjetivo,
+                            CuentaPrestamoID = transaccionVM.CuentaPrestamoIDObjetivo,
+                            TarjetaCreditoID = transaccionVM.TarjetaCreditoIDObjetivo,
+                            ContactoID = transaccionVM.ContactoID,
+                            No_Ref_Externo = transaccionVM.No_Ref_Externo,
+                            UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID()),
+                            MontoIngreso = transaccionVM.MontoEgreso,
+                            MontroEgreso = transaccionVM.MontoIngreso,
+                            Fecha = transaccionVM.Fecha
+                        };
+                        db.Transacciones.Add(transaccionObjetivo);
+                        db.SaveChanges();
+                    }
+                    return Json(new { Success = true, Message = "Nueva transaccion creada", Data = transaccion });
                 }
                 else
                 {
