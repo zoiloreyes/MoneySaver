@@ -244,7 +244,8 @@
                         }).append(
                             $("<a>", {
                                 class: "waves-effect waves-green sideButton",
-                                html: cuentaI.NombreCuenta
+                                html: cuentaI.NombreCuenta,
+                                href: "/CuentaBanco/DetalleCuenta/" + cuentaI.CuentaBancoID
                             }).data("CuentaBancoID", cuentaI.CuentaBancoID)
                             )
                     )
