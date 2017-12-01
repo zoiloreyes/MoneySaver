@@ -24,72 +24,76 @@
 
     @Html.Partial("_PruebaDataTable")
 
+
+</div>
 <div id="frmNuevaTransaccion" class="modal bottom-sheet">
-        <div class="modal-content">
-            <h4>Nueva Transacción</h4>
-            <div class="row">
-                <div class=" col s12 m4">
-                    <div class="row">
-                        <div class="col s1">
-                            <a href="#" id="contenedorFlechaTipoTransaccion" class="red-text"><i id="flechaTipoTransaccion" class="material-icons">arrow_upward</i><br><i class="material-icons">account_balance</i></a>
-                        </div>
-                        <div class="input-field col s11">
-                            <input id="Monto" name="MontoEgreso" type="number"  step="0.01" class="validate">
-                            <label for="Monto">Monto</label>
-                        </div>
+    <div class="modal-content">
+        <h4>Nueva Transacción</h4>
+        <div class="row">
+            <div class=" col s12 m4">
+                <div class="row">
+                    <div class="col s1">
+                        <a href="#" id="contenedorFlechaTipoTransaccion" class="red-text"><i id="flechaTipoTransaccion" class="material-icons">arrow_upward</i><br><i class="material-icons">account_balance</i></a>
                     </div>
-                    </div>
-                <div class="col s12 m4">
-                    <div class="row">
-                        <label>Categoría&nbsp&nbsp</label><a href="#divNuevaCategoria" class="btn-floating waves-effect waves-green green modal-trigger"><i class="material-icons">add</i></a>
-
-                    </div>
-                    <div class="row">
-                        <select id="categoriaId" name="" class="CategoriaSelect select2"></select>
-
+                    <div class="input-field col s11">
+                        <input id="Monto" name="MontoEgreso" type="number" step="0.01" class="validate">
+                        <label for="Monto">Monto</label>
                     </div>
                 </div>
-                <div class="col s12 m4">
-                    <div class="row">
-                        <label>Contacto&nbsp&nbsp</label><a href="#divNuevoContacto" class="btn-floating waves-effect waves-green green modal-trigger"><i class="material-icons">add</i></a>
+            </div>
+            <div class="col s12 m4">
+                <div class="row">
+                    <label>Categoría&nbsp&nbsp</label><a href="#divNuevaCategoria" class="btn-floating waves-effect waves-green green modal-trigger"><i class="material-icons">add</i></a>
 
-                    </div>
-                    <div class="row">
-                        <select id="contactoTransacción" name="ContactoID" class="ContactoSelect select2"></select>
-
-                    </div>
                 </div>
+                <div class="row">
+                    <select id="categoriaId" name="" class="CategoriaSelect select2"></select>
+
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="row">
+                    <label>Contacto&nbsp&nbsp</label><a href="#divNuevoContacto" class="btn-floating waves-effect waves-green green modal-trigger"><i class="material-icons">add</i></a>
+
+                </div>
+                <div class="row">
+                    <select id="contactoTransacción" name="ContactoID" class="ContactoSelect select2"></select>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m4">
+                <input type="text" id="FechaTransaccion" name="Fecha" class="datepicker">
+                <label for="FechaTransaccion" data-error="wrong" data-success="right">Fecha de inicio</label>
+
 
             </div>
-            <div class="row">
-                <div class="input-field col s12 m4">
-                    <input type="text" id="FechaTransaccion" name="Fecha" class="datepicker">
-                    <label for="FechaTransaccion" data-error="wrong" data-success="right">Fecha de inicio</label>
+            <div class="col s12 m4">
 
+                <div class="row">
+                    <label>Cuenta Objetivo</label>
 
                 </div>
-                <div class="col s12 m4">
+                <div class="row">
+                    <select id="cuentaObjetivo" name="" class="CuentaSelect select2"></select>
 
-                    <div class="row">
-                        <label>Cuenta Objetivo</label>
-
-                    </div>
-                    <div class="row">
-                        <select id="cuentaObjetivo" name="" class="CuentaSelect select2"></select>
-
-                    </div>
                 </div>
-                <div class="input-field col s12 m4">
-                    <input id="NoRefExterno" name="No_Ref_Externo" type="text" class="validate">
-                    <label for="NoRefExterno">Numero</label>
-                </div>
-                
-
             </div>
+            <div class="input-field col s12 m4">
+                <input id="NoRefExterno" name="No_Ref_Externo" type="text" class="validate">
+                <label for="NoRefExterno">Numero</label>
+            </div>
+            <div class="input-field col s12 m4 hide">
+                <input id="cuentaOrigen" name="" type="text" class="validate">
+                <label for="cuentaOrigen">Cuenta Origen</label>
+            </div>
+
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
-        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action btnSubmitCuentaBanco modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
 <div id="divNuevaCuentaBanco" class="modal modal-fixed-footer">
@@ -511,6 +515,7 @@
         <a data-form="frmNuevoContacto" href="#!" class="modal-action btnSubmitContacto modal-close waves-effect waves-green btn-flat green white-text">Guardar</a>
     </div>
 </div>
+<div class="modalCargando"><!-- Place at bottom of page --></div>
 @section Scripts {
    <script>
        $(document).ready(function () {
@@ -534,7 +539,12 @@
            });
 
            //
+           $body = $("body");
 
+           $(document).on({
+               ajaxStart: function () { $body.addClass("loading"); },
+               ajaxStop: function () { $body.removeClass("loading"); }
+           });
 
            
            $("#tablaprueba").DataTable();
@@ -607,7 +617,7 @@
                 $(".BancoSelect").empty();
                 
                 var bancos = getBancos();
-                if (bancos > 0) {
+                if (bancos.length > 0) {
                     $(".BancoSelect").append(
                         $("<option>", {
                             value: "",
@@ -749,6 +759,11 @@
                 }
                
                 $(".select2").select2({ width: '100%' });
+
+            }
+            function cargarDetalleCuentaBanco(id) {
+                var vista = GetCuentaBancoHTML(id);
+               
 
             }
             function cargarSelectEstadoCategoria() {
@@ -900,19 +915,26 @@
                 var cuentasDeBanco = getCuentasBanco();
                 for (var i in cuentasDeBanco) {
                     var cuentaI = cuentasDeBanco[i];
+                    
                     $(".contenedorCuentaBanco").append(
                         $("<li>", {
-                            class: "CuentaBancoLi"
+                            class: "CuentaBancoLi",
+                            "data-CuentaBancoID": cuentaI.CuentaBancoID
                         }).append(
                             $("<a>", {
                                 class: "waves-effect waves-green sideButton",
                                 html: cuentaI.NombreCuenta
-                        }).data("CuentaBancoID", cuentaI.CuentaBancoID)
+                        })
                             )
                     )
                 }
+                $(".CuentaBancoLi").click(function () {
+                    cargarDetalleCuentaBanco($(this).data("cuentabancoid"));
+                })
                 //< li > <a href="#!" class="">Second</a></li >
             }
+
+           
             function cargarCuentasPrestamo() {
                 $(".contenedorCuentaPrestamo").find(".CuentaPrestamoLi").remove();
                 var cuentasDePrestamo = getCuentasPrestamo();

@@ -452,6 +452,34 @@ function getBancos() {
     });
     return Datos;
 }
+
+function GetCuentaBancoHTML(idCuentaBanco) {
+    var Datos = []
+    var parametros = {
+        Id : idCuentaBanco
+    }
+    console.log(JSON.stringify(parametros));
+    $.ajax({
+        type: "GET",
+        async: false,
+        url: "/CuentaBanco/GetCuentaBancoHTML/"+idCuentaBanco,
+        contentType: "application/json; charset=utf-8",
+        success: function (Data) {
+            Datos = Data.Data
+            //var temp = JSON.parse(response);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //OcultarProgreso();
+            Materialize.toast("Error al intentar conectarse con el servidor", 3000, 'rounded')
+            console.log("Respuesta = " + XMLHttpRequest.responseText + "\n Estatus = " + textStatus + "\n Error = " + errorThrown, "Error: Grid ");
+
+        }
+    }).done(function (result) {
+        $("#DashboardContent").html(result);
+        $("#cuentaOrigen").val(idCuentaBanco).attr("name","CuentaBancoID");
+    });;
+    return Datos;
+}
 function getCategorias() {
     var Datos = []
     $.ajax({

@@ -43,6 +43,14 @@ namespace FinanzasPersonales.Controllers
             }
 
         }
+        [HttpGet]
+        public ActionResult GetCuentaBancoHTML(int Id)
+        {
+            var CuentaBanco = db.CuentasBanco.Find(Id);
+            
+            return PartialView(CuentaBanco);
+
+        }
         [HttpPost]
         public ActionResult CrearCuenta(CuentaBanco cuenta)
         {

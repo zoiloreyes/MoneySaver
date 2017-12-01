@@ -31,7 +31,7 @@ namespace FinanzasPersonales
                       "~/Content/font-awesome-4.7.0/css/font-awesome.css",
                       "~/Content/materialize.css",
                       "~/Content/animate.css",
-                      "~/Content/site.css").Include());
+                      "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/plugincss").Include(
                       "~/Content/css/select2.min.css",
