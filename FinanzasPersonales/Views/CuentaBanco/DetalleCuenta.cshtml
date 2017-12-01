@@ -9,7 +9,7 @@
 
 <div>
     <h4>@Html.DisplayFor(model => model.NombreCuentaBanco)</h4>
-    <hr />
+    <p>@Html.DisplayFor(m => m.EstadoCuentaBanco.Estado)</p>
 
     <div class="sideContet">
         <div class="col s12 m12">
@@ -27,93 +27,19 @@
                             <p>@Html.DisplayFor(model => model.Banco.NombreBanco)</p>
                         </div>
                         <div class="col s3">
-                            <labe>@Html.DisplayNameFor(model => model.NumeroCuenta)</labe>
+                            <label>@Html.DisplayNameFor(model => model.NumeroCuenta)</label>
                             <p>@Html.DisplayFor(model => model.NumeroCuenta)</p>
+                        </div>
+                        <div class="col s3">
+                            <label>@Html.DisplayNameFor(model => model.FechaInicio)</label>
+                            <p>@Html.DisplayFor(model => model.FechaInicio)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <dl class="dl-horizontal">
-        <dt>
 
-        </dt>
-
-        <dd>
-
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EstadoCuentaBanco.Estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EstadoCuentaBanco.Estado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Moneda.Codigo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Moneda.Codigo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.Nombre)
-        </dd>
-
-        <dt>
-        </dt>
-
-        <dd>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreTitular)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NombreTitular)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ApellidoTitular)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ApellidoTitular)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaInicio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaInicio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BalanceInicial)
-        </dt>
-
-        <dd>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Comentario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Comentario)
-        </dd>
-
-    </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CuentaBancoID }) |
