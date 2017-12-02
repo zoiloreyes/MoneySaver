@@ -493,6 +493,7 @@
     <Content Include="Views\Contacto\GetContactosHTML.cshtml" />
     <Content Include="Views\Categoria\GetCategoriaHTML.cshtml" />
     <Content Include="Views\CuentaBanco\GetCuentaBancoHTML.cshtml" />
+    <Content Include="Views\Home\GetResumenHTML.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
