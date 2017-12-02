@@ -42,7 +42,7 @@ namespace FinanzasPersonales.Models
 
         public decimal? MontoIngreso { get; set; }
 
-        public decimal? MontroEgreso { get; set; }
+        public decimal? MontoEgreso { get; set; }
 
         public virtual Contacto Contacto { get; set; }
 

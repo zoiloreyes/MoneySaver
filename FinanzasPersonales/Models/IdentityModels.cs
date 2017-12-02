@@ -284,7 +284,7 @@ namespace FinanzasPersonales.Models
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Transaccion>()
-                .Property(e => e.MontroEgreso)
+                .Property(e => e.MontoEgreso)
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<User>()

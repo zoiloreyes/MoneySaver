@@ -35,7 +35,7 @@ namespace FinanzasPersonales.Controllers
                         No_Ref_Externo = transaccionVM.No_Ref_Externo,  
                         UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID()),
                         MontoIngreso = transaccionVM.MontoIngreso,
-                        MontroEgreso = transaccionVM.MontoEgreso,
+                        MontoEgreso = transaccionVM.MontoEgreso,
                         Fecha = transaccionVM.Fecha
                     };
                     db.Transacciones.Add(transaccion);
@@ -52,7 +52,7 @@ namespace FinanzasPersonales.Controllers
                             No_Ref_Externo = transaccionVM.No_Ref_Externo,
                             UsuarioID = Int32.Parse(User.Identity.GetMoneySaverUserID()),
                             MontoIngreso = transaccionVM.MontoEgreso,
-                            MontroEgreso = transaccionVM.MontoIngreso,
+                            MontoEgreso = transaccionVM.MontoIngreso,
                             Fecha = transaccionVM.Fecha
                         };
                         db.Transacciones.Add(transaccionObjetivo);

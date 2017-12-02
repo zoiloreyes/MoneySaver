@@ -10,7 +10,7 @@
         }
         else
         {
-            balance -= transaccion.MontroEgreso;
+            balance -= transaccion.MontoEgreso;
         }
     }
 
@@ -74,7 +74,7 @@
 
                                     <td>@(transaccion.Categoria == null ? "" : transaccion.Categoria.Nombre)</td>
 
-                                    <td>-@String.Format("{0:C2}", transaccion.MontroEgreso)</td>
+                                    <td>-@String.Format("{0:C2}", transaccion.MontoEgreso)</td>
                                 </tr>
                             }
                         }

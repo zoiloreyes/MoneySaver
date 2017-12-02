@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201711272056085_Categoria sin moneda.Designer.cs">
       <DependentUpon>201711272056085_Categoria sin moneda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712020235458_cambioMontro.cs" />
+    <Compile Include="Migrations\201712020235458_cambioMontro.Designer.cs">
+      <DependentUpon>201712020235458_cambioMontro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Banco.cs" />
@@ -542,6 +546,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711272056085_Categoria sin moneda.resx">
       <DependentUpon>201711272056085_Categoria sin moneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712020235458_cambioMontro.resx">
+      <DependentUpon>201712020235458_cambioMontro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
